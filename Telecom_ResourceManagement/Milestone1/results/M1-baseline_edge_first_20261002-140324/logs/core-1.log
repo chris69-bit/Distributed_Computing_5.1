@@ -1,0 +1,10 @@
+2026-10-02 14:03:26,139 [core-1] site: site pid 15699, worker pids [15709, 15710, 15711, 15712]
+2026-10-02 14:03:31,173 [core-1] site: instance S00012 (Transcoder) running, cpu=2000
+2026-10-02 14:03:33,462 [core-1] site: instance S00013 (Transcoder) running, cpu=2000
+2026-10-02 14:03:35,343 [core-1] site: instance S00016 (Transcoder) running, cpu=2000
+2026-10-02 14:03:36,490 [core-1] site: instance S00020 (IMS-CSCF) running, cpu=500
+2026-10-02 14:03:37,236 [core-1] site: instance S00021 (UPF) running, cpu=1000
+2026-10-02 14:03:40,506 [core-1] site: instance S00026 (UPF) running, cpu=1000
+2026-10-02 14:03:40,548 [core-1] site: instance S00027 (Transcoder) running, cpu=2000
+2026-10-02 14:03:42,371 [core-1] site: instance S00033 (Transcoder) running, cpu=2000
+2026-10-02 14:03:48,869 [core-1] site: instance S00042 (Transcoder) running, cpu=2000

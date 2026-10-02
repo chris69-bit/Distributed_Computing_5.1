@@ -1,0 +1,15 @@
+2026-10-02 14:03:26,091 [edge-A] site: site pid 15697, worker pids [15705, 15706]
+2026-10-02 14:03:28,684 [edge-A] site: instance S00004 (vRAN-DU) running, cpu=1500
+2026-10-02 14:03:31,139 [edge-A] site: instance S00011 (UPF) running, cpu=1000
+2026-10-02 14:03:34,210 [edge-A] site: instance S00014 (UPF) running, cpu=1000
+2026-10-02 14:03:36,076 [edge-A] site: instance S00018 (IMS-CSCF) running, cpu=500
+2026-10-02 14:03:39,240 [edge-A] site: instance S00024 (UPF) running, cpu=1000
+2026-10-02 14:03:40,891 [edge-A] site: instance S00029 (UPF) running, cpu=1000
+2026-10-02 14:03:41,853 [edge-A] site: instance S00031 (IMS-CSCF) running, cpu=500
+2026-10-02 14:03:45,240 [edge-A] site: instance S00038 (IMS-CSCF) running, cpu=500
+2026-10-02 14:03:47,361 [edge-A] site: instance S00040 (vRAN-DU) running, cpu=1500
+2026-10-02 14:03:50,611 [edge-A] site: instance S00043 (IMS-CSCF) running, cpu=500
+2026-10-02 14:03:51,865 [edge-A] site: instance S00044 (IMS-CSCF) running, cpu=500
+2026-10-02 14:03:52,041 [edge-A] site: instance S00046 (IMS-CSCF) running, cpu=500
+2026-10-02 14:03:52,410 [edge-A] site: instance S00047 (IoT-GW) running, cpu=250
+2026-10-02 14:03:54,614 [edge-A] site: instance S00051 (IoT-GW) running, cpu=250

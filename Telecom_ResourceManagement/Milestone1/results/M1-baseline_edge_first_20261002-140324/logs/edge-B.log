@@ -1,0 +1,19 @@
+2026-10-02 14:03:26,086 [edge-B] site: site pid 15698, worker pids [15701, 15702]
+2026-10-02 14:03:26,727 [edge-B] site: instance S00001 (vRAN-DU) running, cpu=1500
+2026-10-02 14:03:27,841 [edge-B] site: instance S00002 (vRAN-DU) running, cpu=1500
+2026-10-02 14:03:27,854 [edge-B] site: instance S00003 (vRAN-DU) running, cpu=1500
+2026-10-02 14:03:28,772 [edge-B] site: instance S00005 (IoT-GW) running, cpu=250
+2026-10-02 14:03:28,989 [edge-B] site: instance S00006 (UPF) running, cpu=1000
+2026-10-02 14:03:29,370 [edge-B] site: instance S00007 (IoT-GW) running, cpu=250
+2026-10-02 14:03:29,879 [edge-B] site: instance S00008 (IoT-GW) running, cpu=250
+2026-10-02 14:03:29,902 [edge-B] site: instance S00009 (UPF) running, cpu=1000
+2026-10-02 14:03:30,903 [edge-B] site: instance S00010 (UPF) running, cpu=1000
+2026-10-02 14:03:34,295 [edge-B] site: instance S00015 (IoT-GW) running, cpu=250
+2026-10-02 14:03:36,013 [edge-B] site: instance S00017 (IMS-CSCF) running, cpu=500
+2026-10-02 14:03:38,804 [edge-B] site: instance S00022 (IoT-GW) running, cpu=250
+2026-10-02 14:03:41,449 [edge-B] site: instance S00030 (UPF) running, cpu=1000
+2026-10-02 14:03:41,986 [edge-B] site: instance S00032 (IoT-GW) running, cpu=250
+2026-10-02 14:03:42,639 [edge-B] site: instance S00034 (vRAN-DU) running, cpu=1500
+2026-10-02 14:03:44,704 [edge-B] site: instance S00037 (UPF) running, cpu=1000
+2026-10-02 14:03:48,102 [edge-B] site: instance S00041 (IMS-CSCF) running, cpu=500
+2026-10-02 14:03:51,900 [edge-B] site: instance S00045 (IoT-GW) running, cpu=250
