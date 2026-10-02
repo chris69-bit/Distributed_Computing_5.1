@@ -1,0 +1,18 @@
+2026-10-02 11:46:12,010 [cloud-1] site: site pid 7090, worker pids [7099, 7102, 7103, 7105]
+2026-10-02 11:46:12,251 [cloud-1] site: instance S00001 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:46:15,522 [cloud-1] site: instance S00007 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:46:16,293 [cloud-1] site: instance S00008 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:46:17,233 [cloud-1] site: instance S00010 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:46:17,299 [cloud-1] site: instance S00011 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:46:20,110 [cloud-1] site: instance S00017 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:46:28,321 [cloud-1] site: instance S00036 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:46:29,082 [cloud-1] site: instance S00040 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:46:30,388 [cloud-1] site: instance S00042 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:46:30,430 [cloud-1] site: instance S00043 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:46:31,819 [cloud-1] site: instance S00046 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:46:32,458 [cloud-1] site: instance S00050 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:46:33,499 [cloud-1] site: instance S00051 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:46:35,073 [cloud-1] site: instance S00053 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:46:38,502 [cloud-1] site: instance S00061 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:46:38,718 [cloud-1] site: instance S00062 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:46:40,945 [cloud-1] site: instance S00065 (IoT-GW) running, cpu=250, backlogged

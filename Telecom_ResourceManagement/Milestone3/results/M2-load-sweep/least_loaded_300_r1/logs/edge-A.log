@@ -1,0 +1,3 @@
+2026-10-02 10:45:16,399 [edge-A] site: site pid 734, worker pids [737, 738]
+2026-10-02 10:45:16,730 [edge-A] site: instance S00001 (vRAN-DU) running, cpu=1500, traffic-driven
+2026-10-02 10:45:16,747 [edge-A] site: instance S00009 (IoT-GW) running, cpu=250, traffic-driven

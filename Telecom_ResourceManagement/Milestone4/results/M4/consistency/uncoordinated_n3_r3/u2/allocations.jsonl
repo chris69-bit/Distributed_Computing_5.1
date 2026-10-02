@@ -1,0 +1,56 @@
+{"t": 0.082, "event": "site_discovered", "site": "site0"}
+{"t": 0.082, "event": "site_discovered", "site": "site1"}
+{"t": 0.082, "event": "site_discovered", "site": "site2"}
+{"t": 0.082, "event": "site_discovered", "site": "site3"}
+{"t": 0.082, "event": "site_discovered", "site": "site4"}
+{"t": 0.082, "event": "site_discovered", "site": "site5"}
+{"t": 0.085, "event": "accepted", "sid": "S00001", "service": "IoT-GW", "ingress": "core-1", "site": "site0", "path": ["site0<->core-1"], "latency_ms": 1.0}
+{"t": 0.089, "event": "accepted", "sid": "S00002", "service": "IoT-GW", "ingress": "core-1", "site": "site1", "path": ["site1<->core-1"], "latency_ms": 1.0}
+{"t": 0.25, "event": "accepted", "sid": "S00003", "service": "IoT-GW", "ingress": "core-1", "site": "site2", "path": ["site2<->core-1"], "latency_ms": 1.0}
+{"t": 0.256, "event": "accepted", "sid": "S00004", "service": "IoT-GW", "ingress": "core-1", "site": "site3", "path": ["site3<->core-1"], "latency_ms": 1.0}
+{"t": 0.41, "event": "accepted", "sid": "S00005", "service": "IoT-GW", "ingress": "core-1", "site": "site4", "path": ["site4<->core-1"], "latency_ms": 1.0}
+{"t": 0.417, "event": "accepted", "sid": "S00006", "service": "IoT-GW", "ingress": "core-1", "site": "site5", "path": ["site5<->core-1"], "latency_ms": 1.0}
+{"t": 0.575, "event": "accepted", "sid": "S00007", "service": "IoT-GW", "ingress": "core-1", "site": "site0", "path": ["site0<->core-1"], "latency_ms": 1.0}
+{"t": 0.582, "event": "accepted", "sid": "S00008", "service": "IoT-GW", "ingress": "core-1", "site": "site1", "path": ["site1<->core-1"], "latency_ms": 1.0}
+{"t": 0.735, "event": "accepted", "sid": "S00009", "service": "IoT-GW", "ingress": "core-1", "site": "site2", "path": ["site2<->core-1"], "latency_ms": 1.0}
+{"t": 0.739, "event": "accepted", "sid": "S00010", "service": "IoT-GW", "ingress": "core-1", "site": "site3", "path": ["site3<->core-1"], "latency_ms": 1.0}
+{"t": 0.893, "event": "accepted", "sid": "S00011", "service": "IoT-GW", "ingress": "core-1", "site": "site4", "path": ["site4<->core-1"], "latency_ms": 1.0}
+{"t": 0.898, "event": "accepted", "sid": "S00012", "service": "IoT-GW", "ingress": "core-1", "site": "site5", "path": ["site5<->core-1"], "latency_ms": 1.0}
+{"t": 1.059, "event": "accepted", "sid": "S00013", "service": "IoT-GW", "ingress": "core-1", "site": "site0", "path": ["site0<->core-1"], "latency_ms": 1.0}
+{"t": 1.064, "event": "accepted", "sid": "S00014", "service": "IoT-GW", "ingress": "core-1", "site": "site1", "path": ["site1<->core-1"], "latency_ms": 1.0}
+{"t": 1.22, "event": "accepted", "sid": "S00015", "service": "IoT-GW", "ingress": "core-1", "site": "site2", "path": ["site2<->core-1"], "latency_ms": 1.0}
+{"t": 1.225, "event": "accepted", "sid": "S00016", "service": "IoT-GW", "ingress": "core-1", "site": "site3", "path": ["site3<->core-1"], "latency_ms": 1.0}
+{"t": 1.379, "event": "accepted", "sid": "S00017", "service": "IoT-GW", "ingress": "core-1", "site": "site4", "path": ["site4<->core-1"], "latency_ms": 1.0}
+{"t": 1.385, "event": "accepted", "sid": "S00018", "service": "IoT-GW", "ingress": "core-1", "site": "site5", "path": ["site5<->core-1"], "latency_ms": 1.0}
+{"t": 1.536, "event": "accepted", "sid": "S00019", "service": "IoT-GW", "ingress": "core-1", "site": "site0", "path": ["site0<->core-1"], "latency_ms": 1.0}
+{"t": 1.544, "event": "accepted", "sid": "S00020", "service": "IoT-GW", "ingress": "core-1", "site": "site1", "path": ["site1<->core-1"], "latency_ms": 1.0}
+{"t": 1.697, "event": "accepted", "sid": "S00021", "service": "IoT-GW", "ingress": "core-1", "site": "site2", "path": ["site2<->core-1"], "latency_ms": 1.0}
+{"t": 1.702, "event": "accepted", "sid": "S00022", "service": "IoT-GW", "ingress": "core-1", "site": "site3", "path": ["site3<->core-1"], "latency_ms": 1.0}
+{"t": 1.857, "event": "accepted", "sid": "S00023", "service": "IoT-GW", "ingress": "core-1", "site": "site4", "path": ["site4<->core-1"], "latency_ms": 1.0}
+{"t": 1.861, "event": "accepted", "sid": "S00024", "service": "IoT-GW", "ingress": "core-1", "site": "site5", "path": ["site5<->core-1"], "latency_ms": 1.0}
+{"t": 2.024, "event": "accepted", "sid": "S00025", "service": "IoT-GW", "ingress": "core-1", "site": "site0", "path": ["site0<->core-1"], "latency_ms": 1.0}
+{"t": 2.029, "event": "accepted", "sid": "S00026", "service": "IoT-GW", "ingress": "core-1", "site": "site1", "path": ["site1<->core-1"], "latency_ms": 1.0}
+{"t": 2.185, "event": "accepted", "sid": "S00027", "service": "IoT-GW", "ingress": "core-1", "site": "site2", "path": ["site2<->core-1"], "latency_ms": 1.0}
+{"t": 2.189, "event": "accepted", "sid": "S00028", "service": "IoT-GW", "ingress": "core-1", "site": "site3", "path": ["site3<->core-1"], "latency_ms": 1.0}
+{"t": 2.342, "event": "accepted", "sid": "S00029", "service": "IoT-GW", "ingress": "core-1", "site": "site4", "path": ["site4<->core-1"], "latency_ms": 1.0}
+{"t": 2.346, "event": "accepted", "sid": "S00030", "service": "IoT-GW", "ingress": "core-1", "site": "site5", "path": ["site5<->core-1"], "latency_ms": 1.0}
+{"t": 2.498, "event": "accepted", "sid": "S00031", "service": "IoT-GW", "ingress": "core-1", "site": "site0", "path": ["site0<->core-1"], "latency_ms": 1.0}
+{"t": 2.502, "event": "accepted", "sid": "S00032", "service": "IoT-GW", "ingress": "core-1", "site": "site1", "path": ["site1<->core-1"], "latency_ms": 1.0}
+{"t": 2.654, "event": "accepted", "sid": "S00033", "service": "IoT-GW", "ingress": "core-1", "site": "site2", "path": ["site2<->core-1"], "latency_ms": 1.0}
+{"t": 2.659, "event": "accepted", "sid": "S00034", "service": "IoT-GW", "ingress": "core-1", "site": "site3", "path": ["site3<->core-1"], "latency_ms": 1.0}
+{"t": 2.811, "event": "accepted", "sid": "S00035", "service": "IoT-GW", "ingress": "core-1", "site": "site4", "path": ["site4<->core-1"], "latency_ms": 1.0}
+{"t": 2.816, "event": "accepted", "sid": "S00036", "service": "IoT-GW", "ingress": "core-1", "site": "site5", "path": ["site5<->core-1"], "latency_ms": 1.0}
+{"t": 2.968, "event": "accepted", "sid": "S00037", "service": "IoT-GW", "ingress": "core-1", "site": "site0", "path": ["site0<->core-1"], "latency_ms": 1.0}
+{"t": 2.971, "event": "accepted", "sid": "S00038", "service": "IoT-GW", "ingress": "core-1", "site": "site1", "path": ["site1<->core-1"], "latency_ms": 1.0}
+{"t": 3.125, "event": "accepted", "sid": "S00039", "service": "IoT-GW", "ingress": "core-1", "site": "site2", "path": ["site2<->core-1"], "latency_ms": 1.0}
+{"t": 3.128, "event": "accepted", "sid": "S00040", "service": "IoT-GW", "ingress": "core-1", "site": "site3", "path": ["site3<->core-1"], "latency_ms": 1.0}
+{"t": 3.283, "event": "accepted", "sid": "S00041", "service": "IoT-GW", "ingress": "core-1", "site": "site4", "path": ["site4<->core-1"], "latency_ms": 1.0}
+{"t": 3.288, "event": "accepted", "sid": "S00042", "service": "IoT-GW", "ingress": "core-1", "site": "site5", "path": ["site5<->core-1"], "latency_ms": 1.0}
+{"t": 3.445, "event": "accepted", "sid": "S00043", "service": "IoT-GW", "ingress": "core-1", "site": "site0", "path": ["site0<->core-1"], "latency_ms": 1.0}
+{"t": 3.448, "event": "accepted", "sid": "S00044", "service": "IoT-GW", "ingress": "core-1", "site": "site1", "path": ["site1<->core-1"], "latency_ms": 1.0}
+{"t": 3.602, "event": "accepted", "sid": "S00045", "service": "IoT-GW", "ingress": "core-1", "site": "site2", "path": ["site2<->core-1"], "latency_ms": 1.0}
+{"t": 3.605, "event": "accepted", "sid": "S00046", "service": "IoT-GW", "ingress": "core-1", "site": "site3", "path": ["site3<->core-1"], "latency_ms": 1.0}
+{"t": 3.759, "event": "accepted", "sid": "S00047", "service": "IoT-GW", "ingress": "core-1", "site": "site4", "path": ["site4<->core-1"], "latency_ms": 1.0}
+{"t": 3.763, "event": "accepted", "sid": "S00048", "service": "IoT-GW", "ingress": "core-1", "site": "site5", "path": ["site5<->core-1"], "latency_ms": 1.0}
+{"t": 3.915, "event": "accepted", "sid": "S00049", "service": "IoT-GW", "ingress": "core-1", "site": "site0", "path": ["site0<->core-1"], "latency_ms": 1.0}
+{"t": 3.918, "event": "accepted", "sid": "S00050", "service": "IoT-GW", "ingress": "core-1", "site": "site1", "path": ["site1<->core-1"], "latency_ms": 1.0}

@@ -1,0 +1,155 @@
+"""S3 deployment: start the TeleRM microservices, locally or as Docker containers.
+
+One description of the system (config.json) drives both deployments:
+
+  launch_local(cfg, out_dir, policy)   -> every service as a separate OS process on this machine
+  make_compose(cfg, policy)            -> docker-compose.yml: every service in its own container,
+                                          sites with CPU quotas so they behave like separate machines
+
+Services (S3 service decomposition):
+  registry      naming, liveness, routes                     (core tier)
+  orchestrator  admission control + placement (old manager)  (core tier)
+  telemetry     collects measurements from all nodes          (cloud tier)
+  gw-A, gw-B    edge API gateways, the only entry for users   (edge tiers)
+  edge-A, edge-B, core-1, cloud-1   compute sites             (their own tiers)
+
+    python -m telerm.deploy compose --policy tier_aware > docker-compose.yml
+    python -m telerm.deploy local --policy tier_aware        # start locally, Ctrl+C to stop
+"""
+import argparse
+import json
+import os
+import subprocess
+import sys
+import time
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PY = sys.executable
+
+
+def _svc(cfg):
+    return cfg["s3"]
+
+
+def node_names(cfg, sites=None):
+    s3 = _svc(cfg)
+    site_ids = [s["id"] for s in cfg["sites"] if sites is None or s["id"] in sites]
+    return ["registry", "telemetry", "orchestrator"] + [g["name"] for g in s3["gateways"]] + site_ids
+
+
+def commands(cfg, policy, out_dir, *, host_of, bind, registry_addr, delay_mode, sites=None,
+             topology="config.json"):
+    """The command line of every service. host_of(name) = address others use to reach it."""
+    s3 = _svc(cfg)
+    reg_port = s3["registry"]["port"]
+    cmds = {
+        "registry": ["-m", "telerm.registry", "--port", str(reg_port), "--bind", bind,
+                     "--hb-timeout", str(cfg["manager"]["heartbeat_timeout_s"])],
+        "telemetry": ["-m", "telerm.telemetry", "--port", str(s3["telemetry"]["port"]), "--bind", bind,
+                      "--host", host_of("telemetry"), "--registry", registry_addr,
+                      "--location", s3["telemetry"]["location"], "--out", out_dir],
+        "orchestrator": ["-m", "telerm.manager", "--port", str(s3["orchestrator"]["port"]), "--bind", bind,
+                         "--host", host_of("orchestrator"), "--registry", registry_addr,
+                         "--location", s3["orchestrator"]["location"], "--topology", topology,
+                         "--policy", policy, "--out", out_dir],
+    }
+    for g in s3["gateways"]:
+        cmds[g["name"]] = ["-m", "telerm.gateway", "--name", g["name"], "--location", g["location"],
+                           "--port", str(g["port"]), "--bind", bind, "--host", host_of(g["name"]),
+                           "--registry", registry_addr, "--delay-mode", delay_mode]
+    for s in cfg["sites"]:
+        if sites is not None and s["id"] not in sites:
+            continue
+        cmds[s["id"]] = ["-m", "telerm.site", "--id", s["id"], "--tier", s["tier"], "--port", str(s["port"]),
+                         "--bind", bind, "--host", host_of(s["id"]), "--registry", registry_addr,
+                         "--cpu", str(s["cpu"]), "--mem", str(s["mem"]), "--bw", str(s["bw"]),
+                         "--slots", str(s["slots"]), "--work-kb", str(cfg["job_work_kb"])]
+    return cmds
+
+
+def launch_local(cfg, out_dir, policy, *, delay_mode="none", sites=None, topology=None, quiet=True):
+    """Start every S3 service as a separate local OS process. Returns {name: Popen}."""
+    os.makedirs(os.path.join(out_dir, "logs"), exist_ok=True)
+    reg = f"127.0.0.1:{_svc(cfg)['registry']['port']}"
+    cmds = commands(cfg, policy, out_dir, host_of=lambda n: "127.0.0.1", bind="127.0.0.1", registry_addr=reg,
+                    delay_mode=delay_mode, sites=sites, topology=topology or os.path.join(ROOT, "config.json"))
+    procs = {}
+    for name in node_names(cfg, sites):
+        log = open(os.path.join(out_dir, "logs", f"{name}.log"), "w")
+        procs[name] = subprocess.Popen([PY] + cmds[name], cwd=ROOT, stdout=log, stderr=subprocess.STDOUT)
+        if name == "registry":
+            time.sleep(0.4)
+    return procs
+
+
+def make_compose(cfg, policy="tier_aware", *, sites=None, delay_mode=None, cpus=None, image="telerm:s3"):
+    """docker-compose.yml text. Container names are lower-case node names (edge-A -> edge-a)."""
+    s3 = _svc(cfg)
+    dk = s3["docker"]
+    cpus = {**dk["cpus"], **(cpus or {})}
+    delay_mode = delay_mode or s3.get("delay_mode", "emulate")
+    hn = lambda n: n.lower()
+    reg = f"registry:{s3['registry']['port']}"
+    cmds = commands(cfg, "${POLICY:-" + policy + "}", "/app/results/${RUN:-run}", host_of=hn, bind="0.0.0.0",
+                    registry_addr=reg, delay_mode=delay_mode, sites=sites, topology="/app/config.json")
+    site_ids = {s["id"] for s in cfg["sites"]}
+    lines = ["# Generated by: python -m telerm.deploy compose   (edit config.json, then regenerate)",
+             "# TeleRM S3: every microservice and every site in its own container.",
+             "# Sites get CPU quotas (cpus:) so each behaves like a separate, smaller machine.",
+             "name: telerm", "",
+             "x-telerm: &telerm",
+             "  image: " + image,
+             "  build:",
+             "    context: .",
+             "    args:",
+             "      BASE_IMAGE: ${BASE_IMAGE:-python:3.12-slim}",
+             "  volumes:",
+             "    - ./results:/app/results",
+             "  init: true", "",
+             "services:"]
+    for name in node_names(cfg, sites):
+        is_site = name in site_ids
+        lines += [f"  {hn(name)}:",
+                  "    <<: *telerm",
+                  f"    hostname: {hn(name)}",
+                  "    command: [" + ", ".join(json.dumps(x) for x in ["python"] + cmds[name]) + "]",
+                  f"    cpus: {cpus.get(name, 0.25)}",
+                  f"    mem_limit: {dk['mem']['site' if is_site else 'service']}"]
+        if name != "registry":
+            lines += ["    depends_on: [registry]"]
+        lines += [""]
+    lines += ["  loadgen:",
+              "    <<: *telerm",
+              "    profiles: [tools]",
+              "    command: [\"python\", \"m3_run.py\", \"--help\"]",
+              f"    cpus: {cpus.get('loadgen', 0.5)}",
+              "    depends_on: [registry]", ""]
+    return "\n".join(lines)
+
+
+def main():
+    ap = argparse.ArgumentParser(description="TeleRM S3 deployment helper")
+    ap.add_argument("what", choices=["compose", "local"])
+    ap.add_argument("--config", default=os.path.join(ROOT, "config.json"))
+    ap.add_argument("--policy", default="tier_aware")
+    ap.add_argument("--out", default=os.path.join(ROOT, "results", "local_s3"))
+    ap.add_argument("--delay-mode", default=None, choices=["emulate", "none"])
+    a = ap.parse_args()
+    cfg = json.load(open(a.config))
+    if a.what == "compose":
+        print(make_compose(cfg, a.policy, delay_mode=a.delay_mode))
+        return
+    procs = launch_local(cfg, a.out, a.policy, delay_mode=a.delay_mode or cfg["s3"].get("delay_mode", "emulate"))
+    print(f"Started {len(procs)} services: {', '.join(procs)}. Logs in {a.out}/logs. Ctrl+C to stop.")
+    try:
+        while all(p.poll() is None for p in procs.values()):
+            time.sleep(1)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        for p in procs.values():
+            p.terminate()
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,12 @@
+{"t": 1.628, "event": "site_discovered", "site": "edge-A"}
+{"t": 1.628, "event": "site_discovered", "site": "edge-B"}
+{"t": 1.628, "event": "site_discovered", "site": "core-1"}
+{"t": 1.628, "event": "site_discovered", "site": "cloud-1"}
+{"t": 1.631, "event": "accepted", "sid": "S00001", "service": "Transcoder", "ingress": "edge-A", "site": "edge-A", "path": [], "latency_ms": 0.0}
+{"t": 1.64, "event": "accepted", "sid": "S00002", "service": "Transcoder", "ingress": "edge-B", "site": "edge-B", "path": [], "latency_ms": 0.0}
+{"t": 1.649, "event": "accepted", "sid": "S00003", "service": "Transcoder", "ingress": "edge-A", "site": "core-1", "path": ["edge-A<->core-1"], "latency_ms": 5.0}
+{"t": 1.659, "event": "accepted", "sid": "S00004", "service": "Transcoder", "ingress": "edge-B", "site": "cloud-1", "path": ["edge-B<->core-1", "core-1<->cloud-1"], "latency_ms": 26.0}
+{"t": 1.669, "event": "accepted", "sid": "S00005", "service": "Transcoder", "ingress": "edge-A", "site": "edge-A", "path": [], "latency_ms": 0.0}
+{"t": 1.706, "event": "accepted", "sid": "S00006", "service": "Transcoder", "ingress": "edge-B", "site": "edge-B", "path": [], "latency_ms": 0.0}
+{"t": 1.72, "event": "accepted", "sid": "S00007", "service": "Transcoder", "ingress": "edge-A", "site": "core-1", "path": ["edge-A<->core-1"], "latency_ms": 5.0}
+{"t": 1.73, "event": "accepted", "sid": "S00008", "service": "Transcoder", "ingress": "edge-B", "site": "cloud-1", "path": ["edge-B<->core-1", "core-1<->cloud-1"], "latency_ms": 26.0}

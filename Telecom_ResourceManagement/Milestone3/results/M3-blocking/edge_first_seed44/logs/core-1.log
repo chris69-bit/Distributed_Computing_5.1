@@ -1,0 +1,12 @@
+2026-10-02 11:47:19,544 [core-1] site: site pid 7146, worker pids [7156, 7157, 7158, 7159]
+2026-10-02 11:47:24,524 [core-1] site: instance S00011 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:47:26,763 [core-1] site: instance S00016 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:47:26,813 [core-1] site: instance S00017 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:47:27,665 [core-1] site: instance S00019 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:47:27,965 [core-1] site: instance S00020 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:47:33,170 [core-1] site: instance S00029 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:47:33,826 [core-1] site: instance S00034 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:47:33,913 [core-1] site: instance S00035 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:47:34,669 [core-1] site: instance S00037 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:47:41,699 [core-1] site: instance S00050 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:47:49,290 [core-1] site: instance S00069 (UPF) running, cpu=1000, backlogged

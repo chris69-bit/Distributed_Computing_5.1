@@ -1,0 +1,15 @@
+2026-10-02 12:54:34,036 [manager] manager: orchestrator pid 11091 on 127.0.0.1:8900 (placement=least_loaded)
+2026-10-02 12:54:34,099 [manager] raft: o1 -> candidate (term 1)
+2026-10-02 12:54:34,144 [manager] raft: o1 -> leader (term 1)
+2026-10-02 12:54:34,268 [manager] raft: o1 lost contact with the majority, stepping down
+2026-10-02 12:54:34,268 [manager] raft: o1 -> follower (term 1)
+2026-10-02 12:54:34,349 [manager] raft: o1 -> candidate (term 2)
+2026-10-02 12:54:34,393 [manager] raft: o1 -> leader (term 2)
+2026-10-02 12:54:34,516 [manager] raft: o1 lost contact with the majority, stepping down
+2026-10-02 12:54:34,517 [manager] raft: o1 -> follower (term 2)
+2026-10-02 12:54:34,605 [manager] raft: o1 -> candidate (term 3)
+2026-10-02 12:54:34,650 [manager] raft: o1 -> leader (term 3)
+2026-10-02 12:54:34,776 [manager] raft: o1 lost contact with the majority, stepping down
+2026-10-02 12:54:34,776 [manager] raft: o1 -> follower (term 3)
+2026-10-02 12:54:34,856 [manager] raft: o1 -> candidate (term 4)
+2026-10-02 12:54:34,899 [manager] raft: o1 -> leader (term 4)

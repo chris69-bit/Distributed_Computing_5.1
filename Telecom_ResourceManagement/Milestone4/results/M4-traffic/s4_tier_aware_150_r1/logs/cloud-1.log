@@ -1,0 +1,7 @@
+2026-10-02 13:19:08,451 [cloud-1] site: site pid 12563, worker pids [12577, 12578, 12580, 12581]
+2026-10-02 13:19:08,803 [cloud-1] site: instance S00005 (IMS-CSCF) running, cpu=500, traffic-driven
+2026-10-02 13:19:08,811 [cloud-1] site: instance S00006 (IMS-CSCF) running, cpu=500, traffic-driven
+2026-10-02 13:19:08,826 [cloud-1] site: instance S00007 (Transcoder) running, cpu=2000, traffic-driven
+2026-10-02 13:19:08,837 [cloud-1] site: instance S00008 (Transcoder) running, cpu=2000, traffic-driven
+2026-10-02 13:19:08,846 [cloud-1] site: instance S00009 (IoT-GW) running, cpu=250, traffic-driven
+2026-10-02 13:19:08,854 [cloud-1] site: instance S00010 (IoT-GW) running, cpu=250, traffic-driven

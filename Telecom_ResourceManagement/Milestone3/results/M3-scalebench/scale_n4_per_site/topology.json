@@ -1,0 +1,1 @@
+{"links": [{"a": "s0000", "b": "core-1", "capacity_mbps": 1000, "latency_ms": 5}, {"a": "s0001", "b": "core-1", "capacity_mbps": 1000, "latency_ms": 5}, {"a": "s0002", "b": "core-1", "capacity_mbps": 1000, "latency_ms": 5}, {"a": "s0003", "b": "core-1", "capacity_mbps": 1000, "latency_ms": 5}]}

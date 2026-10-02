@@ -1,0 +1,12 @@
+2026-10-02 11:47:54,759 [edge-A] site: site pid 7174, worker pids [7178, 7179]
+2026-10-02 11:47:56,419 [edge-A] site: instance S00004 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:48:00,654 [edge-A] site: instance S00013 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:48:08,618 [edge-A] site: instance S00028 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:48:09,113 [edge-A] site: instance S00032 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:48:11,043 [edge-A] site: instance S00040 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:48:13,141 [edge-A] site: instance S00043 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:48:14,612 [edge-A] site: instance S00045 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:48:18,397 [edge-A] site: instance S00054 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:48:24,283 [edge-A] site: instance S00068 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:48:24,798 [edge-A] site: instance S00069 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:48:25,290 [edge-A] site: instance S00070 (UPF) running, cpu=1000, backlogged

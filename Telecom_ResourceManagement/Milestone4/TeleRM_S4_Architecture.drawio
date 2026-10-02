@@ -1,0 +1,198 @@
+<mxfile host="app.diagrams.net"><diagram name="TeleRM S4" id="s4"><mxGraphModel dx="1600" dy="1100" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1650" pageHeight="1050" background="#FFFFFF" math="0" shadow="0">
+<root>
+<mxCell id="0"/>
+<mxCell id="1" parent="0"/>
+<mxCell id="n_title" value="TeleRM Infrastructure – S4 (Milestone 4: Raft-replicated orchestrator + Lamport clocks)" style="text;html=1;fontSize=22;fontStyle=5;align=center;verticalAlign=middle;" vertex="1" parent="1">
+<mxGeometry x="330" y="8" width="1100" height="36" as="geometry"/>
+</mxCell>
+<mxCell id="n_cloud" value="CLOUD tier" style="swimlane;horizontal=0;startSize=34;rounded=1;arcSize=4;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;strokeWidth=1.5;shadow=1;container=1;fillColor=#EAF2FB;strokeColor=#6c8ebf;" vertex="1" parent="1">
+<mxGeometry x="470" y="60" width="1080" height="200" as="geometry"/>
+</mxCell>
+<mxCell id="n_c1" value="cloud-1 &lt;font color=&quot;#3333FF&quot; style=&quot;font-weight:normal&quot;&gt;· container cloud-1 · cpus 0.75&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot; style=&quot;font-size:9px;font-weight:normal&quot;&gt;24 000 mc · 32 GB · 4 workers · large, far&lt;/font&gt;" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;container=1;pointerEvents=0;verticalAlign=top;align=left;spacingLeft=10;spacingTop=2;fontStyle=1;fontSize=11;strokeColor=#00CC00;strokeWidth=1.5;fillColor=#FFFFFF;" vertex="1" parent="n_cloud">
+<mxGeometry x="46" y="20" width="280" height="165" as="geometry"/>
+</mxCell>
+<mxCell id="n_c1q" value="QUEUES + STRIDE&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;deadline-aware dropping&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_c1">
+<mxGeometry x="12" y="44" width="118" height="48" as="geometry"/>
+</mxCell>
+<mxCell id="n_c1w0" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=9;" vertex="1" parent="n_c1">
+<mxGeometry x="142" y="40" width="56" height="30" as="geometry"/>
+</mxCell>
+<mxCell id="n_c1w1" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=9;" vertex="1" parent="n_c1">
+<mxGeometry x="204" y="40" width="56" height="30" as="geometry"/>
+</mxCell>
+<mxCell id="n_c1w2" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=9;" vertex="1" parent="n_c1">
+<mxGeometry x="142" y="74" width="56" height="30" as="geometry"/>
+</mxCell>
+<mxCell id="n_c1w3" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=9;" vertex="1" parent="n_c1">
+<mxGeometry x="204" y="74" width="56" height="30" as="geometry"/>
+</mxCell>
+<mxCell id="n_tel" value="TELEMETRY&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;container telemetry · cpus 0.2&lt;br&gt;REPORT from every node, 1 s&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_cloud">
+<mxGeometry x="370" y="30" width="200" height="62" as="geometry"/>
+</mxCell>
+<mxCell id="n_tstore" value="telemetry.jsonl&lt;br&gt;runs.csv · tasks.csv" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;fontStyle=1;" vertex="1" parent="n_cloud">
+<mxGeometry x="400" y="112" width="140" height="66" as="geometry"/>
+</mxCell>
+<mxCell id="n_ts" value="write" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;labelBackgroundColor=#FFFFFF;" edge="1" parent="n_cloud" source="n_tel" target="n_tstore">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_o3" value="REPLICA o3 · FOLLOWER&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;container orch-o3 · cpus 0.2&lt;br&gt;same log, same table&lt;br&gt;votes in elections&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#7B2FBE;strokeWidth=2;fillColor=#F4ECFB;fontStyle=1;fontSize=11;" vertex="1" parent="n_cloud">
+<mxGeometry x="610" y="12" width="170" height="62" as="geometry"/>
+</mxCell>
+<mxCell id="n_cloudnote" value="&lt;b&gt;o3 in the cloud&lt;/b&gt;: a copy of the log far&lt;br&gt;from the core. Commits need o1 + o2 (core),&lt;br&gt;so o3 adds safety, not delay (section 7.2).&lt;br&gt;&lt;br&gt;&lt;b&gt;Hosts&lt;/b&gt; IMS, Transcoder, IoT-GW&lt;br&gt;under &lt;i&gt;tier_aware&lt;/i&gt;." style="text;html=1;fontSize=10;align=left;verticalAlign=top;whiteSpace=wrap;" vertex="1" parent="n_cloud">
+<mxGeometry x="805" y="106" width="250" height="92" as="geometry"/>
+</mxCell>
+<mxCell id="n_core" value="CORE tier" style="swimlane;horizontal=0;startSize=34;rounded=1;arcSize=4;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;strokeWidth=1.5;shadow=1;container=1;fillColor=#F3F8EE;strokeColor=#82b366;" vertex="1" parent="1">
+<mxGeometry x="470" y="330" width="1080" height="230" as="geometry"/>
+</mxCell>
+<mxCell id="n_k1" value="core-1 &lt;font color=&quot;#3333FF&quot; style=&quot;font-weight:normal&quot;&gt;· container core-1 · cpus 0.5&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot; style=&quot;font-size:9px;font-weight:normal&quot;&gt;12 000 mc · 16 GB · 4 workers&lt;/font&gt;" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;container=1;pointerEvents=0;verticalAlign=top;align=left;spacingLeft=10;spacingTop=2;fontStyle=1;fontSize=11;strokeColor=#00CC00;strokeWidth=1.5;fillColor=#FFFFFF;" vertex="1" parent="n_core">
+<mxGeometry x="46" y="20" width="280" height="165" as="geometry"/>
+</mxCell>
+<mxCell id="n_k1q" value="QUEUES + STRIDE&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;deadline-aware dropping&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_k1">
+<mxGeometry x="12" y="44" width="118" height="48" as="geometry"/>
+</mxCell>
+<mxCell id="n_k1w0" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=9;" vertex="1" parent="n_k1">
+<mxGeometry x="142" y="40" width="56" height="30" as="geometry"/>
+</mxCell>
+<mxCell id="n_k1w1" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=9;" vertex="1" parent="n_k1">
+<mxGeometry x="204" y="40" width="56" height="30" as="geometry"/>
+</mxCell>
+<mxCell id="n_k1w2" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=9;" vertex="1" parent="n_k1">
+<mxGeometry x="142" y="74" width="56" height="30" as="geometry"/>
+</mxCell>
+<mxCell id="n_k1w3" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=9;" vertex="1" parent="n_k1">
+<mxGeometry x="204" y="74" width="56" height="30" as="geometry"/>
+</mxCell>
+<mxCell id="n_cluster" value="RAFT ORCHESTRATOR CLUSTER (3 replicas, majority = 2)" style="rounded=1;whiteSpace=wrap;html=1;container=1;pointerEvents=0;verticalAlign=top;fontStyle=1;fontSize=10;dashed=1;strokeColor=#7B2FBE;fontColor=#7B2FBE;fillColor=none;" vertex="1" parent="n_core">
+<mxGeometry x="352" y="4" width="310" height="112" as="geometry"/>
+</mxCell>
+<mxCell id="n_o1" value="o1 · LEADER&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;container orch-o1&lt;br&gt;decides + appends to log&lt;br&gt;alias “orchestrator”, term t&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#7B2FBE;strokeWidth=2;fillColor=#F4ECFB;fontStyle=1;fontSize=11;" vertex="1" parent="n_cluster">
+<mxGeometry x="8" y="30" width="140" height="72" as="geometry"/>
+</mxCell>
+<mxCell id="n_o2" value="o2 · FOLLOWER&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;container orch-o2&lt;br&gt;copy of log + table&lt;br&gt;votes in elections&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#7B2FBE;strokeWidth=2;fillColor=#F4ECFB;fontStyle=1;fontSize=11;" vertex="1" parent="n_cluster">
+<mxGeometry x="162" y="30" width="140" height="72" as="geometry"/>
+</mxCell>
+<mxCell id="n_o12" value="AE / vote" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;labelBackgroundColor=#FFFFFF;strokeColor=#7B2FBE;fontColor=#7B2FBE;dashed=1;strokeWidth=2;startArrow=classic;fontStyle=1;" edge="1" parent="n_cluster" source="n_o1" target="n_o2">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_reg" value="REGISTRY&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;container registry · cpus 0.2&lt;br&gt;naming · liveness · routes&lt;br&gt;alias fenced by Raft term&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_core">
+<mxGeometry x="370" y="136" width="220" height="76" as="geometry"/>
+</mxCell>
+<mxCell id="n_or" value="LIST_SITES · ROUTE_SET" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;labelBackgroundColor=#FFFFFF;strokeColor=#3333FF;fontColor=#3333FF;dashed=1;startArrow=classic;exitX=0.5;exitY=1;entryX=0.25;entryY=0;" edge="1" parent="n_core" source="n_o1" target="n_reg">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_corenote" value="&lt;b&gt;One admission in S4&lt;/b&gt;&lt;br&gt;1. gateway → leader: REQUEST (req_id)&lt;br&gt;2. leader decides placement on the applied table&lt;br&gt;3. leader → followers: RAFT_AE with ADMIT entry&lt;br&gt;4. majority stored it → committed → every replica applies it&lt;br&gt;5. leader → site: ALLOCATE · → registry: ROUTE_SET&lt;br&gt;&lt;br&gt;&lt;b&gt;Every message&lt;/b&gt; carries a Lamport clock &lt;b&gt;lc&lt;/b&gt;&lt;br&gt;(blue dashed o1 → core-1 = ALLOCATE)" style="text;html=1;fontSize=10;align=left;verticalAlign=top;whiteSpace=wrap;" vertex="1" parent="n_core">
+<mxGeometry x="690" y="16" width="370" height="160" as="geometry"/>
+</mxCell>
+<mxCell id="n_ok1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;labelBackgroundColor=#FFFFFF;strokeColor=#3333FF;fontColor=#3333FF;dashed=1;exitX=0;exitY=0.25;entryX=1;entryY=0.2;" edge="1" parent="n_core" source="n_o1" target="n_k1">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_edge" value="EDGE tier" style="swimlane;horizontal=0;startSize=34;rounded=1;arcSize=4;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;strokeWidth=1.5;shadow=1;container=1;fillColor=#FDF6EC;strokeColor=#d79b00;" vertex="1" parent="1">
+<mxGeometry x="470" y="630" width="1080" height="230" as="geometry"/>
+</mxCell>
+<mxCell id="n_ea" value="edge-A" style="rounded=1;whiteSpace=wrap;html=1;container=1;pointerEvents=0;verticalAlign=top;fontStyle=1;fontSize=11;dashed=1;strokeColor=#d79b00;fillColor=none;" vertex="1" parent="n_edge">
+<mxGeometry x="46" y="12" width="480" height="205" as="geometry"/>
+</mxCell>
+<mxCell id="n_eb" value="edge-B" style="rounded=1;whiteSpace=wrap;html=1;container=1;pointerEvents=0;verticalAlign=top;fontStyle=1;fontSize=11;dashed=1;strokeColor=#d79b00;fillColor=none;" vertex="1" parent="n_edge">
+<mxGeometry x="566" y="12" width="480" height="205" as="geometry"/>
+</mxCell>
+<mxCell id="n_sa" value="edge-A &lt;font color=&quot;#3333FF&quot; style=&quot;font-weight:normal&quot;&gt;· container edge-a · cpus 0.25&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot; style=&quot;font-size:9px;font-weight:normal&quot;&gt;4 000 mc · 4 GB · 2 workers · small, close&lt;/font&gt;" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;container=1;pointerEvents=0;verticalAlign=top;align=left;spacingLeft=10;spacingTop=2;fontStyle=1;fontSize=11;strokeColor=#00CC00;strokeWidth=1.5;fillColor=#FFFFFF;" vertex="1" parent="n_ea">
+<mxGeometry x="12" y="28" width="270" height="128" as="geometry"/>
+</mxCell>
+<mxCell id="n_saq" value="QUEUES + STRIDE&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;deadline-aware dropping&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_sa">
+<mxGeometry x="12" y="44" width="118" height="48" as="geometry"/>
+</mxCell>
+<mxCell id="n_saw0" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=9;" vertex="1" parent="n_sa">
+<mxGeometry x="142" y="44" width="56" height="44" as="geometry"/>
+</mxCell>
+<mxCell id="n_saw1" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=9;" vertex="1" parent="n_sa">
+<mxGeometry x="204" y="44" width="56" height="44" as="geometry"/>
+</mxCell>
+<mxCell id="n_sb" value="edge-B &lt;font color=&quot;#3333FF&quot; style=&quot;font-weight:normal&quot;&gt;· container edge-b · cpus 0.25&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot; style=&quot;font-size:9px;font-weight:normal&quot;&gt;4 000 mc · 4 GB · 2 workers · small, close&lt;/font&gt;" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;container=1;pointerEvents=0;verticalAlign=top;align=left;spacingLeft=10;spacingTop=2;fontStyle=1;fontSize=11;strokeColor=#00CC00;strokeWidth=1.5;fillColor=#FFFFFF;" vertex="1" parent="n_eb">
+<mxGeometry x="12" y="28" width="270" height="128" as="geometry"/>
+</mxCell>
+<mxCell id="n_sbq" value="QUEUES + STRIDE&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;deadline-aware dropping&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_sb">
+<mxGeometry x="12" y="44" width="118" height="48" as="geometry"/>
+</mxCell>
+<mxCell id="n_sbw0" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=9;" vertex="1" parent="n_sb">
+<mxGeometry x="142" y="44" width="56" height="44" as="geometry"/>
+</mxCell>
+<mxCell id="n_sbw1" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=9;" vertex="1" parent="n_sb">
+<mxGeometry x="204" y="44" width="56" height="44" as="geometry"/>
+</mxCell>
+<mxCell id="n_ga" value="API GATEWAY gw-A&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;container gw-a · cpus 0.25&lt;br&gt;route cache · persistent channels&lt;br&gt;injects link delay&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_ea">
+<mxGeometry x="300" y="34" width="166" height="84" as="geometry"/>
+</mxCell>
+<mxCell id="n_gb" value="API GATEWAY gw-B&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;container gw-b · cpus 0.25&lt;br&gt;route cache · persistent channels&lt;br&gt;injects link delay&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_eb">
+<mxGeometry x="300" y="34" width="166" height="84" as="geometry"/>
+</mxCell>
+<mxCell id="n_ean" value="hosts vRAN-DU (≤ 2 ms): cannot go anywhere else" style="text;html=1;fontSize=9;fontStyle=2;align=left;" vertex="1" parent="n_ea">
+<mxGeometry x="14" y="168" width="300" height="20" as="geometry"/>
+</mxCell>
+<mxCell id="n_ebn" value="hosts vRAN-DU (≤ 2 ms): cannot go anywhere else" style="text;html=1;fontSize=9;fontStyle=2;align=left;" vertex="1" parent="n_eb">
+<mxGeometry x="14" y="168" width="300" height="20" as="geometry"/>
+</mxCell>
+<mxCell id="n_gas" value="TASK" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;labelBackgroundColor=#FFFFFF;strokeColor=#D6006E;strokeWidth=2;fontColor=#D6006E;fontStyle=1;startArrow=classic;" edge="1" parent="n_ea" source="n_ga" target="n_sa">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_gbs" value="TASK" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;labelBackgroundColor=#FFFFFF;strokeColor=#D6006E;strokeWidth=2;fontColor=#D6006E;fontStyle=1;startArrow=classic;" edge="1" parent="n_eb" source="n_gb" target="n_sb">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_users" value="USERS / RAN (container loadgen) – connect only to the gateway of their own edge" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=12;strokeColor=#D6006E;strokeWidth=1.5;fillColor=#FFFFFF;verticalAlign=top;spacingTop=6;shadow=1;" vertex="1" parent="1">
+<mxGeometry x="470" y="920" width="1080" height="90" as="geometry"/>
+</mxCell>
+<mxCell id="n_u1" value="" style="strokeColor=#036897;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeWidth=2;outlineConnect=0;shape=mxgraph.cisco.wireless.radio_tower;" vertex="1" parent="1">
+<mxGeometry x="520" y="950" width="30" height="50" as="geometry"/>
+</mxCell>
+<mxCell id="n_u2" value="" style="strokeColor=#ffffff;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeWidth=2;outlineConnect=0;shape=mxgraph.cisco.modems_and_phones.cell_phone;" vertex="1" parent="1">
+<mxGeometry x="1480" y="948" width="26" height="52" as="geometry"/>
+</mxCell>
+<mxCell id="n_ug1" value="REQUEST + TASK" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;labelBackgroundColor=#FFFFFF;strokeColor=#D6006E;strokeWidth=2;fontColor=#D6006E;fontStyle=1;startArrow=classic;exitX=0.25;exitY=0;" edge="1" parent="1" source="n_users" target="n_ga">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_ug2" value="REQUEST + TASK" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;labelBackgroundColor=#FFFFFF;strokeColor=#D6006E;strokeWidth=2;fontColor=#D6006E;fontStyle=1;startArrow=classic;exitX=0.73;exitY=0;" edge="1" parent="1" source="n_users" target="n_gb">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_gak" value="TASK to core&lt;br&gt;+ 2 × 5 ms" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;labelBackgroundColor=#FFFFFF;strokeColor=#D6006E;strokeWidth=2;fontColor=#D6006E;fontStyle=1;startArrow=classic;exitX=0.5;exitY=0;entryX=0.75;entryY=1;" edge="1" parent="1" source="n_ga" target="n_k1">
+<mxGeometry x="0.75" relative="1" as="geometry"><Array as="points"><mxPoint x="899" y="600"/><mxPoint x="771" y="600"/></Array></mxGeometry>
+</mxCell>
+<mxCell id="n_gbc" value="TASK to cloud&lt;br&gt;+ 2 × 26 ms" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;labelBackgroundColor=#FFFFFF;strokeColor=#D6006E;strokeWidth=2;fontColor=#D6006E;fontStyle=1;startArrow=classic;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="n_gb" target="n_c1">
+<mxGeometry x="0.3" relative="1" as="geometry"><Array as="points"><mxPoint x="1585" y="718"/><mxPoint x="1585" y="158"/></Array></mxGeometry>
+</mxCell>
+<mxCell id="n_gao" value="REQUEST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;labelBackgroundColor=#FFFFFF;strokeColor=#3333FF;fontColor=#3333FF;dashed=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="n_ga" target="n_o1">
+<mxGeometry x="-0.45" relative="1" as="geometry"><Array as="points"><mxPoint x="822" y="718"/><mxPoint x="822" y="405"/></Array></mxGeometry>
+</mxCell>
+<mxCell id="n_o13" value="AppendEntries · votes (+20 ms)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;labelBackgroundColor=#FFFFFF;strokeColor=#7B2FBE;fontColor=#7B2FBE;dashed=1;strokeWidth=2;startArrow=classic;fontStyle=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="n_o1" target="n_o3">
+<mxGeometry x="0.1" relative="1" as="geometry"><Array as="points"><mxPoint x="900" y="300"/><mxPoint x="1165" y="300"/></Array></mxGeometry>
+</mxCell>
+<mxCell id="n_l_ec" value="1 Gb/s · 5 ms" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#036897;strokeWidth=4;fontSize=10;fontStyle=1;fontColor=#036897;labelBackgroundColor=#FFFFFF;exitX=0.12;exitY=0;entryX=0.12;entryY=1;" edge="1" parent="1" source="n_edge" target="n_core">
+<mxGeometry x="0" relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_l_ebc" value="1 Gb/s · 6 ms" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#036897;strokeWidth=4;fontSize=10;fontStyle=1;fontColor=#036897;labelBackgroundColor=#FFFFFF;exitX=0.94;exitY=0;entryX=0.94;entryY=1;" edge="1" parent="1" source="n_edge" target="n_core">
+<mxGeometry x="0" relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_l_cc" value="10 Gb/s · 20 ms" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#036897;strokeWidth=4;fontSize=10;fontStyle=1;fontColor=#036897;labelBackgroundColor=#FFFFFF;exitX=0.12;exitY=0;entryX=0.12;entryY=1;" edge="1" parent="1" source="n_core" target="n_cloud">
+<mxGeometry x="0" relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_l_ab" value="edge-A ↔ edge-B: 400 Mb/s · 3 ms" style="text;html=1;fontSize=10;fontStyle=1;fontColor=#036897;align=center;" vertex="1" parent="1">
+<mxGeometry x="845" y="862" width="300" height="20" as="geometry"/>
+</mxCell>
+<mxCell id="n_legend" value="&lt;b&gt;Legend&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#00AA00&quot;&gt;■&lt;/font&gt; from S1/S2&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#D6006E&quot;&gt;■&lt;/font&gt; added in S3&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#7B2FBE&quot;&gt;■&lt;/font&gt; new in S4&lt;br&gt;&lt;font color=&quot;#D6006E&quot;&gt;&lt;b&gt;pink&lt;/b&gt;&lt;/font&gt; = data plane (traffic)&lt;br&gt;&lt;font color=&quot;#3333FF&quot;&gt;blue dashed&lt;/font&gt; = control plane&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#7B2FBE&quot;&gt;&lt;b&gt;purple dashed&lt;/b&gt;&lt;/font&gt; = Raft&lt;br&gt;&lt;font color=&quot;#036897&quot;&gt;&lt;b&gt;thick&lt;/b&gt;&lt;/font&gt; = network link (bandwidth · one-way delay)&lt;br&gt;Every box with “container” = one Docker container" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="1">
+<mxGeometry x="20" y="60" width="420" height="100" as="geometry"/>
+</mxCell>
+<mxCell id="n_sp1" value="&lt;b&gt;&lt;font style=&quot;font-size:15px&quot;&gt;Coordination: Raft (new in S4)&lt;/font&gt;&lt;/b&gt;&lt;br&gt;1. Orchestrator = 3 replicas: o1, o2 (core), o3 (cloud)&lt;br&gt;2. Leader elected by majority vote, numbered by term&lt;br&gt;3. ADMIT / RELEASE / RESIZE = entries in a replicated log&lt;br&gt;4. Entry committed once a majority has stored it&lt;br&gt;5. Same log, same order → identical tables on all replicas" style="text;html=1;fontSize=10;align=left;verticalAlign=top;whiteSpace=wrap;" vertex="1" parent="1">
+<mxGeometry x="20" y="185" width="420" height="150" as="geometry"/>
+</mxCell>
+<mxCell id="n_sp2" value="&lt;b&gt;&lt;font style=&quot;font-size:15px&quot;&gt;Event ordering: Lamport clocks&lt;/font&gt;&lt;/b&gt;&lt;br&gt;1. Every message carries the sender's counter lc&lt;br&gt;2. Send: lc + 1 · receive: max(own, msg) + 1&lt;br&gt;3. Cause → effect ⇒ lc(cause) &amp;lt; lc(effect)&lt;br&gt;4. Merged logs sorted by (lc, node), not wall time" style="text;html=1;fontSize=10;align=left;verticalAlign=top;whiteSpace=wrap;" vertex="1" parent="1">
+<mxGeometry x="20" y="345" width="420" height="120" as="geometry"/>
+</mxCell>
+<mxCell id="n_sp3" value="&lt;b&gt;&lt;font style=&quot;font-size:15px&quot;&gt;Leader failover&lt;/font&gt;&lt;/b&gt;&lt;br&gt;1. Leader crash → followers hear nothing for 300–600 ms&lt;br&gt;2. A follower becomes candidate, wins a majority vote&lt;br&gt;3. New leader commits NOOP, registers alias with term&lt;br&gt;4. Clients retry with the same req_id → no duplicates" style="text;html=1;fontSize=10;align=left;verticalAlign=top;whiteSpace=wrap;" vertex="1" parent="1">
+<mxGeometry x="20" y="480" width="420" height="120" as="geometry"/>
+</mxCell>
+<mxCell id="n_sp4" value="&lt;b&gt;&lt;font style=&quot;font-size:15px&quot;&gt;Experiments (Milestone 4)&lt;/font&gt;&lt;/b&gt;&lt;br&gt;1. Overhead + message complexity: N = 1, 3, 5, 7&lt;br&gt;2. Commit delay vs where replicas are placed&lt;br&gt;3. Leader crash: election time, unavailability&lt;br&gt;4. Consistency vs uncoordinated orchestrators; skewed clocks" style="text;html=1;fontSize=10;align=left;verticalAlign=top;whiteSpace=wrap;" vertex="1" parent="1">
+<mxGeometry x="20" y="615" width="420" height="120" as="geometry"/>
+</mxCell>
+<mxCell id="n_sp5" value="&lt;b&gt;&lt;font style=&quot;font-size:15px&quot;&gt;Message complexity (N replicas)&lt;/font&gt;&lt;/b&gt;&lt;br&gt;1. Commit one entry: 2(N−1) messages&lt;br&gt;2. Election: 2(N−1) messages per candidate&lt;br&gt;3. Idle: 2(N−1) heartbeat messages every 50 ms" style="text;html=1;fontSize=10;align=left;verticalAlign=top;whiteSpace=wrap;" vertex="1" parent="1">
+<mxGeometry x="20" y="750" width="420" height="100" as="geometry"/>
+</mxCell>
+</root>
+</mxGraphModel></diagram></mxfile>

@@ -1,0 +1,7 @@
+2026-10-02 10:50:10,406 [core-1] site: site pid 990, worker pids [995, 996, 997, 998]
+2026-10-02 10:50:10,534 [core-1] site: instance S00003 (UPF) running, cpu=1000, traffic-driven
+2026-10-02 10:50:10,536 [core-1] site: instance S00004 (UPF) running, cpu=1000, traffic-driven
+2026-10-02 10:50:10,537 [core-1] site: instance S00005 (IMS-CSCF) running, cpu=500, traffic-driven
+2026-10-02 10:50:10,539 [core-1] site: instance S00006 (IMS-CSCF) running, cpu=500, traffic-driven
+2026-10-02 10:50:10,540 [core-1] site: instance S00007 (Transcoder) running, cpu=2000, traffic-driven
+2026-10-02 10:50:10,541 [core-1] site: instance S00008 (Transcoder) running, cpu=2000, traffic-driven

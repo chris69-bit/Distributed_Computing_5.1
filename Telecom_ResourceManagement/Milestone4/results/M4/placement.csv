@@ -1,0 +1,16 @@
+placement,replicas,leader_at,rep,follower_delays_ms,predicted_commit_ms,commit_ms_mean,commit_ms_p95,admit_ms_mean,admissions
+3 in core,3,core,1,0/0,0,1.06,1.56,5.49,40
+core + edge-A + cloud,3,core,1,5/20,10,12.64,13.34,18.58,40
+core + edge-A + cloud (leader in cloud),3,cloud,1,20/25,40,43.17,44.06,50.02,40
+core + 2 x cloud,3,core,1,20/20,40,43.01,43.81,52.0,40
+"5: core, 2 edges, 2 clouds",5,core,1,5/6/20/20,12,14.52,16.03,20.08,40
+3 in core,3,core,2,0/0,0,0.85,1.08,4.25,40
+core + edge-A + cloud,3,core,2,5/20,10,12.43,13.31,17.98,40
+core + edge-A + cloud (leader in cloud),3,cloud,2,20/25,40,42.93,43.97,48.68,40
+core + 2 x cloud,3,core,2,20/20,40,43.35,44.99,71.75,40
+"5: core, 2 edges, 2 clouds",5,core,2,5/6/20/20,12,14.93,16.93,21.07,40
+3 in core,3,core,3,0/0,0,1.13,1.46,7.09,40
+core + edge-A + cloud,3,core,3,5/20,10,12.53,13.37,17.77,40
+core + edge-A + cloud (leader in cloud),3,cloud,3,20/25,40,43.34,45.17,49.27,40
+core + 2 x cloud,3,core,3,20/20,40,42.97,44.13,48.29,40
+"5: core, 2 edges, 2 clouds",5,core,3,5/6/20/20,12,14.73,15.94,20.36,40

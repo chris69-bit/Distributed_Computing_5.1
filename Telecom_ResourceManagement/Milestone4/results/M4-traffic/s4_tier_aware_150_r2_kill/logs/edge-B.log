@@ -1,0 +1,2 @@
+2026-10-02 13:20:45,159 [edge-B] site: site pid 12703, worker pids [12722, 12723]
+2026-10-02 13:20:45,611 [edge-B] site: instance S00002 (vRAN-DU) running, cpu=1500, traffic-driven

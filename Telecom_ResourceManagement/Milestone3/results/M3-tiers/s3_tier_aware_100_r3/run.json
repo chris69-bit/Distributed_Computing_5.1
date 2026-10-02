@@ -1,0 +1,178 @@
+{
+ "instances": [
+  {
+   "sid": "S00001",
+   "service": "vRAN-DU",
+   "ingress": "edge-A",
+   "site": "edge-A",
+   "tier": "edge",
+   "address": "edge-a:8101",
+   "link_ms": 0.0,
+   "cpu": 1500,
+   "work_kb": 768
+  },
+  {
+   "sid": "S00002",
+   "service": "vRAN-DU",
+   "ingress": "edge-B",
+   "site": "edge-B",
+   "tier": "edge",
+   "address": "edge-b:8102",
+   "link_ms": 0.0,
+   "cpu": 1500,
+   "work_kb": 768
+  },
+  {
+   "sid": "S00003",
+   "service": "UPF",
+   "ingress": "edge-A",
+   "site": "core-1",
+   "tier": "core",
+   "address": "core-1:8103",
+   "link_ms": 5.0,
+   "cpu": 1000,
+   "work_kb": 512
+  },
+  {
+   "sid": "S00004",
+   "service": "UPF",
+   "ingress": "edge-B",
+   "site": "core-1",
+   "tier": "core",
+   "address": "core-1:8103",
+   "link_ms": 6.0,
+   "cpu": 1000,
+   "work_kb": 512
+  },
+  {
+   "sid": "S00005",
+   "service": "IMS-CSCF",
+   "ingress": "edge-A",
+   "site": "cloud-1",
+   "tier": "cloud",
+   "address": "cloud-1:8104",
+   "link_ms": 25.0,
+   "cpu": 500,
+   "work_kb": 256
+  },
+  {
+   "sid": "S00006",
+   "service": "IMS-CSCF",
+   "ingress": "edge-B",
+   "site": "cloud-1",
+   "tier": "cloud",
+   "address": "cloud-1:8104",
+   "link_ms": 26.0,
+   "cpu": 500,
+   "work_kb": 256
+  },
+  {
+   "sid": "S00007",
+   "service": "Transcoder",
+   "ingress": "edge-A",
+   "site": "cloud-1",
+   "tier": "cloud",
+   "address": "cloud-1:8104",
+   "link_ms": 25.0,
+   "cpu": 2000,
+   "work_kb": 2048
+  },
+  {
+   "sid": "S00008",
+   "service": "Transcoder",
+   "ingress": "edge-B",
+   "site": "cloud-1",
+   "tier": "cloud",
+   "address": "cloud-1:8104",
+   "link_ms": 26.0,
+   "cpu": 2000,
+   "work_kb": 2048
+  },
+  {
+   "sid": "S00009",
+   "service": "IoT-GW",
+   "ingress": "edge-A",
+   "site": "cloud-1",
+   "tier": "cloud",
+   "address": "cloud-1:8104",
+   "link_ms": 25.0,
+   "cpu": 250,
+   "work_kb": 128
+  },
+  {
+   "sid": "S00010",
+   "service": "IoT-GW",
+   "ingress": "edge-B",
+   "site": "cloud-1",
+   "tier": "cloud",
+   "address": "cloud-1:8104",
+   "link_ms": 26.0,
+   "cpu": 250,
+   "work_kb": 128
+  }
+ ],
+ "links": {
+  "edge-A<->core-1": {
+   "capacity_mbps": 1000.0,
+   "allocated_mbps": 670.0,
+   "latency_ms": 5.0
+  },
+  "edge-B<->core-1": {
+   "capacity_mbps": 1000.0,
+   "allocated_mbps": 670.0,
+   "latency_ms": 6.0
+  },
+  "edge-A<->edge-B": {
+   "capacity_mbps": 400.0,
+   "allocated_mbps": 0.0,
+   "latency_ms": 3.0
+  },
+  "core-1<->cloud-1": {
+   "capacity_mbps": 10000.0,
+   "allocated_mbps": 540.0,
+   "latency_ms": 20.0
+  }
+ },
+ "resources": {
+  "driver": [
+   5.666666666666667,
+   32.391666666666666
+  ],
+  "gw-A": [
+   4.9750000000000005,
+   29.399999999999995
+  ],
+  "edge-B": [
+   5.5,
+   109.59999999999998
+  ],
+  "gw-B": [
+   5.391666666666667,
+   29.600000000000005
+  ],
+  "core-1": [
+   7.808333333333334,
+   188.9
+  ],
+  "edge-A": [
+   5.916666666666667,
+   109.8
+  ],
+  "cloud-1": [
+   18.55,
+   188.9
+  ],
+  "orchestrator": [
+   0.46153846153846156,
+   29.300000000000004
+  ],
+  "registry": [
+   0.8461538461538461,
+   29.4
+  ],
+  "telemetry": [
+   0.9166666666666666,
+   29.5
+  ]
+ }
+}

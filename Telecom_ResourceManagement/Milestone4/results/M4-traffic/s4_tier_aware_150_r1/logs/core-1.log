@@ -1,0 +1,3 @@
+2026-10-02 13:19:08,422 [core-1] site: site pid 12562, worker pids [12568, 12569, 12570, 12571]
+2026-10-02 13:19:08,780 [core-1] site: instance S00003 (UPF) running, cpu=1000, traffic-driven
+2026-10-02 13:19:08,792 [core-1] site: instance S00004 (UPF) running, cpu=1000, traffic-driven

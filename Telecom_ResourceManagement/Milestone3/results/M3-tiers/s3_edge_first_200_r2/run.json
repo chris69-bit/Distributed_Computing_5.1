@@ -1,0 +1,178 @@
+{
+ "instances": [
+  {
+   "sid": "S00001",
+   "service": "vRAN-DU",
+   "ingress": "edge-A",
+   "site": "edge-A",
+   "tier": "edge",
+   "address": "edge-a:8101",
+   "link_ms": 0.0,
+   "cpu": 1500,
+   "work_kb": 768
+  },
+  {
+   "sid": "S00002",
+   "service": "vRAN-DU",
+   "ingress": "edge-B",
+   "site": "edge-B",
+   "tier": "edge",
+   "address": "edge-b:8102",
+   "link_ms": 0.0,
+   "cpu": 1500,
+   "work_kb": 768
+  },
+  {
+   "sid": "S00003",
+   "service": "UPF",
+   "ingress": "edge-A",
+   "site": "edge-A",
+   "tier": "edge",
+   "address": "edge-a:8101",
+   "link_ms": 0.0,
+   "cpu": 1000,
+   "work_kb": 512
+  },
+  {
+   "sid": "S00004",
+   "service": "UPF",
+   "ingress": "edge-B",
+   "site": "edge-B",
+   "tier": "edge",
+   "address": "edge-b:8102",
+   "link_ms": 0.0,
+   "cpu": 1000,
+   "work_kb": 512
+  },
+  {
+   "sid": "S00005",
+   "service": "IMS-CSCF",
+   "ingress": "edge-A",
+   "site": "edge-A",
+   "tier": "edge",
+   "address": "edge-a:8101",
+   "link_ms": 0.0,
+   "cpu": 500,
+   "work_kb": 256
+  },
+  {
+   "sid": "S00006",
+   "service": "IMS-CSCF",
+   "ingress": "edge-B",
+   "site": "edge-B",
+   "tier": "edge",
+   "address": "edge-b:8102",
+   "link_ms": 0.0,
+   "cpu": 500,
+   "work_kb": 256
+  },
+  {
+   "sid": "S00007",
+   "service": "Transcoder",
+   "ingress": "edge-A",
+   "site": "core-1",
+   "tier": "core",
+   "address": "core-1:8103",
+   "link_ms": 5.0,
+   "cpu": 2000,
+   "work_kb": 2048
+  },
+  {
+   "sid": "S00008",
+   "service": "Transcoder",
+   "ingress": "edge-B",
+   "site": "core-1",
+   "tier": "core",
+   "address": "core-1:8103",
+   "link_ms": 6.0,
+   "cpu": 2000,
+   "work_kb": 2048
+  },
+  {
+   "sid": "S00009",
+   "service": "IoT-GW",
+   "ingress": "edge-A",
+   "site": "edge-A",
+   "tier": "edge",
+   "address": "edge-a:8101",
+   "link_ms": 0.0,
+   "cpu": 250,
+   "work_kb": 128
+  },
+  {
+   "sid": "S00010",
+   "service": "IoT-GW",
+   "ingress": "edge-B",
+   "site": "edge-B",
+   "tier": "edge",
+   "address": "edge-b:8102",
+   "link_ms": 0.0,
+   "cpu": 250,
+   "work_kb": 128
+  }
+ ],
+ "links": {
+  "edge-A<->core-1": {
+   "capacity_mbps": 1000.0,
+   "allocated_mbps": 200.0,
+   "latency_ms": 5.0
+  },
+  "edge-B<->core-1": {
+   "capacity_mbps": 1000.0,
+   "allocated_mbps": 200.0,
+   "latency_ms": 6.0
+  },
+  "edge-A<->edge-B": {
+   "capacity_mbps": 400.0,
+   "allocated_mbps": 0.0,
+   "latency_ms": 3.0
+  },
+  "core-1<->cloud-1": {
+   "capacity_mbps": 10000.0,
+   "allocated_mbps": 0.0,
+   "latency_ms": 20.0
+  }
+ },
+ "resources": {
+  "driver": [
+   8.916666666666666,
+   32.65833333333333
+  ],
+  "registry": [
+   0.9916666666666667,
+   29.0
+  ],
+  "cloud-1": [
+   0.75,
+   189.4
+  ],
+  "gw-A": [
+   6.116666666666667,
+   29.100000000000005
+  ],
+  "gw-B": [
+   6.384615384615385,
+   29.699999999999996
+  ],
+  "telemetry": [
+   0.9230769230769231,
+   28.9
+  ],
+  "orchestrator": [
+   0.3333333333333333,
+   29.2
+  ],
+  "core-1": [
+   16.66923076923077,
+   189.5
+  ],
+  "edge-B": [
+   22.407692307692308,
+   109.9
+  ],
+  "edge-A": [
+   21.53333333333333,
+   109.7
+  ]
+ }
+}

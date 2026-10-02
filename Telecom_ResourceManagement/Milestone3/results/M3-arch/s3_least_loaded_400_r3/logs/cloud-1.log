@@ -1,0 +1,5 @@
+2026-10-02 11:43:29,765 [cloud-1] site: site pid 6945, worker pids [6946, 6947, 6948, 6949]
+2026-10-02 11:43:30,441 [cloud-1] site: instance S00005 (IMS-CSCF) running, cpu=500, traffic-driven
+2026-10-02 11:43:30,449 [cloud-1] site: instance S00006 (IMS-CSCF) running, cpu=500, traffic-driven
+2026-10-02 11:43:30,455 [cloud-1] site: instance S00007 (Transcoder) running, cpu=2000, traffic-driven
+2026-10-02 11:43:30,462 [cloud-1] site: instance S00008 (Transcoder) running, cpu=2000, traffic-driven

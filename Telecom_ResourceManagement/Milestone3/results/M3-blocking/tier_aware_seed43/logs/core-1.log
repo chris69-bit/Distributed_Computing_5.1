@@ -1,0 +1,7 @@
+2026-10-02 11:46:45,752 [core-1] site: site pid 7117, worker pids [7127, 7128, 7129, 7130]
+2026-10-02 11:46:49,236 [core-1] site: instance S00005 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:46:51,571 [core-1] site: instance S00013 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:46:55,686 [core-1] site: instance S00019 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:46:58,470 [core-1] site: instance S00025 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:47:05,655 [core-1] site: instance S00047 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:47:09,309 [core-1] site: instance S00054 (UPF) running, cpu=1000, backlogged

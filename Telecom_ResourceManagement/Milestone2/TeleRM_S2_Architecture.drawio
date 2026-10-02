@@ -1,0 +1,240 @@
+<mxfile host="drawio"><diagram id="p1" name="TeleRM S2"><mxGraphModel dx="1600" dy="1150" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1600" pageHeight="1150" background="#FFFFFF" math="0" shadow="0">
+<root>
+<mxCell id="0"/>
+<mxCell id="1" parent="0"/>
+<mxCell id="n_title" value="TeleRM Infrastructure – S2 (Milestone 2: Distributed Processing and Performance)" style="text;html=1;fontSize=22;fontStyle=5;align=center;verticalAlign=middle;" vertex="1" parent="1">
+<mxGeometry x="300" y="8" width="1000" height="36" as="geometry"/>
+</mxCell>
+<mxCell id="n_legend" value="&lt;b&gt;Legend&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#00AA00&quot;&gt;■&lt;/font&gt; from S1 (unchanged)&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#D6006E&quot;&gt;■&lt;/font&gt; new in S2&lt;br&gt;&lt;font color=&quot;#3333FF&quot;&gt;blue&lt;/font&gt; = control plane&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#D6006E&quot;&gt;&lt;b&gt;pink&lt;/b&gt;&lt;/font&gt; = data plane (traffic)" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="1">
+<mxGeometry x="30" y="60" width="250" height="62" as="geometry"/>
+</mxCell>
+<mxCell id="n_mgr" value="GLOBAL RESOURCE MANAGER (control plane)" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;container=1;pointerEvents=0;verticalAlign=top;align=right;spacingRight=14;spacingTop=4;fontStyle=1;fontSize=12;strokeWidth=1.5;shadow=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+<mxGeometry x="540" y="60" width="660" height="250" as="geometry"/>
+</mxCell>
+<mxCell id="n_adm" value="ADMISSION CONTROL&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;capacity · link bw · latency&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#00CC00;fillColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="n_mgr">
+<mxGeometry x="25" y="50" width="170" height="55" as="geometry"/>
+</mxCell>
+<mxCell id="n_plc" value="PLACEMENT POLICY&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;edge_first · least_loaded · best_fit&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#00CC00;fillColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="n_mgr">
+<mxGeometry x="245" y="50" width="170" height="55" as="geometry"/>
+</mxCell>
+<mxCell id="n_at" value="ALLOCATION TABLE&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;S00001… · node + path · &lt;b&gt;address&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#00CC00;fillColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="n_mgr">
+<mxGeometry x="465" y="50" width="170" height="55" as="geometry"/>
+</mxCell>
+<mxCell id="n_topo" value="TOPOLOGY + LINKS&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;Dijkstra paths · B&lt;sub&gt;e&lt;/sub&gt; reservations&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#00CC00;fillColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="n_mgr">
+<mxGeometry x="25" y="165" width="170" height="55" as="geometry"/>
+</mxCell>
+<mxCell id="n_reg" value="SITE REGISTRY&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;C&lt;sub&gt;j&lt;/sub&gt;, A&lt;sub&gt;j&lt;/sub&gt; · heartbeat detector&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#00CC00;fillColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="n_mgr">
+<mxGeometry x="245" y="165" width="170" height="55" as="geometry"/>
+</mxCell>
+<mxCell id="n_smp" value="UTILISATION SAMPLER&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;reservations + &lt;b&gt;measured CPU % / RAM&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_mgr">
+<mxGeometry x="465" y="165" width="170" height="55" as="geometry"/>
+</mxCell>
+<mxCell id="n_m1" value="feasible" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;fontColor=#3333FF;labelBackgroundColor=#FFFFFF;startArrow=classic;" edge="1" parent="n_mgr" source="n_adm" target="n_plc">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_m2" value="reserve" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;fontColor=#3333FF;labelBackgroundColor=#FFFFFF;startArrow=classic;" edge="1" parent="n_mgr" source="n_plc" target="n_at">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_m3" value="path · λ · B&lt;sub&gt;e&lt;/sub&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;fontColor=#3333FF;labelBackgroundColor=#FFFFFF;startArrow=classic;" edge="1" parent="n_mgr" source="n_adm" target="n_topo">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_m4" value="C&lt;sub&gt;j&lt;/sub&gt;, A&lt;sub&gt;j&lt;/sub&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;fontColor=#3333FF;labelBackgroundColor=#FFFFFF;startArrow=classic;" edge="1" parent="n_mgr" source="n_plc" target="n_reg">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_m5" value="A&lt;sub&gt;j&lt;/sub&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;fontColor=#3333FF;labelBackgroundColor=#FFFFFF;" edge="1" parent="n_mgr" source="n_at" target="n_smp">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_store" value="runs.csv&lt;br&gt;tasks.csv · run.json&lt;br&gt;charts/ · summary.md" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+<mxGeometry x="1270" y="205" width="140" height="90" as="geometry"/>
+</mxCell>
+<mxCell id="n_st" value="write" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="n_smp" target="n_store">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_bus" value="CONTROL PLANE – TCP, one connection per message (protocol.call)" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=12;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+<mxGeometry x="40" y="350" width="1480" height="34" as="geometry"/>
+</mxCell>
+<mxCell id="n_mb" value="ALLOCATE · RESIZE · RELEASE ↓&amp;nbsp;&amp;nbsp;&amp;nbsp;↑ REGISTER · HEARTBEAT (+ CPU %, RAM) · INSTANCE_EXIT" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;startArrow=classic;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5608;entryY=0;" edge="1" parent="1" source="n_mgr" target="n_bus">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_sa" value="SITE edge-A (EDGE)" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;container=1;pointerEvents=0;verticalAlign=top;align=right;spacingRight=14;spacingTop=4;fontStyle=1;fontSize=12;strokeWidth=1.5;shadow=1;fillColor=#FFFFFF;strokeColor=#00CC00;" vertex="1" parent="1">
+<mxGeometry x="40" y="430" width="420" height="270" as="geometry"/>
+</mxCell>
+<mxCell id="n_sap" value="8101 &lt;font color=&quot;#666666&quot;&gt;· 4000 mc · 4096 MB · 2 workers&lt;/font&gt;" style="text;html=1;fontColor=#3333FF;fontSize=10;align=left;" vertex="1" parent="n_sa">
+<mxGeometry x="12" y="4" width="260" height="20" as="geometry"/>
+</mxCell>
+<mxCell id="n_saq" value="PER-INSTANCE QUEUES&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;one waiting room per service · ≤ 64 tasks&lt;br&gt;full → DROPPED (loss)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_sa">
+<mxGeometry x="20" y="40" width="180" height="62" as="geometry"/>
+</mxCell>
+<mxCell id="n_sas" value="STRIDE SCHEDULER&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;work-conserving · tickets = mc&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=11;" vertex="1" parent="n_sa">
+<mxGeometry x="20" y="130" width="180" height="50" as="geometry"/>
+</mxCell>
+<mxCell id="n_saw0" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=10;" vertex="1" parent="n_sa">
+<mxGeometry x="240" y="40" width="70" height="55" as="geometry"/>
+</mxCell>
+<mxCell id="n_saw1" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=10;" vertex="1" parent="n_sa">
+<mxGeometry x="325" y="40" width="70" height="55" as="geometry"/>
+</mxCell>
+<mxCell id="n_sam" value="RESOURCE MONITOR&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;psutil: CPU % · RAM MB · workers busy %&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_sa">
+<mxGeometry x="230" y="140" width="170" height="50" as="geometry"/>
+</mxCell>
+<mxCell id="n_sat" value="replies: queue_ms · exec_ms" style="text;html=1;fontSize=9;fontColor=#D6006E;fontStyle=2;align=left;" vertex="1" parent="n_sa">
+<mxGeometry x="20" y="205" width="200" height="18" as="geometry"/>
+</mxCell>
+<mxCell id="n_sae1" value="min pass" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=9;fontColor=#3333FF;" edge="1" parent="n_sa" source="n_saq" target="n_sas">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_sae2" value="dispatch" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=9;fontColor=#3333FF;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="n_sa" source="n_sas" target="n_saw0">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_bsa" value="TCP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;startArrow=classic;fontColor=#3333FF;exitX=0.1419;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="n_bus" target="n_sa">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_sb" value="SITE edge-B (EDGE)" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;container=1;pointerEvents=0;verticalAlign=top;align=right;spacingRight=14;spacingTop=4;fontStyle=1;fontSize=12;strokeWidth=1.5;shadow=1;fillColor=#FFFFFF;strokeColor=#00CC00;" vertex="1" parent="1">
+<mxGeometry x="560" y="430" width="420" height="270" as="geometry"/>
+</mxCell>
+<mxCell id="n_sbp" value="8102 &lt;font color=&quot;#666666&quot;&gt;· 4000 mc · 4096 MB · 2 workers&lt;/font&gt;" style="text;html=1;fontColor=#3333FF;fontSize=10;align=left;" vertex="1" parent="n_sb">
+<mxGeometry x="12" y="4" width="260" height="20" as="geometry"/>
+</mxCell>
+<mxCell id="n_sbq" value="PER-INSTANCE QUEUES&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;one waiting room per service · ≤ 64 tasks&lt;br&gt;full → DROPPED (loss)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_sb">
+<mxGeometry x="20" y="40" width="180" height="62" as="geometry"/>
+</mxCell>
+<mxCell id="n_sbs" value="STRIDE SCHEDULER&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;work-conserving · tickets = mc&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=11;" vertex="1" parent="n_sb">
+<mxGeometry x="20" y="130" width="180" height="50" as="geometry"/>
+</mxCell>
+<mxCell id="n_sbw0" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=10;" vertex="1" parent="n_sb">
+<mxGeometry x="240" y="40" width="70" height="55" as="geometry"/>
+</mxCell>
+<mxCell id="n_sbw1" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=10;" vertex="1" parent="n_sb">
+<mxGeometry x="325" y="40" width="70" height="55" as="geometry"/>
+</mxCell>
+<mxCell id="n_sbm" value="RESOURCE MONITOR&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;psutil: CPU % · RAM MB · workers busy %&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_sb">
+<mxGeometry x="230" y="140" width="170" height="50" as="geometry"/>
+</mxCell>
+<mxCell id="n_sbt" value="replies: queue_ms · exec_ms" style="text;html=1;fontSize=9;fontColor=#D6006E;fontStyle=2;align=left;" vertex="1" parent="n_sb">
+<mxGeometry x="20" y="205" width="200" height="18" as="geometry"/>
+</mxCell>
+<mxCell id="n_sbe1" value="min pass" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=9;fontColor=#3333FF;" edge="1" parent="n_sb" source="n_sbq" target="n_sbs">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_sbe2" value="dispatch" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=9;fontColor=#3333FF;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="n_sb" source="n_sbs" target="n_sbw0">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_bsb" value="TCP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;startArrow=classic;fontColor=#3333FF;exitX=0.4932;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="n_bus" target="n_sb">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_sc" value="SITE core-1 (CORE)" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;container=1;pointerEvents=0;verticalAlign=top;align=right;spacingRight=14;spacingTop=4;fontStyle=1;fontSize=12;strokeWidth=1.5;shadow=1;fillColor=#FFFFFF;strokeColor=#00CC00;" vertex="1" parent="1">
+<mxGeometry x="1080" y="430" width="440" height="270" as="geometry"/>
+</mxCell>
+<mxCell id="n_scp" value="8103 &lt;font color=&quot;#666666&quot;&gt;· 12000 mc · 16384 MB · 4 workers&lt;/font&gt;" style="text;html=1;fontColor=#3333FF;fontSize=10;align=left;" vertex="1" parent="n_sc">
+<mxGeometry x="12" y="4" width="260" height="20" as="geometry"/>
+</mxCell>
+<mxCell id="n_scq" value="PER-INSTANCE QUEUES&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;one waiting room per service · ≤ 64 tasks&lt;br&gt;full → DROPPED (loss)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_sc">
+<mxGeometry x="20" y="40" width="180" height="62" as="geometry"/>
+</mxCell>
+<mxCell id="n_scs" value="STRIDE SCHEDULER&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;work-conserving · tickets = mc&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=11;" vertex="1" parent="n_sc">
+<mxGeometry x="20" y="130" width="180" height="50" as="geometry"/>
+</mxCell>
+<mxCell id="n_scw0" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=10;" vertex="1" parent="n_sc">
+<mxGeometry x="250" y="34" width="70" height="42" as="geometry"/>
+</mxCell>
+<mxCell id="n_scw1" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=10;" vertex="1" parent="n_sc">
+<mxGeometry x="335" y="34" width="70" height="42" as="geometry"/>
+</mxCell>
+<mxCell id="n_scw2" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=10;" vertex="1" parent="n_sc">
+<mxGeometry x="250" y="82" width="70" height="42" as="geometry"/>
+</mxCell>
+<mxCell id="n_scw3" value="WORKER" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#326CE5;strokeColor=#FFFFFF;fontColor=#FFFFFF;fontStyle=1;fontSize=10;" vertex="1" parent="n_sc">
+<mxGeometry x="335" y="82" width="70" height="42" as="geometry"/>
+</mxCell>
+<mxCell id="n_scm" value="RESOURCE MONITOR&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;psutil: CPU % · RAM MB · workers busy %&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_sc">
+<mxGeometry x="240" y="140" width="170" height="50" as="geometry"/>
+</mxCell>
+<mxCell id="n_sct" value="replies: queue_ms · exec_ms" style="text;html=1;fontSize=9;fontColor=#D6006E;fontStyle=2;align=left;" vertex="1" parent="n_sc">
+<mxGeometry x="20" y="205" width="200" height="18" as="geometry"/>
+</mxCell>
+<mxCell id="n_sce1" value="min pass" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=9;fontColor=#3333FF;" edge="1" parent="n_sc" source="n_scq" target="n_scs">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_sce2" value="dispatch" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=9;fontColor=#3333FF;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="n_sc" source="n_scs" target="n_scw0">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_bsc" value="TCP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;startArrow=classic;fontColor=#3333FF;exitX=0.8514;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="n_bus" target="n_sc">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_l1" value="400 Mb/s · 3 ms" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#036897;strokeWidth=3;fontSize=10;fontStyle=1;fontColor=#036897;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.62;entryX=0;entryY=0.62;" edge="1" parent="1" source="n_sa" target="n_sb">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_l2" value="1000 Mb/s · 6 ms" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#036897;strokeWidth=3;fontSize=10;fontStyle=1;fontColor=#036897;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.62;entryX=0;entryY=0.62;" edge="1" parent="1" source="n_sb" target="n_sc">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_l3" value="1000 Mb/s · 5 ms (edge-A ↔ core-1)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#036897;strokeWidth=3;fontSize=10;fontStyle=1;fontColor=#036897;labelBackgroundColor=#FFFFFF;exitX=0.3;exitY=1;entryX=0.6;entryY=1;" edge="1" parent="1" source="n_sa" target="n_sc">
+<mxGeometry x="-0.3" relative="1" as="geometry"><Array as="points"><mxPoint x="166" y="724"/><mxPoint x="1344" y="724"/></Array></mxGeometry>
+</mxCell>
+<mxCell id="n_dbus" value="DATA PLANE – TASK ↑ / reply ↓ over persistent TCP channels (protocol.Channel), many tasks in flight · link delay added to latency as a model" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=12;strokeWidth=2;strokeColor=#D6006E;fontColor=#D6006E;fillColor=#FFF0F6;shadow=1;" vertex="1" parent="1">
+<mxGeometry x="40" y="760" width="1480" height="34" as="geometry"/>
+</mxCell>
+<mxCell id="n_dsa" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#D6006E;strokeWidth=2;fontColor=#D6006E;fontStyle=1;labelBackgroundColor=#FFFFFF;startArrow=classic;exitX=0.1419;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="n_dbus" target="n_sa">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_dsb" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#D6006E;strokeWidth=2;fontColor=#D6006E;fontStyle=1;labelBackgroundColor=#FFFFFF;startArrow=classic;exitX=0.4932;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="n_dbus" target="n_sb">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_dsc" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#D6006E;strokeWidth=2;fontColor=#D6006E;fontStyle=1;labelBackgroundColor=#FFFFFF;startArrow=classic;exitX=0.8514;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="n_dbus" target="n_sc">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_gen" value="TRAFFIC GENERATOR + METER (perf_experiment.py) – emulates users arriving at edge-A / edge-B" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;container=1;pointerEvents=0;verticalAlign=top;align=right;spacingRight=14;spacingTop=4;fontStyle=1;fontSize=12;strokeWidth=1.5;shadow=1;fillColor=#FFFFFF;strokeColor=#D6006E;align=center;spacingRight=0;" vertex="1" parent="1">
+<mxGeometry x="560" y="840" width="960" height="210" as="geometry"/>
+</mxCell>
+<mxCell id="n_g1" value="1. ADMIT&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;10 instances via REQUEST&lt;br&gt;(control plane, port 8000)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#00CC00;fillColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="n_gen">
+<mxGeometry x="20" y="45" width="170" height="60" as="geometry"/>
+</mxCell>
+<mxCell id="n_g2" value="2. SEND TASKS&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;Poisson λ = 100…700 /s&lt;br&gt;seeded · share ∝ CPU ÷ work&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_gen">
+<mxGeometry x="210" y="45" width="170" height="60" as="geometry"/>
+</mxCell>
+<mxCell id="n_g3" value="3. TIME EACH TASK&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;latency = T&lt;sub&gt;resp&lt;/sub&gt; − T&lt;sub&gt;req&lt;/sub&gt;&lt;br&gt;+ 2 × link delay&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_gen">
+<mxGeometry x="400" y="45" width="170" height="60" as="geometry"/>
+</mxCell>
+<mxCell id="n_g4" value="4. COMPUTE METRICS&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;throughput · latency · jitter&lt;br&gt;loss · CPU · RAM&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_gen">
+<mxGeometry x="590" y="45" width="170" height="60" as="geometry"/>
+</mxCell>
+<mxCell id="n_g5" value="5. ANALYZE&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;analyze.py → charts,&lt;br&gt;bottleneck tables&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6006E;strokeWidth=2;fillColor=#FFF0F6;fontStyle=1;fontSize=11;" vertex="1" parent="n_gen">
+<mxGeometry x="780" y="45" width="160" height="60" as="geometry"/>
+</mxCell>
+<mxCell id="n_geg1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;" edge="1" parent="n_gen" source="n_g1" target="n_g2">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_geg2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;" edge="1" parent="n_gen" source="n_g2" target="n_g3">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_geg3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;" edge="1" parent="n_gen" source="n_g3" target="n_g4">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_geg4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;" edge="1" parent="n_gen" source="n_g4" target="n_g5">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_g6" value="&lt;b&gt;Experiment&lt;/b&gt;: 2 placement policies × 7 offered loads × 3 repetitions · 3 s warm-up · 15 s measurement window · task timeout 1 s · seed 42" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="n_gen">
+<mxGeometry x="20" y="130" width="920" height="50" as="geometry"/>
+</mxCell>
+<mxCell id="n_gctl" value="REQUEST (admit instances)&lt;br&gt;&lt;font color=&quot;#3333FF&quot;&gt;:8000 control plane&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;exitX=1;exitY=0.3;entryX=1;entryY=0.3;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n_gen" target="n_mgr">
+<mxGeometry x="-0.45" relative="1" as="geometry"><Array as="points"><mxPoint x="1615" y="903"/><mxPoint x="1615" y="135"/></Array></mxGeometry>
+</mxCell>
+<mxCell id="n_gdat" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#D6006E;strokeWidth=2;fontColor=#D6006E;fontStyle=1;labelBackgroundColor=#FFFFFF;startArrow=classic;exitX=0.5;exitY=0;entryX=0.70;entryY=1;startArrow=none;" edge="1" parent="1" source="n_gen" target="n_dbus">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="n_specT" value="S2 Specifications" style="text;html=1;fontSize=20;fontStyle=1;align=left;" vertex="1" parent="1">
+<mxGeometry x="20" y="830" width="300" height="34" as="geometry"/>
+</mxCell>
+<mxCell id="n_sp1" value="&lt;b&gt;&lt;font style=&quot;font-size:15px&quot;&gt;What S2 adds&lt;/font&gt;&lt;/b&gt;&lt;br&gt;1. Traffic TASKs processed by instances&lt;br&gt;2. Per-instance queues + loss&lt;br&gt;3. Persistent data-plane channels&lt;br&gt;4. CPU / RAM measured with psutil" style="text;html=1;fontSize=10;align=left;verticalAlign=top;whiteSpace=wrap;" vertex="1" parent="1">
+<mxGeometry x="20" y="875" width="250" height="120" as="geometry"/>
+</mxCell>
+<mxCell id="n_sp2" value="&lt;b&gt;&lt;font style=&quot;font-size:15px&quot;&gt;Metrics&lt;/font&gt;&lt;/b&gt;&lt;br&gt;1. Throughput = completed ÷ time&lt;br&gt;2. Latency = T&lt;sub&gt;resp&lt;/sub&gt; − T&lt;sub&gt;req&lt;/sub&gt;&lt;br&gt;3. Jitter = mean |ΔL| per flow&lt;br&gt;4. Loss = (dropped + timeout) ÷ sent&lt;br&gt;5. CPU %, RAM MB per node" style="text;html=1;fontSize=10;align=left;verticalAlign=top;whiteSpace=wrap;" vertex="1" parent="1">
+<mxGeometry x="280" y="875" width="250" height="120" as="geometry"/>
+</mxCell>
+<mxCell id="n_sp3" value="&lt;b&gt;&lt;font style=&quot;font-size:15px&quot;&gt;Task work (on a worker)&lt;/font&gt;&lt;/b&gt;&lt;br&gt;1. vRAN-DU 768 KB&lt;br&gt;2. UPF 512 KB&lt;br&gt;3. IMS-CSCF 256 KB&lt;br&gt;4. Transcoder 2048 KB&lt;br&gt;5. IoT-GW 128 KB (SHA-256 hashing)" style="text;html=1;fontSize=10;align=left;verticalAlign=top;whiteSpace=wrap;" vertex="1" parent="1">
+<mxGeometry x="20" y="990" width="250" height="120" as="geometry"/>
+</mxCell>
+<mxCell id="n_sp4" value="&lt;b&gt;&lt;font style=&quot;font-size:15px&quot;&gt;Bottleneck method&lt;/font&gt;&lt;/b&gt;&lt;br&gt;1. Latency split: queue / processing / comm / link&lt;br&gt;2. Utilisation law U = X·S ÷ workers&lt;br&gt;3. CPU-cost model predicts the ceiling&lt;br&gt;4. First resource at 100 % = bottleneck" style="text;html=1;fontSize=10;align=left;verticalAlign=top;whiteSpace=wrap;" vertex="1" parent="1">
+<mxGeometry x="280" y="990" width="250" height="120" as="geometry"/>
+</mxCell>
+</root>
+</mxGraphModel></diagram></mxfile>

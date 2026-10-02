@@ -1,0 +1,130 @@
+{
+ "instances": [
+  {
+   "sid": "S00001",
+   "service": "Transcoder",
+   "ingress": "edge-A",
+   "site": "edge-A",
+   "tier": "edge",
+   "address": "edge-a:8101",
+   "link_ms": 0.0,
+   "cpu": 2000,
+   "work_kb": 2048
+  },
+  {
+   "sid": "S00002",
+   "service": "Transcoder",
+   "ingress": "edge-B",
+   "site": "core-1",
+   "tier": "core",
+   "address": "core-1:8103",
+   "link_ms": 6.0,
+   "cpu": 2000,
+   "work_kb": 2048
+  },
+  {
+   "sid": "S00003",
+   "service": "Transcoder",
+   "ingress": "edge-A",
+   "site": "cloud-1",
+   "tier": "cloud",
+   "address": "cloud-1:8104",
+   "link_ms": 25.0,
+   "cpu": 2000,
+   "work_kb": 2048
+  },
+  {
+   "sid": "S00004",
+   "service": "Transcoder",
+   "ingress": "edge-B",
+   "site": "edge-A",
+   "tier": "edge",
+   "address": "edge-a:8101",
+   "link_ms": 3.0,
+   "cpu": 2000,
+   "work_kb": 2048
+  },
+  {
+   "sid": "S00005",
+   "service": "Transcoder",
+   "ingress": "edge-A",
+   "site": "core-1",
+   "tier": "core",
+   "address": "core-1:8103",
+   "link_ms": 5.0,
+   "cpu": 2000,
+   "work_kb": 2048
+  },
+  {
+   "sid": "S00006",
+   "service": "Transcoder",
+   "ingress": "edge-B",
+   "site": "cloud-1",
+   "tier": "cloud",
+   "address": "cloud-1:8104",
+   "link_ms": 26.0,
+   "cpu": 2000,
+   "work_kb": 2048
+  }
+ ],
+ "links": {
+  "edge-A<->core-1": {
+   "capacity_mbps": 1000.0,
+   "allocated_mbps": 400.0,
+   "latency_ms": 5.0
+  },
+  "edge-B<->core-1": {
+   "capacity_mbps": 1000.0,
+   "allocated_mbps": 400.0,
+   "latency_ms": 6.0
+  },
+  "edge-A<->edge-B": {
+   "capacity_mbps": 400.0,
+   "allocated_mbps": 200.0,
+   "latency_ms": 3.0
+  },
+  "core-1<->cloud-1": {
+   "capacity_mbps": 10000.0,
+   "allocated_mbps": 400.0,
+   "latency_ms": 20.0
+  }
+ },
+ "resources": {
+  "driver": [
+   9.25,
+   32.81666666666667
+  ],
+  "gw-B": [
+   6.45,
+   29.0
+  ],
+  "gw-A": [
+   6.583333333333333,
+   29.100000000000005
+  ],
+  "registry": [
+   1.0769230769230769,
+   29.0
+  ],
+  "telemetry": [
+   0.9166666666666666,
+   29.100000000000005
+  ],
+  "edge-A": [
+   29.8,
+   110.09999999999998
+  ],
+  "orchestrator": [
+   0.38461538461538464,
+   29.300000000000004
+  ],
+  "core-1": [
+   29.863636363636363,
+   110.1
+  ],
+  "cloud-1": [
+   29.845454545454547,
+   110.0
+  ]
+ }
+}

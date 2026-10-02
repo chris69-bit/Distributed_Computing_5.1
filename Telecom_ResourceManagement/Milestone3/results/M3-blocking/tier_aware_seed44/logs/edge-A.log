@@ -1,0 +1,12 @@
+2026-10-02 11:48:30,151 [edge-A] site: site pid 7204, worker pids [7208, 7209]
+2026-10-02 11:48:31,891 [edge-A] site: instance S00004 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:48:36,122 [edge-A] site: instance S00013 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:48:44,158 [edge-A] site: instance S00029 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:48:44,590 [edge-A] site: instance S00032 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:48:45,645 [edge-A] site: instance S00037 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:48:45,698 [edge-A] site: instance S00038 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:48:48,619 [edge-A] site: instance S00043 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:48:50,098 [edge-A] site: instance S00045 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:48:52,403 [edge-A] site: instance S00049 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:48:59,763 [edge-A] site: instance S00068 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:49:00,766 [edge-A] site: instance S00070 (UPF) running, cpu=1000, backlogged

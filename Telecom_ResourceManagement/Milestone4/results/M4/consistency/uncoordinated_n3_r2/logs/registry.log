@@ -1,0 +1,10 @@
+2026-10-02 13:00:07,133 [registry] registry: registry pid 11575 on 127.0.0.1:8910
+2026-10-02 13:00:07,301 [registry] registry: site site0 registered at 127.0.0.1:8920
+2026-10-02 13:00:07,305 [registry] registry: site site1 registered at 127.0.0.1:8921
+2026-10-02 13:00:07,307 [registry] registry: site site2 registered at 127.0.0.1:8922
+2026-10-02 13:00:07,307 [registry] registry: site site3 registered at 127.0.0.1:8923
+2026-10-02 13:00:07,308 [registry] registry: site site4 registered at 127.0.0.1:8924
+2026-10-02 13:00:07,309 [registry] registry: site site5 registered at 127.0.0.1:8925
+2026-10-02 13:00:07,499 [registry] registry: service orchestrator registered at 127.0.0.1:8900
+2026-10-02 13:00:07,517 [registry] registry: service orchestrator registered at 127.0.0.1:8902
+2026-10-02 13:00:07,543 [registry] registry: service orchestrator registered at 127.0.0.1:8901

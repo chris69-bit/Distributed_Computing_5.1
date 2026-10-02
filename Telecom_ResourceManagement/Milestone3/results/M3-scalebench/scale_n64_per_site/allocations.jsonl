@@ -1,0 +1,222 @@
+{"t": 3.146, "event": "site_discovered", "site": "s0000"}
+{"t": 3.146, "event": "site_discovered", "site": "s0001"}
+{"t": 3.146, "event": "site_discovered", "site": "s0002"}
+{"t": 3.146, "event": "site_discovered", "site": "s0003"}
+{"t": 3.146, "event": "site_discovered", "site": "s0004"}
+{"t": 3.146, "event": "site_discovered", "site": "s0005"}
+{"t": 3.146, "event": "site_discovered", "site": "s0006"}
+{"t": 3.147, "event": "site_discovered", "site": "s0007"}
+{"t": 3.147, "event": "site_discovered", "site": "s0008"}
+{"t": 3.147, "event": "site_discovered", "site": "s0009"}
+{"t": 3.147, "event": "site_discovered", "site": "s0010"}
+{"t": 3.147, "event": "site_discovered", "site": "s0011"}
+{"t": 3.147, "event": "site_discovered", "site": "s0012"}
+{"t": 3.147, "event": "site_discovered", "site": "s0013"}
+{"t": 3.147, "event": "site_discovered", "site": "s0014"}
+{"t": 3.147, "event": "site_discovered", "site": "s0015"}
+{"t": 3.147, "event": "site_discovered", "site": "s0016"}
+{"t": 3.147, "event": "site_discovered", "site": "s0017"}
+{"t": 3.147, "event": "site_discovered", "site": "s0018"}
+{"t": 3.147, "event": "site_discovered", "site": "s0019"}
+{"t": 3.147, "event": "site_discovered", "site": "s0020"}
+{"t": 3.147, "event": "site_discovered", "site": "s0021"}
+{"t": 3.147, "event": "site_discovered", "site": "s0022"}
+{"t": 3.147, "event": "site_discovered", "site": "s0023"}
+{"t": 3.147, "event": "site_discovered", "site": "s0024"}
+{"t": 3.147, "event": "site_discovered", "site": "s0025"}
+{"t": 3.147, "event": "site_discovered", "site": "s0026"}
+{"t": 3.147, "event": "site_discovered", "site": "s0027"}
+{"t": 3.147, "event": "site_discovered", "site": "s0028"}
+{"t": 3.147, "event": "site_discovered", "site": "s0029"}
+{"t": 3.147, "event": "site_discovered", "site": "s0030"}
+{"t": 3.147, "event": "site_discovered", "site": "s0031"}
+{"t": 3.147, "event": "site_discovered", "site": "s0032"}
+{"t": 3.147, "event": "site_discovered", "site": "s0033"}
+{"t": 3.147, "event": "site_discovered", "site": "s0034"}
+{"t": 3.147, "event": "site_discovered", "site": "s0035"}
+{"t": 3.147, "event": "site_discovered", "site": "s0036"}
+{"t": 3.147, "event": "site_discovered", "site": "s0037"}
+{"t": 3.147, "event": "site_discovered", "site": "s0038"}
+{"t": 3.147, "event": "site_discovered", "site": "s0039"}
+{"t": 3.147, "event": "site_discovered", "site": "s0040"}
+{"t": 3.147, "event": "site_discovered", "site": "s0041"}
+{"t": 3.147, "event": "site_discovered", "site": "s0042"}
+{"t": 3.147, "event": "site_discovered", "site": "s0043"}
+{"t": 3.147, "event": "site_discovered", "site": "s0044"}
+{"t": 3.147, "event": "site_discovered", "site": "s0045"}
+{"t": 3.147, "event": "site_discovered", "site": "s0046"}
+{"t": 3.147, "event": "site_discovered", "site": "s0047"}
+{"t": 3.147, "event": "site_discovered", "site": "s0048"}
+{"t": 3.147, "event": "site_discovered", "site": "s0049"}
+{"t": 3.147, "event": "site_discovered", "site": "s0050"}
+{"t": 3.147, "event": "site_discovered", "site": "s0051"}
+{"t": 3.147, "event": "site_discovered", "site": "s0052"}
+{"t": 3.147, "event": "site_discovered", "site": "s0053"}
+{"t": 3.147, "event": "site_discovered", "site": "s0054"}
+{"t": 3.147, "event": "site_discovered", "site": "s0055"}
+{"t": 3.147, "event": "site_discovered", "site": "s0056"}
+{"t": 3.147, "event": "site_discovered", "site": "s0057"}
+{"t": 3.147, "event": "site_discovered", "site": "s0058"}
+{"t": 3.147, "event": "site_discovered", "site": "s0059"}
+{"t": 3.147, "event": "site_discovered", "site": "s0060"}
+{"t": 3.147, "event": "site_discovered", "site": "s0061"}
+{"t": 3.147, "event": "site_discovered", "site": "s0062"}
+{"t": 3.147, "event": "site_discovered", "site": "s0063"}
+{"t": 3.153, "event": "accepted", "sid": "S00001", "service": "IoT-GW", "ingress": "core-1", "site": "s0000", "path": ["s0000<->core-1"], "latency_ms": 5.0}
+{"t": 3.418, "event": "accepted", "sid": "S00002", "service": "IoT-GW", "ingress": "core-1", "site": "s0001", "path": ["s0001<->core-1"], "latency_ms": 5.0}
+{"t": 3.681, "event": "accepted", "sid": "S00003", "service": "IoT-GW", "ingress": "core-1", "site": "s0002", "path": ["s0002<->core-1"], "latency_ms": 5.0}
+{"t": 3.943, "event": "accepted", "sid": "S00004", "service": "IoT-GW", "ingress": "core-1", "site": "s0003", "path": ["s0003<->core-1"], "latency_ms": 5.0}
+{"t": 4.207, "event": "accepted", "sid": "S00005", "service": "IoT-GW", "ingress": "core-1", "site": "s0004", "path": ["s0004<->core-1"], "latency_ms": 5.0}
+{"t": 4.471, "event": "accepted", "sid": "S00006", "service": "IoT-GW", "ingress": "core-1", "site": "s0005", "path": ["s0005<->core-1"], "latency_ms": 5.0}
+{"t": 4.74, "event": "accepted", "sid": "S00007", "service": "IoT-GW", "ingress": "core-1", "site": "s0006", "path": ["s0006<->core-1"], "latency_ms": 5.0}
+{"t": 5.002, "event": "accepted", "sid": "S00008", "service": "IoT-GW", "ingress": "core-1", "site": "s0007", "path": ["s0007<->core-1"], "latency_ms": 5.0}
+{"t": 5.264, "event": "accepted", "sid": "S00009", "service": "IoT-GW", "ingress": "core-1", "site": "s0008", "path": ["s0008<->core-1"], "latency_ms": 5.0}
+{"t": 5.528, "event": "accepted", "sid": "S00010", "service": "IoT-GW", "ingress": "core-1", "site": "s0009", "path": ["s0009<->core-1"], "latency_ms": 5.0}
+{"t": 3.167, "event": "site_discovered", "site": "s0000"}
+{"t": 3.167, "event": "site_discovered", "site": "s0001"}
+{"t": 3.167, "event": "site_discovered", "site": "s0002"}
+{"t": 3.167, "event": "site_discovered", "site": "s0003"}
+{"t": 3.167, "event": "site_discovered", "site": "s0004"}
+{"t": 3.167, "event": "site_discovered", "site": "s0005"}
+{"t": 3.167, "event": "site_discovered", "site": "s0006"}
+{"t": 3.167, "event": "site_discovered", "site": "s0007"}
+{"t": 3.167, "event": "site_discovered", "site": "s0008"}
+{"t": 3.167, "event": "site_discovered", "site": "s0009"}
+{"t": 3.167, "event": "site_discovered", "site": "s0010"}
+{"t": 3.167, "event": "site_discovered", "site": "s0011"}
+{"t": 3.167, "event": "site_discovered", "site": "s0012"}
+{"t": 3.167, "event": "site_discovered", "site": "s0013"}
+{"t": 3.167, "event": "site_discovered", "site": "s0014"}
+{"t": 3.167, "event": "site_discovered", "site": "s0015"}
+{"t": 3.167, "event": "site_discovered", "site": "s0016"}
+{"t": 3.167, "event": "site_discovered", "site": "s0017"}
+{"t": 3.167, "event": "site_discovered", "site": "s0018"}
+{"t": 3.167, "event": "site_discovered", "site": "s0019"}
+{"t": 3.167, "event": "site_discovered", "site": "s0020"}
+{"t": 3.167, "event": "site_discovered", "site": "s0021"}
+{"t": 3.167, "event": "site_discovered", "site": "s0022"}
+{"t": 3.167, "event": "site_discovered", "site": "s0023"}
+{"t": 3.167, "event": "site_discovered", "site": "s0024"}
+{"t": 3.167, "event": "site_discovered", "site": "s0025"}
+{"t": 3.167, "event": "site_discovered", "site": "s0026"}
+{"t": 3.167, "event": "site_discovered", "site": "s0027"}
+{"t": 3.167, "event": "site_discovered", "site": "s0028"}
+{"t": 3.167, "event": "site_discovered", "site": "s0029"}
+{"t": 3.168, "event": "site_discovered", "site": "s0030"}
+{"t": 3.168, "event": "site_discovered", "site": "s0031"}
+{"t": 3.168, "event": "site_discovered", "site": "s0032"}
+{"t": 3.168, "event": "site_discovered", "site": "s0033"}
+{"t": 3.168, "event": "site_discovered", "site": "s0034"}
+{"t": 3.168, "event": "site_discovered", "site": "s0035"}
+{"t": 3.168, "event": "site_discovered", "site": "s0036"}
+{"t": 3.168, "event": "site_discovered", "site": "s0037"}
+{"t": 3.168, "event": "site_discovered", "site": "s0038"}
+{"t": 3.168, "event": "site_discovered", "site": "s0039"}
+{"t": 3.168, "event": "site_discovered", "site": "s0040"}
+{"t": 3.168, "event": "site_discovered", "site": "s0041"}
+{"t": 3.168, "event": "site_discovered", "site": "s0042"}
+{"t": 3.168, "event": "site_discovered", "site": "s0043"}
+{"t": 3.168, "event": "site_discovered", "site": "s0044"}
+{"t": 3.168, "event": "site_discovered", "site": "s0045"}
+{"t": 3.168, "event": "site_discovered", "site": "s0046"}
+{"t": 3.168, "event": "site_discovered", "site": "s0047"}
+{"t": 3.168, "event": "site_discovered", "site": "s0048"}
+{"t": 3.168, "event": "site_discovered", "site": "s0049"}
+{"t": 3.168, "event": "site_discovered", "site": "s0050"}
+{"t": 3.168, "event": "site_discovered", "site": "s0051"}
+{"t": 3.168, "event": "site_discovered", "site": "s0052"}
+{"t": 3.168, "event": "site_discovered", "site": "s0053"}
+{"t": 3.168, "event": "site_discovered", "site": "s0054"}
+{"t": 3.168, "event": "site_discovered", "site": "s0055"}
+{"t": 3.168, "event": "site_discovered", "site": "s0056"}
+{"t": 3.168, "event": "site_discovered", "site": "s0057"}
+{"t": 3.168, "event": "site_discovered", "site": "s0058"}
+{"t": 3.168, "event": "site_discovered", "site": "s0059"}
+{"t": 3.168, "event": "site_discovered", "site": "s0060"}
+{"t": 3.168, "event": "site_discovered", "site": "s0061"}
+{"t": 3.168, "event": "site_discovered", "site": "s0062"}
+{"t": 3.168, "event": "site_discovered", "site": "s0063"}
+{"t": 3.177, "event": "accepted", "sid": "S00001", "service": "IoT-GW", "ingress": "core-1", "site": "s0000", "path": ["s0000<->core-1"], "latency_ms": 5.0}
+{"t": 3.443, "event": "accepted", "sid": "S00002", "service": "IoT-GW", "ingress": "core-1", "site": "s0001", "path": ["s0001<->core-1"], "latency_ms": 5.0}
+{"t": 3.706, "event": "accepted", "sid": "S00003", "service": "IoT-GW", "ingress": "core-1", "site": "s0002", "path": ["s0002<->core-1"], "latency_ms": 5.0}
+{"t": 3.971, "event": "accepted", "sid": "S00004", "service": "IoT-GW", "ingress": "core-1", "site": "s0003", "path": ["s0003<->core-1"], "latency_ms": 5.0}
+{"t": 4.236, "event": "accepted", "sid": "S00005", "service": "IoT-GW", "ingress": "core-1", "site": "s0004", "path": ["s0004<->core-1"], "latency_ms": 5.0}
+{"t": 4.501, "event": "accepted", "sid": "S00006", "service": "IoT-GW", "ingress": "core-1", "site": "s0005", "path": ["s0005<->core-1"], "latency_ms": 5.0}
+{"t": 4.765, "event": "accepted", "sid": "S00007", "service": "IoT-GW", "ingress": "core-1", "site": "s0006", "path": ["s0006<->core-1"], "latency_ms": 5.0}
+{"t": 5.028, "event": "accepted", "sid": "S00008", "service": "IoT-GW", "ingress": "core-1", "site": "s0007", "path": ["s0007<->core-1"], "latency_ms": 5.0}
+{"t": 5.296, "event": "accepted", "sid": "S00009", "service": "IoT-GW", "ingress": "core-1", "site": "s0008", "path": ["s0008<->core-1"], "latency_ms": 5.0}
+{"t": 5.57, "event": "accepted", "sid": "S00010", "service": "IoT-GW", "ingress": "core-1", "site": "s0009", "path": ["s0009<->core-1"], "latency_ms": 5.0}
+{"t": 3.152, "event": "site_discovered", "site": "s0000"}
+{"t": 3.152, "event": "site_discovered", "site": "s0001"}
+{"t": 3.152, "event": "site_discovered", "site": "s0002"}
+{"t": 3.152, "event": "site_discovered", "site": "s0003"}
+{"t": 3.152, "event": "site_discovered", "site": "s0004"}
+{"t": 3.152, "event": "site_discovered", "site": "s0005"}
+{"t": 3.152, "event": "site_discovered", "site": "s0006"}
+{"t": 3.152, "event": "site_discovered", "site": "s0007"}
+{"t": 3.152, "event": "site_discovered", "site": "s0008"}
+{"t": 3.152, "event": "site_discovered", "site": "s0009"}
+{"t": 3.152, "event": "site_discovered", "site": "s0010"}
+{"t": 3.152, "event": "site_discovered", "site": "s0011"}
+{"t": 3.152, "event": "site_discovered", "site": "s0012"}
+{"t": 3.152, "event": "site_discovered", "site": "s0013"}
+{"t": 3.152, "event": "site_discovered", "site": "s0014"}
+{"t": 3.152, "event": "site_discovered", "site": "s0015"}
+{"t": 3.152, "event": "site_discovered", "site": "s0016"}
+{"t": 3.152, "event": "site_discovered", "site": "s0017"}
+{"t": 3.152, "event": "site_discovered", "site": "s0018"}
+{"t": 3.152, "event": "site_discovered", "site": "s0019"}
+{"t": 3.152, "event": "site_discovered", "site": "s0020"}
+{"t": 3.152, "event": "site_discovered", "site": "s0021"}
+{"t": 3.152, "event": "site_discovered", "site": "s0022"}
+{"t": 3.152, "event": "site_discovered", "site": "s0023"}
+{"t": 3.152, "event": "site_discovered", "site": "s0024"}
+{"t": 3.152, "event": "site_discovered", "site": "s0025"}
+{"t": 3.152, "event": "site_discovered", "site": "s0026"}
+{"t": 3.152, "event": "site_discovered", "site": "s0027"}
+{"t": 3.152, "event": "site_discovered", "site": "s0028"}
+{"t": 3.152, "event": "site_discovered", "site": "s0029"}
+{"t": 3.152, "event": "site_discovered", "site": "s0030"}
+{"t": 3.152, "event": "site_discovered", "site": "s0031"}
+{"t": 3.152, "event": "site_discovered", "site": "s0032"}
+{"t": 3.152, "event": "site_discovered", "site": "s0033"}
+{"t": 3.152, "event": "site_discovered", "site": "s0034"}
+{"t": 3.152, "event": "site_discovered", "site": "s0035"}
+{"t": 3.152, "event": "site_discovered", "site": "s0036"}
+{"t": 3.153, "event": "site_discovered", "site": "s0037"}
+{"t": 3.153, "event": "site_discovered", "site": "s0038"}
+{"t": 3.153, "event": "site_discovered", "site": "s0039"}
+{"t": 3.153, "event": "site_discovered", "site": "s0040"}
+{"t": 3.153, "event": "site_discovered", "site": "s0041"}
+{"t": 3.153, "event": "site_discovered", "site": "s0042"}
+{"t": 3.153, "event": "site_discovered", "site": "s0043"}
+{"t": 3.153, "event": "site_discovered", "site": "s0044"}
+{"t": 3.153, "event": "site_discovered", "site": "s0045"}
+{"t": 3.153, "event": "site_discovered", "site": "s0046"}
+{"t": 3.153, "event": "site_discovered", "site": "s0047"}
+{"t": 3.153, "event": "site_discovered", "site": "s0048"}
+{"t": 3.153, "event": "site_discovered", "site": "s0049"}
+{"t": 3.153, "event": "site_discovered", "site": "s0050"}
+{"t": 3.153, "event": "site_discovered", "site": "s0051"}
+{"t": 3.153, "event": "site_discovered", "site": "s0052"}
+{"t": 3.153, "event": "site_discovered", "site": "s0053"}
+{"t": 3.153, "event": "site_discovered", "site": "s0054"}
+{"t": 3.153, "event": "site_discovered", "site": "s0055"}
+{"t": 3.153, "event": "site_discovered", "site": "s0056"}
+{"t": 3.153, "event": "site_discovered", "site": "s0057"}
+{"t": 3.153, "event": "site_discovered", "site": "s0058"}
+{"t": 3.153, "event": "site_discovered", "site": "s0059"}
+{"t": 3.153, "event": "site_discovered", "site": "s0060"}
+{"t": 3.153, "event": "site_discovered", "site": "s0061"}
+{"t": 3.153, "event": "site_discovered", "site": "s0062"}
+{"t": 3.153, "event": "site_discovered", "site": "s0063"}
+{"t": 3.158, "event": "accepted", "sid": "S00001", "service": "IoT-GW", "ingress": "core-1", "site": "s0000", "path": ["s0000<->core-1"], "latency_ms": 5.0}
+{"t": 3.422, "event": "accepted", "sid": "S00002", "service": "IoT-GW", "ingress": "core-1", "site": "s0001", "path": ["s0001<->core-1"], "latency_ms": 5.0}
+{"t": 3.686, "event": "accepted", "sid": "S00003", "service": "IoT-GW", "ingress": "core-1", "site": "s0002", "path": ["s0002<->core-1"], "latency_ms": 5.0}
+{"t": 3.952, "event": "accepted", "sid": "S00004", "service": "IoT-GW", "ingress": "core-1", "site": "s0003", "path": ["s0003<->core-1"], "latency_ms": 5.0}
+{"t": 4.215, "event": "accepted", "sid": "S00005", "service": "IoT-GW", "ingress": "core-1", "site": "s0004", "path": ["s0004<->core-1"], "latency_ms": 5.0}
+{"t": 4.476, "event": "accepted", "sid": "S00006", "service": "IoT-GW", "ingress": "core-1", "site": "s0005", "path": ["s0005<->core-1"], "latency_ms": 5.0}
+{"t": 4.738, "event": "accepted", "sid": "S00007", "service": "IoT-GW", "ingress": "core-1", "site": "s0006", "path": ["s0006<->core-1"], "latency_ms": 5.0}
+{"t": 5.003, "event": "accepted", "sid": "S00008", "service": "IoT-GW", "ingress": "core-1", "site": "s0007", "path": ["s0007<->core-1"], "latency_ms": 5.0}
+{"t": 5.265, "event": "accepted", "sid": "S00009", "service": "IoT-GW", "ingress": "core-1", "site": "s0008", "path": ["s0008<->core-1"], "latency_ms": 5.0}
+{"t": 5.525, "event": "accepted", "sid": "S00010", "service": "IoT-GW", "ingress": "core-1", "site": "s0009", "path": ["s0009<->core-1"], "latency_ms": 5.0}

@@ -1,0 +1,55 @@
+All 4 sites registered. Replaying 52 requests over 30 s (placement=edge_first).
+
+  t+   7s  requests=12  accepted=12  blocked=0   [edge-A:cpu 62%  core-1:cpu 0%  edge-B:cpu 81%  cloud-1:cpu 0%]
+  t+  13s  requests=21  accepted=20  blocked=1   [edge-A:cpu 62%  core-1:cpu 29%  edge-B:cpu 88%  cloud-1:cpu 0%]
+  t+  18s  requests=35  accepted=30  blocked=5   [edge-A:cpu 88%  core-1:cpu 38%  edge-B:cpu 69%  cloud-1:cpu 0%]
+  t+  24s  requests=42  accepted=36  blocked=6   [edge-A:cpu 88%  core-1:cpu 21%  edge-B:cpu 94%  cloud-1:cpu 0%]
+  t+  30s  requests=51  accepted=43  blocked=8   [edge-A:cpu 100%  core-1:cpu 21%  edge-B:cpu 94%  cloud-1:cpu 0%]
+
+=== ADMISSION ===
+requests=52 accepted=43 blocked=9 blocking probability=17.3%  resizes: 5 ok / 8 rejected
+admission decision time mean=0.099 ms   end-to-end request time mean=10.2 ms
+
+=== PER SERVICE ===
+service     offered accepted blocked P_block  placed on / block reasons
+IMS-CSCF          9        9       0    0.0%  {'edge-B': 1, 'edge-A': 6, 'core-1': 2}  
+IoT-GW            9        9       0    0.0%  {'edge-B': 7, 'edge-A': 2}  
+Transcoder        7        6       1   14.3%  {'core-1': 6}  {'link_bw': 1}
+UPF              11       11       0    0.0%  {'edge-B': 5, 'edge-A': 4, 'core-1': 2}  
+vRAN-DU          16        8       8   50.0%  {'edge-B': 6, 'edge-A': 2}  {'latency': 8}
+
+=== SITE RESERVATION UTILISATION (1 s samples during run) ===
+site     cpu mean cpu peak mem mean  bw mean slot util fairness   jobs  workers
+edge-A      75.8%   100.0%    33.6%    37.7%     89.6%   0.9855    751  [6980, 6981]
+core-1      21.6%    58.3%     8.2%     3.2%     62.2%   0.8501    928  [6984, 6985, 6986, 6987]
+edge-B      80.7%    93.8%    37.0%    51.3%     92.2%   0.9839    864  [6988, 6989]
+cloud-1      0.0%     0.0%     0.0%     0.0%      0.0%        -      0  []
+
+=== LINK UTILISATION ===
+edge-A<->core-1    1000 Mb/s    5 ms   mean 22.7%  peak 85.0%
+edge-B<->core-1    1000 Mb/s    6 ms   mean 9.1%  peak 40.0%
+edge-A<->edge-B     400 Mb/s    3 ms   mean 71.9%  peak 100.0%
+core-1<->cloud-1  10000 Mb/s   20 ms   mean 0.0%  peak 0.0%
+
+=== ALLOCATION ENFORCEMENT (instances that ran >= 3 s) ===
+sid     service     site       cpu  jobs/s jobs/s per core
+S00013  Transcoder  core-1    2000   18.72            9.36
+S00027  Transcoder  core-1    2000   22.21           11.11
+S00021  UPF         core-1    1500    9.59            6.39
+S00020  IMS-CSCF    core-1     500    5.04           10.08
+S00041  IMS-CSCF    core-1     500   10.23           20.46
+S00004  vRAN-DU     edge-A    1500   19.14           12.76
+S00040  vRAN-DU     edge-A    1500    9.96            6.64
+S00011  UPF         edge-A    1000    7.72            7.72
+S00014  UPF         edge-A    1000    6.35            6.35
+S00018  IMS-CSCF    edge-A    1000    3.35            3.35
+S00024  UPF         edge-A    1000    5.64            5.64
+S00029  UPF         edge-A    1000    6.70            6.70
+S00038  IMS-CSCF    edge-A     500    3.49            6.98
+S00043  IMS-CSCF    edge-A     500    3.34            6.68
+S00044  IMS-CSCF    edge-A     500    3.23            6.46
+... 13 more in summary.json
+
+manager messages: sent=287 recv=288 bytes_recv=83749
+
+Results saved to results/M3-blocking/edge_first_seed42

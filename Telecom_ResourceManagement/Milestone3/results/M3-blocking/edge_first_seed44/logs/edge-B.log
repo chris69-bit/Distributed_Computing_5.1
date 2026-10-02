@@ -1,0 +1,17 @@
+2026-10-02 11:47:19,413 [edge-B] site: site pid 7145, worker pids [7152, 7153]
+2026-10-02 11:47:20,479 [edge-B] site: instance S00002 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:47:20,742 [edge-B] site: instance S00003 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:47:21,101 [edge-B] site: instance S00005 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:47:22,760 [edge-B] site: instance S00008 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:47:24,917 [edge-B] site: instance S00012 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:47:26,610 [edge-B] site: instance S00015 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:47:27,494 [edge-B] site: instance S00018 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:47:31,210 [edge-B] site: instance S00025 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:47:32,438 [edge-B] site: instance S00026 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:47:33,437 [edge-B] site: instance S00031 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:47:34,070 [edge-B] site: instance S00036 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:47:44,322 [edge-B] site: instance S00058 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:47:48,157 [edge-B] site: instance S00063 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:47:48,353 [edge-B] site: instance S00064 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:47:48,379 [edge-B] site: instance S00065 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:47:48,747 [edge-B] site: instance S00066 (IoT-GW) running, cpu=250, backlogged

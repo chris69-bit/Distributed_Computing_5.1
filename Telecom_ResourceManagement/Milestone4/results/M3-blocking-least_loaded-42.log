@@ -1,0 +1,55 @@
+All 4 sites registered. Replaying 52 requests over 30 s (placement=least_loaded).
+
+  t+   7s  requests=12  accepted=12  blocked=0   [edge-A:cpu 38%  edge-B:cpu 50%  core-1:cpu 17%  cloud-1:cpu 1%]
+  t+  13s  requests=21  accepted=21  blocked=0   [edge-A:cpu 25%  edge-B:cpu 88%  core-1:cpu 33%  cloud-1:cpu 15%]
+  t+  18s  requests=35  accepted=32  blocked=3   [edge-A:cpu 88%  edge-B:cpu 38%  core-1:cpu 25%  cloud-1:cpu 22%]
+  t+  24s  requests=42  accepted=38  blocked=4   [edge-A:cpu 62%  edge-B:cpu 100%  core-1:cpu 17%  cloud-1:cpu 16%]
+  t+  30s  requests=51  accepted=46  blocked=5   [edge-A:cpu 38%  edge-B:cpu 88%  core-1:cpu 21%  cloud-1:cpu 20%]
+
+=== ADMISSION ===
+requests=52 accepted=47 blocked=5 blocking probability=9.6%  resizes: 7 ok / 6 rejected
+admission decision time mean=0.092 ms   end-to-end request time mean=13.8 ms
+
+=== PER SERVICE ===
+service     offered accepted blocked P_block  placed on / block reasons
+IMS-CSCF          9        9       0    0.0%  {'cloud-1': 9}  
+IoT-GW            9        9       0    0.0%  {'cloud-1': 6, 'core-1': 3}  
+Transcoder        7        6       1   14.3%  {'cloud-1': 6}  {'link_bw': 1}
+UPF              11       11       0    0.0%  {'core-1': 3, 'edge-B': 4, 'edge-A': 4}  
+vRAN-DU          16       12       4   25.0%  {'edge-B': 7, 'edge-A': 5}  {'latency': 4}
+
+=== SITE RESERVATION UTILISATION (1 s samples during run) ===
+site     cpu mean cpu peak mem mean  bw mean slot util fairness   jobs  workers
+edge-A      47.7%   100.0%    18.8%    25.9%     85.3%   0.9946    469  [7008, 7009]
+edge-B      71.5%   100.0%    27.3%    37.8%     91.4%   0.9943    587  [7012, 7013]
+core-1      21.0%    33.3%     5.6%     6.9%     64.7%    0.919    695  [7016, 7017, 7018, 7019]
+cloud-1     15.1%    31.2%     5.5%     0.9%     78.7%   0.9301    836  [7022, 7023, 7024, 7025]
+
+=== LINK UTILISATION ===
+edge-A<->core-1    1000 Mb/s    5 ms   mean 44.7%  peak 95.0%
+edge-B<->core-1    1000 Mb/s    6 ms   mean 59.2%  peak 89.0%
+edge-A<->edge-B     400 Mb/s    3 ms   mean 56.2%  peak 100.0%
+core-1<->cloud-1  10000 Mb/s   20 ms   mean 3.5%  peak 5.9%
+
+=== ALLOCATION ENFORCEMENT (instances that ran >= 3 s) ===
+sid     service     site       cpu  jobs/s jobs/s per core
+S00013  Transcoder  cloud-1   2000   12.68            6.34
+S00027  Transcoder  cloud-1   2000   13.13            6.57
+S00017  IMS-CSCF    cloud-1    500    3.31            6.62
+S00018  IMS-CSCF    cloud-1    500    3.35            6.70
+S00020  IMS-CSCF    cloud-1    500    3.07            6.14
+S00038  IMS-CSCF    cloud-1    500    3.47            6.94
+S00041  IMS-CSCF    cloud-1    500    3.25            6.50
+S00043  IMS-CSCF    cloud-1    500    3.19            6.38
+S00044  IMS-CSCF    cloud-1    500    3.20            6.40
+S00046  IMS-CSCF    cloud-1    500    2.99            5.98
+S00022  IoT-GW      cloud-1    375    2.37            6.32
+S00008  IoT-GW      cloud-1    250    7.98           31.92
+S00009  UPF         core-1    2000   13.52            6.76
+S00006  UPF         core-1    1000    8.87            8.87
+S00014  UPF         core-1    1000    7.49            7.49
+... 14 more in summary.json
+
+manager messages: sent=297 recv=298 bytes_recv=86928
+
+Results saved to results/M3-blocking/least_loaded_seed42

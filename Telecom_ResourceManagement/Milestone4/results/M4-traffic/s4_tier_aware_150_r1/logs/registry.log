@@ -1,0 +1,12 @@
+2026-10-02 13:19:06,877 [registry] registry: registry pid 12553 on 127.0.0.1:8010
+2026-10-02 13:19:07,781 [registry] registry: service telemetry registered at 127.0.0.1:8020
+2026-10-02 13:19:07,805 [registry] registry: gateway gw-A registered at 127.0.0.1:8201
+2026-10-02 13:19:07,821 [registry] registry: gateway gw-B registered at 127.0.0.1:8202
+2026-10-02 13:19:07,891 [registry] registry: service orch-o1 registered at 127.0.0.1:8000
+2026-10-02 13:19:07,904 [registry] registry: service orch-o3 registered at 127.0.0.1:8002
+2026-10-02 13:19:07,904 [registry] registry: service orch-o2 registered at 127.0.0.1:8001
+2026-10-02 13:19:08,310 [registry] registry: service orchestrator registered at 127.0.0.1:8001
+2026-10-02 13:19:08,355 [registry] registry: site edge-A registered at 127.0.0.1:8101
+2026-10-02 13:19:08,419 [registry] registry: site edge-B registered at 127.0.0.1:8102
+2026-10-02 13:19:08,428 [registry] registry: site core-1 registered at 127.0.0.1:8103
+2026-10-02 13:19:08,459 [registry] registry: site cloud-1 registered at 127.0.0.1:8104

@@ -1,0 +1,3 @@
+{"t": 0.374, "event": "site_discovered", "site": "core-1"}
+{"t": 0.377, "event": "accepted", "sid": "S00001", "service": "Transcoder", "ingress": "edge-A", "site": "core-1", "path": ["edge-A<->core-1"], "latency_ms": 5.0}
+{"t": 0.391, "event": "accepted", "sid": "S00002", "service": "Transcoder", "ingress": "edge-B", "site": "core-1", "path": ["edge-B<->core-1"], "latency_ms": 6.0}

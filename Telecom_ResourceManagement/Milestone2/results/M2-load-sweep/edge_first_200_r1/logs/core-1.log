@@ -1,0 +1,3 @@
+2026-10-02 10:42:14,604 [core-1] site: site pid 554, worker pids [559, 560, 561, 562]
+2026-10-02 10:42:14,778 [core-1] site: instance S00007 (Transcoder) running, cpu=2000, traffic-driven
+2026-10-02 10:42:14,780 [core-1] site: instance S00008 (Transcoder) running, cpu=2000, traffic-driven

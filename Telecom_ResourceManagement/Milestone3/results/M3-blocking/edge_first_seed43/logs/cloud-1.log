@@ -1,0 +1,2 @@
+2026-10-02 11:45:38,298 [cloud-1] site: site pid 7063, worker pids [7069, 7071, 7072, 7077]
+2026-10-02 11:45:55,370 [cloud-1] site: instance S00040 (Transcoder) running, cpu=2000, backlogged

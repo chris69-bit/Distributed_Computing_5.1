@@ -1,0 +1,314 @@
+== E1: S2 monolith vs S3 microservices (local processes)
+[s2  least_loaded 200/s r1] thr 199.0  lat 27.5 ms (p95 63.27)  loss 0.0%  admit 2.58 ms  [23s]
+[s2  least_loaded 400/s r1] thr 411.3  lat 33.17 ms (p95 75.38)  loss 0.0%  admit 2.23 ms  [23s]
+[s2  least_loaded 200/s r2] thr 194.5  lat 26.86 ms (p95 62.58)  loss 0.0%  admit 2.06 ms  [23s]
+[s2  least_loaded 400/s r2] thr 397.3  lat 40.98 ms (p95 108.96)  loss 0.0%  admit 2.13 ms  [23s]
+[s2  least_loaded 200/s r3] thr 194.9  lat 27.97 ms (p95 63.33)  loss 0.0%  admit 2.44 ms  [23s]
+[s2  least_loaded 400/s r3] thr 401.1  lat 33.23 ms (p95 75.33)  loss 0.0%  admit 2.47 ms  [23s]
+[s3  least_loaded 200/s r1] thr 198.7  lat 28.07 ms (p95 63.75)  loss 0.0%  admit 5.23 ms  [23s]
+[s3  least_loaded 400/s r1] thr 409.5  lat 42.72 ms (p95 104.06)  loss 0.0%  admit 7.28 ms  [24s]
+[s3  least_loaded 200/s r2] thr 194.5  lat 28.71 ms (p95 64.71)  loss 0.0%  admit 6.95 ms  [23s]
+[s3  least_loaded 400/s r2] thr 397.5  lat 39.67 ms (p95 90.75)  loss 0.0%  admit 10.42 ms  [24s]
+[s3  least_loaded 200/s r3] thr 194.9  lat 29.19 ms (p95 64.71)  loss 0.0%  admit 8.36 ms  [24s]
+[s3  least_loaded 400/s r3] thr 401.9  lat 41.27 ms (p95 99.41)  loss 0.0%  admit 8.57 ms  [24s]
+== E2a: blocking with the cloud tier, three placement policies, three seeds
+== E3b: control-plane scalability (registry + orchestrator vs number of sites)
+[per_site N=4 r1] hb/s 4.0  registry CPU 1.5%  hb p95 1.659 ms  admission 4.853 ms (registry 1.319, decision 1.437)  LIST_SITES 0.6 KB
+[per_site N=16 r1] hb/s 16.0  registry CPU 2.7%  hb p95 3.054 ms  admission 6.067 ms (registry 1.515, decision 1.969)  LIST_SITES 2.4 KB
+[per_site N=64 r1] hb/s 63.8  registry CPU 6.3%  hb p95 2.059 ms  admission 11.328 ms (registry 2.036, decision 7.205)  LIST_SITES 9.7 KB
+[per_site N=256 r1] hb/s 256.3  registry CPU 15.6%  hb p95 4.415 ms  admission 87.171 ms (registry 5.077, decision 81.416)  LIST_SITES 38.5 KB
+[per_site N=1024 r1] hb/s 1023.5  registry CPU 31.3%  hb p95 10.282 ms  admission 1249.604 ms (registry 15.814, decision 1242.968)  LIST_SITES 154.1 KB
+[single N=4 r1] hb/s 4.2  registry CPU 1.5%  hb p95 2.936 ms  admission 5.045 ms (registry 1.488, decision 1.581)  LIST_SITES 0.6 KB
+[single N=16 r1] hb/s 16.0  registry CPU 2.6%  hb p95 2.118 ms  admission 4.998 ms (registry 1.356, decision 1.593)  LIST_SITES 2.4 KB
+[single N=64 r1] hb/s 64.2  registry CPU 5.8%  hb p95 1.974 ms  admission 6.752 ms (registry 1.897, decision 2.543)  LIST_SITES 9.6 KB
+[single N=256 r1] hb/s 255.4  registry CPU 16.4%  hb p95 3.793 ms  admission 11.887 ms (registry 4.329, decision 7.05)  LIST_SITES 38.5 KB
+[single N=1024 r1] hb/s 1021.5  registry CPU 39.8%  hb p95 8.837 ms  admission 37.696 ms (registry 17.287, decision 28.461)  LIST_SITES 154.1 KB
+[per_site N=4 r2] hb/s 4.0  registry CPU 1.5%  hb p95 2.607 ms  admission 5.482 ms (registry 1.425, decision 1.551)  LIST_SITES 0.6 KB
+[per_site N=16 r2] hb/s 16.0  registry CPU 2.7%  hb p95 2.439 ms  admission 6.187 ms (registry 1.503, decision 2.026)  LIST_SITES 2.4 KB
+[per_site N=64 r2] hb/s 63.8  registry CPU 6.4%  hb p95 2.324 ms  admission 13.846 ms (registry 2.093, decision 8.095)  LIST_SITES 9.7 KB
+[per_site N=256 r2] hb/s 254.7  registry CPU 14.9%  hb p95 2.695 ms  admission 81.995 ms (registry 4.235, decision 77.697)  LIST_SITES 38.5 KB
+[per_site N=1024 r2] hb/s 1022.2  registry CPU 32.7%  hb p95 12.422 ms  admission 1280.633 ms (registry 14.031, decision 1274.581)  LIST_SITES 154.1 KB
+[single N=4 r2] hb/s 3.9  registry CPU 1.5%  hb p95 1.661 ms  admission 4.428 ms (registry 1.166, decision 1.267)  LIST_SITES 0.6 KB
+[single N=16 r2] hb/s 16.0  registry CPU 2.3%  hb p95 2.179 ms  admission 6.141 ms (registry 2.044, decision 2.249)  LIST_SITES 2.4 KB
+[single N=64 r2] hb/s 63.4  registry CPU 6.0%  hb p95 2.073 ms  admission 5.794 ms (registry 1.822, decision 2.414)  LIST_SITES 9.7 KB
+[single N=256 r2] hb/s 256.2  registry CPU 15.0%  hb p95 2.679 ms  admission 9.903 ms (registry 3.872, decision 6.306)  LIST_SITES 38.5 KB
+[single N=1024 r2] hb/s 1024.1  registry CPU 37.8%  hb p95 5.309 ms  admission 28.358 ms (registry 13.104, decision 22.812)  LIST_SITES 154.1 KB
+[per_site N=4 r3] hb/s 3.9  registry CPU 1.5%  hb p95 1.908 ms  admission 4.551 ms (registry 1.18, decision 1.303)  LIST_SITES 0.6 KB
+[per_site N=16 r3] hb/s 16.0  registry CPU 2.3%  hb p95 2.282 ms  admission 5.336 ms (registry 1.428, decision 1.876)  LIST_SITES 2.4 KB
+[per_site N=64 r3] hb/s 64.5  registry CPU 5.6%  hb p95 2.867 ms  admission 10.27 ms (registry 1.665, decision 6.311)  LIST_SITES 9.7 KB
+[per_site N=256 r3] hb/s 254.6  registry CPU 14.7%  hb p95 3.262 ms  admission 83.385 ms (registry 4.157, decision 79.404)  LIST_SITES 38.5 KB
+[per_site N=1024 r3] hb/s 1022.8  registry CPU 32.1%  hb p95 11.864 ms  admission 1269.639 ms (registry 17.566, decision 1261.224)  LIST_SITES 154.1 KB
+[single N=4 r3] hb/s 4.4  registry CPU 1.3%  hb p95 1.779 ms  admission 5.418 ms (registry 1.317, decision 1.468)  LIST_SITES 0.6 KB
+[single N=16 r3] hb/s 16.2  registry CPU 2.6%  hb p95 2.551 ms  admission 4.977 ms (registry 1.303, decision 1.538)  LIST_SITES 2.4 KB
+[single N=64 r3] hb/s 63.9  registry CPU 5.8%  hb p95 2.289 ms  admission 5.375 ms (registry 1.758, decision 2.317)  LIST_SITES 9.6 KB
+[single N=256 r3] hb/s 256.3  registry CPU 15.3%  hb p95 3.186 ms  admission 11.105 ms (registry 3.664, decision 6.024)  LIST_SITES 38.5 KB
+[single N=1024 r3] hb/s 1023.2  registry CPU 38.7%  hb p95 8.184 ms  admission 33.682 ms (registry 15.263, decision 26.947)  LIST_SITES 154.1 KB
+== E2b: edge vs core vs cloud traffic (Docker, CPU quotas, emulated link delay)
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-4793800765d1 Creating 
+ Container telerm-loadgen-run-4793800765d1 Created 
+[s3  edge_first 50/s r1] thr 48.9  lat 7.13 ms (p95 23.12)  loss 0.0%  admit 16.66 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-2c9c6929ce30 Creating 
+ Container telerm-loadgen-run-2c9c6929ce30 Created 
+[s3  edge_first 100/s r1] thr 100.2  lat 7.4 ms (p95 24.13)  loss 0.0%  admit 21.62 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-5b169b4b8f69 Creating 
+ Container telerm-loadgen-run-5b169b4b8f69 Created 
+[s3  edge_first 150/s r1] thr 151.7  lat 14.33 ms (p95 48.67)  loss 0.0%  admit 18.08 ms  [19s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-227628e3b1d2 Creating 
+ Container telerm-loadgen-run-227628e3b1d2 Created 
+[s3  edge_first 200/s r1] thr 198.5  lat 29.43 ms (p95 95.1)  loss 0.0%  admit 16.1 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-e523722cadbe Creating 
+ Container telerm-loadgen-run-e523722cadbe Created 
+[s3  edge_first 250/s r1] thr 228.9  lat 228.09 ms (p95 954.66)  loss 8.2%  admit 20.17 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-8fbe53781704 Creating 
+ Container telerm-loadgen-run-8fbe53781704 Created 
+[s3  edge_first 300/s r1] thr 246.1  lat 329.42 ms (p95 993.32)  loss 14.05%  admit 16.02 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-d18e5e61c85b Creating 
+ Container telerm-loadgen-run-d18e5e61c85b Created 
+[s3  least_loaded 50/s r1] thr 48.8  lat 28.88 ms (p95 64.25)  loss 0.0%  admit 23.94 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-20bb540624fe Creating 
+ Container telerm-loadgen-run-20bb540624fe Created 
+[s3  least_loaded 100/s r1] thr 100.3  lat 27.23 ms (p95 63.23)  loss 0.0%  admit 17.35 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-767a0ecc2344 Creating 
+ Container telerm-loadgen-run-767a0ecc2344 Created 
+[s3  least_loaded 150/s r1] thr 151.4  lat 30.53 ms (p95 68.21)  loss 0.0%  admit 15.84 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-66b26d9631dc Creating 
+ Container telerm-loadgen-run-66b26d9631dc Created 
+[s3  least_loaded 200/s r1] thr 199.2  lat 30.4 ms (p95 67.95)  loss 0.0%  admit 31.8 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-6435cad5572e Creating 
+ Container telerm-loadgen-run-6435cad5572e Created 
+[s3  least_loaded 250/s r1] thr 248.0  lat 32.82 ms (p95 72.88)  loss 0.0%  admit 19.37 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-e0687ce09b17 Creating 
+ Container telerm-loadgen-run-e0687ce09b17 Created 
+[s3  least_loaded 300/s r1] thr 291.7  lat 34.88 ms (p95 74.62)  loss 0.0%  admit 18.2 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-819554a156de Creating 
+ Container telerm-loadgen-run-819554a156de Created 
+[s3  tier_aware 50/s r1] thr 48.8  lat 37.89 ms (p95 63.32)  loss 0.0%  admit 20.97 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-e34c36ed5630 Creating 
+ Container telerm-loadgen-run-e34c36ed5630 Created 
+[s3  tier_aware 100/s r1] thr 100.3  lat 37.89 ms (p95 66.42)  loss 0.0%  admit 15.48 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-189a1b177ba0 Creating 
+ Container telerm-loadgen-run-189a1b177ba0 Created 
+[s3  tier_aware 150/s r1] thr 151.2  lat 38.21 ms (p95 65.21)  loss 0.0%  admit 16.57 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-40e87575feb0 Creating 
+ Container telerm-loadgen-run-40e87575feb0 Created 
+[s3  tier_aware 200/s r1] thr 199.3  lat 40.08 ms (p95 71.21)  loss 0.0%  admit 10.1 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-cba9a4a676c2 Creating 
+ Container telerm-loadgen-run-cba9a4a676c2 Created 
+[s3  tier_aware 250/s r1] thr 248.2  lat 40.32 ms (p95 71.93)  loss 0.0%  admit 19.27 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-e56f45451d95 Creating 
+ Container telerm-loadgen-run-e56f45451d95 Created 
+[s3  tier_aware 300/s r1] thr 291.8  lat 41.95 ms (p95 74.25)  loss 0.0%  admit 16.47 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-8396a3ae2e83 Creating 
+ Container telerm-loadgen-run-8396a3ae2e83 Created 
+[s3  edge_first 50/s r2] thr 50.5  lat 6.86 ms (p95 22.54)  loss 0.0%  admit 15.14 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-de077734eb8a Creating 
+ Container telerm-loadgen-run-de077734eb8a Created 
+[s3  edge_first 100/s r2] thr 99.8  lat 7.64 ms (p95 24.77)  loss 0.0%  admit 15.8 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-5ed9e67640cb Creating 
+ Container telerm-loadgen-run-5ed9e67640cb Created 
+[s3  edge_first 150/s r2] thr 155.8  lat 9.19 ms (p95 28.72)  loss 0.0%  admit 23.26 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-8cc05c7b44fe Creating 
+ Container telerm-loadgen-run-8cc05c7b44fe Created 
+[s3  edge_first 200/s r2] thr 192.3  lat 31.48 ms (p95 118.76)  loss 0.0%  admit 12.99 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-4eebbe792867 Creating 
+ Container telerm-loadgen-run-4eebbe792867 Created 
+[s3  edge_first 250/s r2] thr 247.1  lat 146.99 ms (p95 705.22)  loss 1.48%  admit 18.96 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-f9568ff0bb75 Creating 
+ Container telerm-loadgen-run-f9568ff0bb75 Created 
+[s3  edge_first 300/s r2] thr 244.4  lat 346.12 ms (p95 994.84)  loss 16.22%  admit 21.59 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-675f1557677f Creating 
+ Container telerm-loadgen-run-675f1557677f Created 
+[s3  least_loaded 50/s r2] thr 50.4  lat 28.09 ms (p95 63.29)  loss 0.0%  admit 18.18 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-fbe27cb66223 Creating 
+ Container telerm-loadgen-run-fbe27cb66223 Created 
+[s3  least_loaded 100/s r2] thr 100.1  lat 28.37 ms (p95 63.13)  loss 0.0%  admit 19.44 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-d4ba2c3b3fc7 Creating 
+ Container telerm-loadgen-run-d4ba2c3b3fc7 Created 
+[s3  least_loaded 150/s r2] thr 155.4  lat 27.86 ms (p95 62.52)  loss 0.0%  admit 16.13 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-40696bdd0aef Creating 
+ Container telerm-loadgen-run-40696bdd0aef Created 
+[s3  least_loaded 200/s r2] thr 193.2  lat 28.36 ms (p95 63.85)  loss 0.0%  admit 13.73 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-aef3e487bb5c Creating 
+ Container telerm-loadgen-run-aef3e487bb5c Created 
+[s3  least_loaded 250/s r2] thr 248.0  lat 28.65 ms (p95 63.79)  loss 0.0%  admit 17.24 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-3c37864425b4 Creating 
+ Container telerm-loadgen-run-3c37864425b4 Created 
+[s3  least_loaded 300/s r2] thr 299.4  lat 29.85 ms (p95 68.39)  loss 0.0%  admit 14.88 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-cd16e9da25b3 Creating 
+ Container telerm-loadgen-run-cd16e9da25b3 Created 
+[s3  tier_aware 50/s r2] thr 50.4  lat 36.3 ms (p95 62.7)  loss 0.0%  admit 14.51 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-0cac76f1e53a Creating 
+ Container telerm-loadgen-run-0cac76f1e53a Created 
+[s3  tier_aware 100/s r2] thr 100.1  lat 37.91 ms (p95 64.47)  loss 0.0%  admit 8.52 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-1d4b542e6dc6 Creating 
+ Container telerm-loadgen-run-1d4b542e6dc6 Created 
+[s3  tier_aware 150/s r2] thr 155.4  lat 37.69 ms (p95 64.1)  loss 0.0%  admit 13.25 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-a10d8c23f4bd Creating 
+ Container telerm-loadgen-run-a10d8c23f4bd Created 
+[s3  tier_aware 200/s r2] thr 193.2  lat 38.58 ms (p95 66.36)  loss 0.0%  admit 24.3 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-4b7ab1481738 Creating 
+ Container telerm-loadgen-run-4b7ab1481738 Created 
+[s3  tier_aware 250/s r2] thr 248.0  lat 39.53 ms (p95 67.67)  loss 0.0%  admit 20.57 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-1fbb30449f40 Creating 
+ Container telerm-loadgen-run-1fbb30449f40 Created 
+[s3  tier_aware 300/s r2] thr 299.4  lat 40.28 ms (p95 73.03)  loss 0.0%  admit 21.2 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-40cab3e983fa Creating 
+ Container telerm-loadgen-run-40cab3e983fa Created 
+[s3  edge_first 50/s r3] thr 51.8  lat 6.31 ms (p95 21.13)  loss 0.0%  admit 23.79 ms  [19s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-26d4228a71ab Creating 
+ Container telerm-loadgen-run-26d4228a71ab Created 
+[s3  edge_first 100/s r3] thr 104.4  lat 6.52 ms (p95 21.77)  loss 0.0%  admit 18.15 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-8bec5d027af1 Creating 
+ Container telerm-loadgen-run-8bec5d027af1 Created 
+[s3  edge_first 150/s r3] thr 154.2  lat 8.1 ms (p95 26.49)  loss 0.0%  admit 12.33 ms  [19s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-4246dba730f5 Creating 
+ Container telerm-loadgen-run-4246dba730f5 Created 
+[s3  edge_first 200/s r3] thr 194.7  lat 13.09 ms (p95 47.82)  loss 0.0%  admit 9.31 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-3e4b5aec5a22 Creating 
+ Container telerm-loadgen-run-3e4b5aec5a22 Created 
+[s3  edge_first 250/s r3] thr 245.2  lat 108.42 ms (p95 662.04)  loss 2.22%  admit 20.4 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-8d43843b7f7c Creating 
+ Container telerm-loadgen-run-8d43843b7f7c Created 
+[s3  edge_first 300/s r3] thr 265.6  lat 259.16 ms (p95 967.27)  loss 9.97%  admit 17.35 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-de373ecf7867 Creating 
+ Container telerm-loadgen-run-de373ecf7867 Created 
+[s3  least_loaded 50/s r3] thr 52.0  lat 28.89 ms (p95 63.33)  loss 0.0%  admit 14.26 ms  [19s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-b8d5298d75f8 Creating 
+ Container telerm-loadgen-run-b8d5298d75f8 Created 
+[s3  least_loaded 100/s r3] thr 104.2  lat 29.64 ms (p95 64.91)  loss 0.0%  admit 23.2 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-18a3daf95970 Creating 
+ Container telerm-loadgen-run-18a3daf95970 Created 
+[s3  least_loaded 150/s r3] thr 154.0  lat 29.28 ms (p95 65.09)  loss 0.0%  admit 15.88 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-7e4133b2b274 Creating 
+ Container telerm-loadgen-run-7e4133b2b274 Created 
+[s3  least_loaded 200/s r3] thr 195.1  lat 28.82 ms (p95 63.29)  loss 0.0%  admit 17.62 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-b10ea81eebc1 Creating 
+ Container telerm-loadgen-run-b10ea81eebc1 Created 
+[s3  least_loaded 250/s r3] thr 246.8  lat 29.57 ms (p95 65.95)  loss 0.0%  admit 16.63 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-6f9adbb5a925 Creating 
+ Container telerm-loadgen-run-6f9adbb5a925 Created 
+[s3  least_loaded 300/s r3] thr 300.1  lat 32.42 ms (p95 71.92)  loss 0.0%  admit 23.37 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-1bb93652f8f8 Creating 
+ Container telerm-loadgen-run-1bb93652f8f8 Created 
+[s3  tier_aware 50/s r3] thr 51.8  lat 37.8 ms (p95 64.79)  loss 0.0%  admit 14.23 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-af82ee34183d Creating 
+ Container telerm-loadgen-run-af82ee34183d Created 
+[s3  tier_aware 100/s r3] thr 104.3  lat 37.55 ms (p95 63.24)  loss 0.0%  admit 18.18 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-e6dbe7b721a7 Creating 
+ Container telerm-loadgen-run-e6dbe7b721a7 Created 
+[s3  tier_aware 150/s r3] thr 154.1  lat 38.76 ms (p95 65.42)  loss 0.0%  admit 9.92 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-d326d80cdc11 Creating 
+ Container telerm-loadgen-run-d326d80cdc11 Created 
+[s3  tier_aware 200/s r3] thr 195.0  lat 39.79 ms (p95 68.22)  loss 0.0%  admit 10.04 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-0b36d112926f Creating 
+ Container telerm-loadgen-run-0b36d112926f Created 
+[s3  tier_aware 250/s r3] thr 247.0  lat 39.58 ms (p95 68.79)  loss 0.0%  admit 16.58 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-693500a3ab77 Creating 
+ Container telerm-loadgen-run-693500a3ab77 Created 
+[s3  tier_aware 300/s r3] thr 300.2  lat 45.88 ms (p95 87.85)  loss 0.0%  admit 19.17 ms  [20s]
+done in 1559 s -> results/M3-tiers/runs.csv
+== E3a: compute-tier scale-out (Docker, 1-4 equal sites)
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-0b111198ce7a Creating 
+ Container telerm-loadgen-run-0b111198ce7a Created 
+[s3 N1 least_loaded 70/s r1] thr 37.9  lat 1026.78 ms (p95 1101.32)  loss 47.39%  admit 10.07 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-d250b79d2e32 Creating 
+ Container telerm-loadgen-run-d250b79d2e32 Created 
+[s3 N2 least_loaded 140/s r1] thr 78.5  lat 1044.01 ms (p95 1130.91)  loss 42.8%  admit 9.22 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-d1f2d4a53efd Creating 
+ Container telerm-loadgen-run-d1f2d4a53efd Created 
+[s3 N3 least_loaded 210/s r1] thr 110.3  lat 1041.76 ms (p95 1127.87)  loss 46.8%  admit 12.24 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-e3f6657d05c5 Creating 
+ Container telerm-loadgen-run-e3f6657d05c5 Created 
+[s3 N4 least_loaded 280/s r1] thr 154.2  lat 1029.4 ms (p95 1118.3)  loss 43.97%  admit 25.62 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-dbe52d20f54a Creating 
+ Container telerm-loadgen-run-dbe52d20f54a Created 
+[s3 N1 least_loaded 70/s r2] thr 38.5  lat 1025.24 ms (p95 1100.76)  loss 44.2%  admit 39.65 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-766ad7172052 Creating 
+ Container telerm-loadgen-run-766ad7172052 Created 
+[s3 N2 least_loaded 140/s r2] thr 80.8  lat 1041.66 ms (p95 1134.9)  loss 43.84%  admit 9.05 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-6469399d166f Creating 
+ Container telerm-loadgen-run-6469399d166f Created 
+[s3 N3 least_loaded 210/s r2] thr 114.2  lat 1041.11 ms (p95 1126.37)  loss 45.13%  admit 15.6 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-c4342c575cc2 Creating 
+ Container telerm-loadgen-run-c4342c575cc2 Created 
+[s3 N4 least_loaded 280/s r2] thr 154.4  lat 1030.36 ms (p95 1123.23)  loss 44.93%  admit 13.92 ms  [22s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-8be22d94cef3 Creating 
+ Container telerm-loadgen-run-8be22d94cef3 Created 
+[s3 N1 least_loaded 70/s r3] thr 40.5  lat 1023.14 ms (p95 1099.26)  loss 41.79%  admit 14.15 ms  [20s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-95600f4df7c6 Creating 
+ Container telerm-loadgen-run-95600f4df7c6 Created 
+[s3 N2 least_loaded 140/s r3] thr 77.0  lat 1049.27 ms (p95 1138.84)  loss 46.16%  admit 10.83 ms  [21s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-b5829c253a71 Creating 
+ Container telerm-loadgen-run-b5829c253a71 Created 
+[s3 N3 least_loaded 210/s r3] thr 120.0  lat 1029.44 ms (p95 1123.67)  loss 42.89%  admit 23.78 ms  [22s]
+ Container telerm-registry-1 Running 
+ Container telerm-loadgen-run-a2424ddac302 Creating 
+ Container telerm-loadgen-run-a2424ddac302 Created 
+[s3 N4 least_loaded 280/s r3] thr 164.0  lat 1021.51 ms (p95 1113.68)  loss 40.62%  admit 17.88 ms  [21s]
+done in 340 s -> results/M3-scaleout/runs.csv
+== all done

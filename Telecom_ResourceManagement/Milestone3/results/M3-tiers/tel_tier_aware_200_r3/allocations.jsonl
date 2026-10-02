@@ -1,0 +1,14 @@
+{"t": 2.448, "event": "site_discovered", "site": "edge-A"}
+{"t": 2.449, "event": "site_discovered", "site": "cloud-1"}
+{"t": 2.449, "event": "site_discovered", "site": "core-1"}
+{"t": 2.449, "event": "site_discovered", "site": "edge-B"}
+{"t": 2.451, "event": "accepted", "sid": "S00001", "service": "vRAN-DU", "ingress": "edge-A", "site": "edge-A", "path": [], "latency_ms": 0.0}
+{"t": 2.464, "event": "accepted", "sid": "S00002", "service": "vRAN-DU", "ingress": "edge-B", "site": "edge-B", "path": [], "latency_ms": 0.0}
+{"t": 2.471, "event": "accepted", "sid": "S00003", "service": "UPF", "ingress": "edge-A", "site": "core-1", "path": ["edge-A<->core-1"], "latency_ms": 5.0}
+{"t": 2.478, "event": "accepted", "sid": "S00004", "service": "UPF", "ingress": "edge-B", "site": "core-1", "path": ["edge-B<->core-1"], "latency_ms": 6.0}
+{"t": 2.49, "event": "accepted", "sid": "S00005", "service": "IMS-CSCF", "ingress": "edge-A", "site": "cloud-1", "path": ["edge-A<->core-1", "core-1<->cloud-1"], "latency_ms": 25.0}
+{"t": 2.506, "event": "accepted", "sid": "S00006", "service": "IMS-CSCF", "ingress": "edge-B", "site": "cloud-1", "path": ["edge-B<->core-1", "core-1<->cloud-1"], "latency_ms": 26.0}
+{"t": 2.516, "event": "accepted", "sid": "S00007", "service": "Transcoder", "ingress": "edge-A", "site": "cloud-1", "path": ["edge-A<->core-1", "core-1<->cloud-1"], "latency_ms": 25.0}
+{"t": 2.525, "event": "accepted", "sid": "S00008", "service": "Transcoder", "ingress": "edge-B", "site": "cloud-1", "path": ["edge-B<->core-1", "core-1<->cloud-1"], "latency_ms": 26.0}
+{"t": 2.533, "event": "accepted", "sid": "S00009", "service": "IoT-GW", "ingress": "edge-A", "site": "cloud-1", "path": ["edge-A<->core-1", "core-1<->cloud-1"], "latency_ms": 25.0}
+{"t": 2.541, "event": "accepted", "sid": "S00010", "service": "IoT-GW", "ingress": "edge-B", "site": "cloud-1", "path": ["edge-B<->core-1", "core-1<->cloud-1"], "latency_ms": 26.0}

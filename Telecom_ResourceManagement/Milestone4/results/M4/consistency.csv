@@ -1,0 +1,10 @@
+mode,orchestrators,rep,requests,true_capacity_instances,acknowledged,blocked,client_errors,instances_on_sites,distinct_sids,sid_collisions,allocate_retries,overbooked_sites,max_site_load_pct,excess_instances,replica_hashes_equal,replica_commit_indexes,acked_but_lost,duplicate_admissions_same_request,leader_terms,accepted_per_orchestrator
+2 uncoordinated orchestrators,2,1,150,60,120,30,0,120,60,60,0,6,200.0,60,,,,,,60/60
+3 uncoordinated orchestrators,3,1,150,60,150,0,0,150,50,100,0,6,270.0,90,,,,,,50/50/50
+Raft cluster (2 leader crashes),3,1,150,60,60,90,0,60,60,0,0,0,100.0,0,True,63/63/63,0,0,3
+2 uncoordinated orchestrators,2,2,150,60,120,30,0,120,60,60,0,6,200.0,60,,,,,,60/60
+3 uncoordinated orchestrators,3,2,150,60,150,0,0,150,50,100,0,6,270.0,90,,,,,,50/50/50
+Raft cluster (2 leader crashes),3,2,150,60,60,90,0,60,60,0,0,0,100.0,0,True,63/63/63,0,0,3
+2 uncoordinated orchestrators,2,3,150,60,120,30,0,120,60,60,0,6,200.0,60,,,,,,60/60
+3 uncoordinated orchestrators,3,3,150,60,150,0,0,150,50,100,0,6,270.0,90,,,,,,50/50/50
+Raft cluster (2 leader crashes),3,3,150,60,60,90,0,60,60,0,0,0,100.0,0,True,63/63/63,0,0,3

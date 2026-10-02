@@ -1,0 +1,78 @@
+{
+ "instances": [
+  {
+   "sid": "S00001",
+   "service": "Transcoder",
+   "ingress": "edge-A",
+   "site": "core-1",
+   "tier": "core",
+   "address": "core-1:8103",
+   "link_ms": 5.0,
+   "cpu": 2000,
+   "work_kb": 2048
+  },
+  {
+   "sid": "S00002",
+   "service": "Transcoder",
+   "ingress": "edge-B",
+   "site": "core-1",
+   "tier": "core",
+   "address": "core-1:8103",
+   "link_ms": 6.0,
+   "cpu": 2000,
+   "work_kb": 2048
+  }
+ ],
+ "links": {
+  "edge-A<->core-1": {
+   "capacity_mbps": 1000.0,
+   "allocated_mbps": 200.0,
+   "latency_ms": 5.0
+  },
+  "edge-B<->core-1": {
+   "capacity_mbps": 1000.0,
+   "allocated_mbps": 200.0,
+   "latency_ms": 6.0
+  },
+  "edge-A<->edge-B": {
+   "capacity_mbps": 400.0,
+   "allocated_mbps": 0.0,
+   "latency_ms": 3.0
+  },
+  "core-1<->cloud-1": {
+   "capacity_mbps": 10000.0,
+   "allocated_mbps": 0.0,
+   "latency_ms": 20.0
+  }
+ },
+ "resources": {
+  "driver": [
+   4.166666666666667,
+   31.825
+  ],
+  "registry": [
+   0.75,
+   29.399999999999995
+  ],
+  "telemetry": [
+   0.75,
+   29.5
+  ],
+  "core-1": [
+   30.0,
+   109.76666666666667
+  ],
+  "gw-A": [
+   2.9153846153846152,
+   29.199999999999996
+  ],
+  "orchestrator": [
+   0.38461538461538464,
+   29.699999999999996
+  ],
+  "gw-B": [
+   3.3000000000000003,
+   29.600000000000005
+  ]
+ }
+}

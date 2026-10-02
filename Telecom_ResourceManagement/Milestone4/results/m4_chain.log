@@ -1,0 +1,141 @@
+== E1: coordination overhead vs cluster size
+[S3 single orchestrator N=1 C=1 r1] admit 3.493 ms (commit None)  285.9 adm/s  msgs/adm 6.01  idle msgs/s 5.0  leader CPU 33.4%
+[Raft N=1 C=1 r1] admit 3.225 ms (commit 0.149)  309.8 adm/s  msgs/adm 6.0  idle msgs/s 5.3  leader CPU 39.7%
+[Raft N=3 C=1 r1] admit 5.075 ms (commit 1.041)  196.8 adm/s  msgs/adm 13.35  idle msgs/s 92.5  leader CPU 42.3%
+[Raft N=5 C=1 r1] admit 8.917 ms (commit 1.873)  112.1 adm/s  msgs/adm 19.91  idle msgs/s 183.6  leader CPU 38.3%
+[Raft N=7 C=1 r1] admit 9.14 ms (commit 2.385)  109.4 adm/s  msgs/adm 27.04  idle msgs/s 269.3  leader CPU 39.3%
+[Raft+fsync N=3 C=1 r1] admit 8.504 ms (commit 2.597)  117.5 adm/s  msgs/adm 13.05  idle msgs/s 93.1  leader CPU 35.5%
+[S3 single orchestrator N=1 C=4 r1] admit 12.857 ms (commit None)  308.0 adm/s  msgs/adm 6.01  idle msgs/s 5.0  leader CPU 37.6%
+[Raft N=1 C=4 r1] admit 10.136 ms (commit 0.128)  390.3 adm/s  msgs/adm 6.0  idle msgs/s 5.3  leader CPU 36.7%
+[Raft N=3 C=4 r1] admit 21.263 ms (commit 1.89)  185.9 adm/s  msgs/adm 13.0  idle msgs/s 94.4  leader CPU 41.3%
+[Raft N=5 C=4 r1] admit 22.24 ms (commit 2.362)  177.0 adm/s  msgs/adm 20.16  idle msgs/s 181.4  leader CPU 39.7%
+[Raft N=7 C=4 r1] admit 25.471 ms (commit 2.694)  153.8 adm/s  msgs/adm 26.53  idle msgs/s 268.2  leader CPU 37.2%
+[Raft+fsync N=3 C=4 r1] admit 24.909 ms (commit 3.306)  159.5 adm/s  msgs/adm 12.72  idle msgs/s 93.1  leader CPU 36.9%
+[S3 single orchestrator N=1 C=1 r2] admit 3.962 ms (commit None)  252.1 adm/s  msgs/adm 6.0  idle msgs/s 5.3  leader CPU 33.2%
+[Raft N=1 C=1 r2] admit 3.485 ms (commit 0.135)  286.6 adm/s  msgs/adm 6.0  idle msgs/s 5.3  leader CPU 36.0%
+[Raft N=3 C=1 r2] admit 11.349 ms (commit 2.335)  88.1 adm/s  msgs/adm 12.46  idle msgs/s 92.0  leader CPU 27.1%
+[Raft N=5 C=1 r2] admit 8.719 ms (commit 1.863)  114.6 adm/s  msgs/adm 19.97  idle msgs/s 180.4  leader CPU 37.9%
+[Raft N=7 C=1 r2] admit 9.492 ms (commit 2.407)  105.3 adm/s  msgs/adm 26.98  idle msgs/s 272.3  leader CPU 37.7%
+[Raft+fsync N=3 C=1 r2] admit 8.157 ms (commit 2.578)  122.5 adm/s  msgs/adm 13.0  idle msgs/s 94.5  leader CPU 35.8%
+[S3 single orchestrator N=1 C=4 r2] admit 12.809 ms (commit None)  309.4 adm/s  msgs/adm 6.0  idle msgs/s 5.3  leader CPU 33.6%
+[Raft N=1 C=4 r2] admit 21.048 ms (commit 0.153)  188.5 adm/s  msgs/adm 6.0  idle msgs/s 5.3  leader CPU 31.1%
+[Raft N=3 C=4 r2] admit 27.072 ms (commit 2.402)  145.5 adm/s  msgs/adm 12.72  idle msgs/s 92.9  leader CPU 41.2%
+[Raft N=5 C=4 r2] admit 25.743 ms (commit 2.563)  154.2 adm/s  msgs/adm 19.22  idle msgs/s 181.7  leader CPU 38.3%
+[Raft N=7 C=4 r2] admit 42.412 ms (commit 4.72)  92.5 adm/s  msgs/adm 24.53  idle msgs/s 268.0  leader CPU 33.9%
+[Raft+fsync N=3 C=4 r2] admit 27.887 ms (commit 3.44)  142.5 adm/s  msgs/adm 11.73  idle msgs/s 93.7  leader CPU 32.0%
+[S3 single orchestrator N=1 C=1 r3] admit 3.317 ms (commit None)  301.1 adm/s  msgs/adm 6.0  idle msgs/s 5.3  leader CPU 36.0%
+[Raft N=1 C=1 r3] admit 5.659 ms (commit 0.162)  176.5 adm/s  msgs/adm 6.0  idle msgs/s 5.3  leader CPU 31.8%
+[Raft N=3 C=1 r3] admit 6.335 ms (commit 1.148)  157.7 adm/s  msgs/adm 13.2  idle msgs/s 93.1  leader CPU 36.2%
+[Raft N=5 C=1 r3] admit 7.679 ms (commit 1.7)  130.1 adm/s  msgs/adm 20.26  idle msgs/s 180.6  leader CPU 36.0%
+[Raft N=7 C=1 r3] admit 10.883 ms (commit 2.841)  91.8 adm/s  msgs/adm 26.68  idle msgs/s 267.9  leader CPU 38.1%
+[Raft+fsync N=3 C=1 r3] admit 7.882 ms (commit 2.425)  126.8 adm/s  msgs/adm 13.12  idle msgs/s 93.1  leader CPU 36.5%
+[S3 single orchestrator N=1 C=4 r3] admit 16.974 ms (commit None)  231.5 adm/s  msgs/adm 6.01  idle msgs/s 5.0  leader CPU 34.5%
+[Raft N=1 C=4 r3] admit 8.823 ms (commit 0.131)  448.4 adm/s  msgs/adm 6.0  idle msgs/s 5.3  leader CPU 34.4%
+[Raft N=3 C=4 r3] admit 15.589 ms (commit 1.392)  253.4 adm/s  msgs/adm 13.26  idle msgs/s 93.1  leader CPU 38.1%
+[Raft N=5 C=4 r3] admit 19.847 ms (commit 1.964)  199.9 adm/s  msgs/adm 19.51  idle msgs/s 180.6  leader CPU 38.0%
+[Raft N=7 C=4 r3] admit 28.798 ms (commit 3.252)  137.6 adm/s  msgs/adm 26.41  idle msgs/s 268.7  leader CPU 38.4%
+[Raft+fsync N=3 C=4 r3] admit 25.181 ms (commit 3.268)  157.4 adm/s  msgs/adm 12.64  idle msgs/s 93.1  leader CPU 37.2%
+== E2: synchronization delay vs placement
+[3 in core r1] leader core  commit 1.06 ms (predicted 0)  admit 5.49 ms
+[core + edge-A + cloud r1] leader core  commit 12.64 ms (predicted 10)  admit 18.58 ms
+[core + edge-A + cloud (leader in cloud) r1] leader cloud  commit 43.17 ms (predicted 40)  admit 50.02 ms
+[core + 2 x cloud r1] leader core  commit 43.01 ms (predicted 40)  admit 52.0 ms
+[5: core, 2 edges, 2 clouds r1] leader core  commit 14.52 ms (predicted 12)  admit 20.08 ms
+[3 in core r2] leader core  commit 0.85 ms (predicted 0)  admit 4.25 ms
+[core + edge-A + cloud r2] leader core  commit 12.43 ms (predicted 10)  admit 17.98 ms
+[core + edge-A + cloud (leader in cloud) r2] leader cloud  commit 42.93 ms (predicted 40)  admit 48.68 ms
+[core + 2 x cloud r2] leader core  commit 43.35 ms (predicted 40)  admit 71.75 ms
+[5: core, 2 edges, 2 clouds r2] leader core  commit 14.93 ms (predicted 12)  admit 21.07 ms
+[3 in core r3] leader core  commit 1.13 ms (predicted 0)  admit 7.09 ms
+[core + edge-A + cloud r3] leader core  commit 12.53 ms (predicted 10)  admit 17.77 ms
+[core + edge-A + cloud (leader in cloud) r3] leader cloud  commit 43.34 ms (predicted 40)  admit 49.27 ms
+[core + 2 x cloud r3] leader core  commit 42.97 ms (predicted 40)  admit 48.29 ms
+[5: core, 2 edges, 2 clouds r3] leader core  commit 14.73 ms (predicted 12)  admit 20.36 ms
+== E3: leader crash and election
+[N=3 el=150,300 r1] elected 238.3 ms, unavailable 326.8 ms, term +1, client failures 0, catch-up 219.5 ms, hashes equal True
+[N=3 el=300,600 r1] elected 456.2 ms, unavailable 480.1 ms, term +1, client failures 0, catch-up 171.4 ms, hashes equal True
+[N=3 el=600,1200 r1] elected 640.8 ms, unavailable 787.0 ms, term +1, client failures 0, catch-up 246.2 ms, hashes equal True
+[N=5 el=150,300 r1] elected 172.5 ms, unavailable 334.1 ms, term +1, client failures 0, catch-up 169.9 ms, hashes equal True
+[N=5 el=300,600 r1] elected 313.3 ms, unavailable 489.1 ms, term +1, client failures 0, catch-up 232.1 ms, hashes equal True
+[N=5 el=600,1200 r1] elected 803.4 ms, unavailable 951.3 ms, term +1, client failures 0, catch-up 175.6 ms, hashes equal True
+[N=3 el=150,300 r2] elected 530.6 ms, unavailable 644.2 ms, term +2, client failures 0, catch-up 182.8 ms, hashes equal True
+[N=3 el=300,600 r2] elected 406.2 ms, unavailable 481.3 ms, term +1, client failures 0, catch-up 180.6 ms, hashes equal True
+[N=3 el=600,1200 r2] elected 808.2 ms, unavailable 960.1 ms, term +1, client failures 0, catch-up 124.2 ms, hashes equal True
+[N=5 el=150,300 r2] elected 186.2 ms, unavailable 332.6 ms, term +1, client failures 0, catch-up 227.5 ms, hashes equal True
+[N=5 el=300,600 r2] elected 316.6 ms, unavailable 487.8 ms, term +1, client failures 0, catch-up 209.1 ms, hashes equal True
+[N=5 el=600,1200 r2] elected 697.4 ms, unavailable 793.4 ms, term +1, client failures 0, catch-up 169.5 ms, hashes equal True
+[N=3 el=150,300 r3] elected 174.2 ms, unavailable 331.5 ms, term +1, client failures 0, catch-up 229.3 ms, hashes equal True
+[N=3 el=300,600 r3] elected 507.7 ms, unavailable 637.5 ms, term +1, client failures 0, catch-up 197.5 ms, hashes equal True
+[N=3 el=600,1200 r3] elected 756.1 ms, unavailable 782.5 ms, term +1, client failures 0, catch-up 222.7 ms, hashes equal True
+[N=5 el=150,300 r3] elected 177.1 ms, unavailable 330.7 ms, term +1, client failures 0, catch-up 177.2 ms, hashes equal True
+[N=5 el=300,600 r3] elected 314.0 ms, unavailable 483.4 ms, term +1, client failures 0, catch-up 203.4 ms, hashes equal True
+[N=5 el=600,1200 r3] elected 628.6 ms, unavailable 788.6 ms, term +1, client failures 0, catch-up 229.6 ms, hashes equal True
+[N=3 el=150,300 r4] elected 201.9 ms, unavailable 331.9 ms, term +1, client failures 0, catch-up 189.8 ms, hashes equal True
+[N=3 el=300,600 r4] elected 360.3 ms, unavailable 477.8 ms, term +1, client failures 0, catch-up 168.8 ms, hashes equal True
+[N=3 el=600,1200 r4] elected 763.4 ms, unavailable 789.3 ms, term +1, client failures 0, catch-up 205.4 ms, hashes equal True
+[N=5 el=150,300 r4] elected 227.8 ms, unavailable 328.4 ms, term +1, client failures 0, catch-up 175.4 ms, hashes equal True
+[N=5 el=300,600 r4] elected 361.5 ms, unavailable 489.6 ms, term +1, client failures 0, catch-up 206.9 ms, hashes equal True
+[N=5 el=600,1200 r4] elected 741.7 ms, unavailable 788.6 ms, term +1, client failures 0, catch-up 259.0 ms, hashes equal True
+[N=3 el=150,300 r5] elected 191.4 ms, unavailable 326.8 ms, term +1, client failures 0, catch-up 176.8 ms, hashes equal True
+[N=3 el=300,600 r5] elected 387.8 ms, unavailable 481.2 ms, term +1, client failures 0, catch-up 176.2 ms, hashes equal True
+[N=3 el=600,1200 r5] elected 802.9 ms, unavailable 944.9 ms, term +1, client failures 0, catch-up 172.7 ms, hashes equal True
+[N=5 el=150,300 r5] elected 165.2 ms, unavailable 329.5 ms, term +1, client failures 0, catch-up 176.6 ms, hashes equal True
+[N=5 el=300,600 r5] elected 388.8 ms, unavailable 479.9 ms, term +1, client failures 0, catch-up 177.0 ms, hashes equal True
+[N=5 el=600,1200 r5] elected 676.8 ms, unavailable 807.1 ms, term +1, client failures 0, catch-up 228.2 ms, hashes equal True
+[N=3 el=150,300 r6] elected 202.3 ms, unavailable 325.5 ms, term +1, client failures 0, catch-up 215.4 ms, hashes equal True
+[N=3 el=300,600 r6] elected 477.0 ms, unavailable 23.7 ms, term +1, client failures 0, catch-up 177.8 ms, hashes equal True
+[N=3 el=600,1200 r6] elected 692.8 ms, unavailable 798.7 ms, term +1, client failures 0, catch-up 171.7 ms, hashes equal True
+[N=5 el=150,300 r6] elected 181.9 ms, unavailable 328.0 ms, term +1, client failures 0, catch-up 206.3 ms, hashes equal True
+[N=5 el=300,600 r6] elected 344.8 ms, unavailable 487.3 ms, term +1, client failures 0, catch-up 258.9 ms, hashes equal True
+[N=5 el=600,1200 r6] elected 872.0 ms, unavailable 938.5 ms, term +1, client failures 0, catch-up 153.6 ms, hashes equal True
+[N=3 el=150,300 r7] elected 211.3 ms, unavailable 324.3 ms, term +1, client failures 0, catch-up 176.5 ms, hashes equal True
+[N=3 el=300,600 r7] elected 455.0 ms, unavailable 485.2 ms, term +1, client failures 0, catch-up 178.8 ms, hashes equal True
+[N=3 el=600,1200 r7] elected 767.7 ms, unavailable 936.7 ms, term +1, client failures 0, catch-up 192.3 ms, hashes equal True
+[N=5 el=150,300 r7] elected 165.1 ms, unavailable 331.4 ms, term +1, client failures 0, catch-up 234.6 ms, hashes equal True
+[N=5 el=300,600 r7] elected 333.7 ms, unavailable 483.9 ms, term +1, client failures 0, catch-up 222.9 ms, hashes equal True
+[N=5 el=600,1200 r7] elected 720.5 ms, unavailable 792.8 ms, term +1, client failures 0, catch-up 170.7 ms, hashes equal True
+[N=3 el=150,300 r8] elected 271.7 ms, unavailable 326.3 ms, term +1, client failures 0, catch-up 171.6 ms, hashes equal True
+[N=3 el=300,600 r8] elected 474.3 ms, unavailable 630.5 ms, term +1, client failures 0, catch-up 173.9 ms, hashes equal True
+[N=3 el=600,1200 r8] elected 1091.2 ms, unavailable 1256.0 ms, term +1, client failures 0, catch-up 220.3 ms, hashes equal True
+[N=5 el=150,300 r8] elected 158.6 ms, unavailable 332.8 ms, term +1, client failures 0, catch-up 156.5 ms, hashes equal True
+[N=5 el=300,600 r8] elected 434.6 ms, unavailable 482.5 ms, term +1, client failures 0, catch-up 172.6 ms, hashes equal True
+[N=5 el=600,1200 r8] elected 611.5 ms, unavailable 638.1 ms, term +1, client failures 0, catch-up 182.4 ms, hashes equal True
+[N=3 el=150,300 r9] elected 259.1 ms, unavailable 333.3 ms, term +1, client failures 0, catch-up 217.0 ms, hashes equal True
+[N=3 el=300,600 r9] elected 300.4 ms, unavailable 339.6 ms, term +1, client failures 0, catch-up 165.8 ms, hashes equal True
+[N=3 el=600,1200 r9] elected 843.3 ms, unavailable 939.5 ms, term +1, client failures 0, catch-up 175.8 ms, hashes equal True
+[N=5 el=150,300 r9] elected 156.0 ms, unavailable 329.1 ms, term +1, client failures 0, catch-up 197.6 ms, hashes equal True
+[N=5 el=300,600 r9] elected 424.3 ms, unavailable 482.3 ms, term +1, client failures 0, catch-up 209.1 ms, hashes equal True
+[N=5 el=600,1200 r9] elected 706.3 ms, unavailable 790.9 ms, term +1, client failures 0, catch-up 172.5 ms, hashes equal True
+[N=3 el=150,300 r10] elected 169.0 ms, unavailable 330.4 ms, term +1, client failures 0, catch-up 180.8 ms, hashes equal True
+[N=3 el=300,600 r10] elected 386.4 ms, unavailable 478.9 ms, term +1, client failures 0, catch-up 168.0 ms, hashes equal True
+[N=3 el=600,1200 r10] elected 791.1 ms, unavailable 940.9 ms, term +1, client failures 0, catch-up 172.2 ms, hashes equal True
+[N=5 el=150,300 r10] elected 158.0 ms, unavailable 178.4 ms, term +1, client failures 0, catch-up 158.1 ms, hashes equal True
+[N=5 el=300,600 r10] elected 307.2 ms, unavailable 327.1 ms, term +1, client failures 0, catch-up 179.7 ms, hashes equal True
+[N=5 el=600,1200 r10] elected 692.2 ms, unavailable 783.8 ms, term +1, client failures 0, catch-up 152.8 ms, hashes equal True
+== E4: consistency (uncoordinated vs Raft)
+[2 uncoordinated orchestrators r1] acked 120 of capacity 60; overbooked sites 6 (max 200.0%), sid collisions 60, lost None, hashes equal None
+[3 uncoordinated orchestrators r1] acked 150 of capacity 60; overbooked sites 6 (max 270.0%), sid collisions 100, lost None, hashes equal None
+[Raft cluster (2 leader crashes) r1] acked 60 of capacity 60; overbooked sites 0 (max 100.0%), sid collisions 0, lost 0, hashes equal True
+[2 uncoordinated orchestrators r2] acked 120 of capacity 60; overbooked sites 6 (max 200.0%), sid collisions 60, lost None, hashes equal None
+[3 uncoordinated orchestrators r2] acked 150 of capacity 60; overbooked sites 6 (max 270.0%), sid collisions 100, lost None, hashes equal None
+[Raft cluster (2 leader crashes) r2] acked 60 of capacity 60; overbooked sites 0 (max 100.0%), sid collisions 0, lost 0, hashes equal True
+[2 uncoordinated orchestrators r3] acked 120 of capacity 60; overbooked sites 6 (max 200.0%), sid collisions 60, lost None, hashes equal None
+[3 uncoordinated orchestrators r3] acked 150 of capacity 60; overbooked sites 6 (max 270.0%), sid collisions 100, lost None, hashes equal None
+[Raft cluster (2 leader crashes) r3] acked 60 of capacity 60; overbooked sites 0 (max 100.0%), sid collisions 0, lost 0, hashes equal True
+== E5: event ordering with skewed clocks
+[skew ±0 ms r1] pairs 362  wall-clock order wrong 0 (0.0%)  Lamport wrong 0  {'exit': '0/60', 'ae': '0/242', 'allocate': '0/60'}
+[skew ±1 ms r1] pairs 362  wall-clock order wrong 6 (1.66%)  Lamport wrong 0  {'exit': '0/60', 'ae': '0/242', 'allocate': '6/60'}
+[skew ±5 ms r1] pairs 362  wall-clock order wrong 299 (82.6%)  Lamport wrong 0  {'exit': '0/60', 'ae': '240/242', 'allocate': '59/60'}
+[skew ±20 ms r1] pairs 362  wall-clock order wrong 60 (16.57%)  Lamport wrong 0  {'exit': '0/60', 'ae': '0/242', 'allocate': '60/60'}
+[skew ±50 ms r1] pairs 361  wall-clock order wrong 60 (16.62%)  Lamport wrong 0  {'exit': '60/60', 'ae': '0/241', 'allocate': '0/60'}
+[skew ±0 ms r2] pairs 361  wall-clock order wrong 0 (0.0%)  Lamport wrong 0  {'exit': '0/60', 'ae': '0/241', 'allocate': '0/60'}
+[skew ±1 ms r2] pairs 354  wall-clock order wrong 90 (25.42%)  Lamport wrong 0  {'exit': '0/60', 'ae': '90/234', 'allocate': '0/60'}
+[skew ±5 ms r2] pairs 360  wall-clock order wrong 118 (32.78%)  Lamport wrong 0  {'exit': '52/60', 'ae': '66/240', 'allocate': '0/60'}
+[skew ±20 ms r2] pairs 358  wall-clock order wrong 18 (5.03%)  Lamport wrong 0  {'exit': '0/60', 'ae': '0/238', 'allocate': '18/60'}
+[skew ±50 ms r2] pairs 364  wall-clock order wrong 182 (50.0%)  Lamport wrong 0  {'exit': '60/60', 'ae': '122/244', 'allocate': '0/60'}
+[skew ±0 ms r3] pairs 362  wall-clock order wrong 0 (0.0%)  Lamport wrong 0  {'exit': '0/60', 'ae': '0/242', 'allocate': '0/60'}
+[skew ±1 ms r3] pairs 362  wall-clock order wrong 47 (12.98%)  Lamport wrong 0  {'exit': '47/60', 'ae': '0/242', 'allocate': '0/60'}
+[skew ±5 ms r3] pairs 362  wall-clock order wrong 258 (71.27%)  Lamport wrong 0  {'exit': '0/60', 'ae': '240/242', 'allocate': '18/60'}
+[skew ±20 ms r3] pairs 362  wall-clock order wrong 284 (78.45%)  Lamport wrong 0  {'exit': '60/60', 'ae': '224/242', 'allocate': '0/60'}
+[skew ±50 ms r3] pairs 362  wall-clock order wrong 181 (50.0%)  Lamport wrong 0  {'exit': '60/60', 'ae': '121/242', 'allocate': '0/60'}
+== all done

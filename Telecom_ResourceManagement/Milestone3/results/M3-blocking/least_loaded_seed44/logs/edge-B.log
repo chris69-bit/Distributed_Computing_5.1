@@ -1,0 +1,15 @@
+2026-10-02 11:47:54,926 [edge-B] site: site pid 7175, worker pids [7182, 7183]
+2026-10-02 11:47:55,990 [edge-B] site: instance S00002 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:47:57,674 [edge-B] site: instance S00007 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:48:07,938 [edge-B] site: instance S00026 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:48:08,674 [edge-B] site: instance S00029 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:48:09,339 [edge-B] site: instance S00034 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:48:09,414 [edge-B] site: instance S00035 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:48:14,585 [edge-B] site: instance S00044 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:48:16,421 [edge-B] site: instance S00048 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:48:17,802 [edge-B] site: instance S00053 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:48:18,689 [edge-B] site: instance S00055 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:48:19,301 [edge-B] site: instance S00057 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:48:22,451 [edge-B] site: instance S00060 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:48:23,859 [edge-B] site: instance S00065 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:48:24,270 [edge-B] site: instance S00067 (vRAN-DU) running, cpu=1500, backlogged

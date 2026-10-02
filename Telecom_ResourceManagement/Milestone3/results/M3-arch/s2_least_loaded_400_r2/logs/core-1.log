@@ -1,0 +1,5 @@
+2026-10-02 11:40:19,938 [core-1] site: site pid 6687, worker pids [6703, 6704, 6705, 6706]
+2026-10-02 11:40:20,284 [core-1] site: instance S00003 (UPF) running, cpu=1000, traffic-driven
+2026-10-02 11:40:20,286 [core-1] site: instance S00004 (UPF) running, cpu=1000, traffic-driven
+2026-10-02 11:40:20,295 [core-1] site: instance S00009 (IoT-GW) running, cpu=250, traffic-driven
+2026-10-02 11:40:20,297 [core-1] site: instance S00010 (IoT-GW) running, cpu=250, traffic-driven

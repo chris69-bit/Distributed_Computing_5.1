@@ -1,0 +1,27 @@
+2026-10-02 11:47:55,109 [cloud-1] site: site pid 7177, worker pids [7186, 7187, 7188, 7189]
+2026-10-02 11:47:55,566 [cloud-1] site: instance S00001 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:47:56,246 [cloud-1] site: instance S00003 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:47:59,361 [cloud-1] site: instance S00010 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:48:00,427 [cloud-1] site: instance S00012 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:48:01,207 [cloud-1] site: instance S00014 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:48:02,285 [cloud-1] site: instance S00016 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:48:03,505 [cloud-1] site: instance S00021 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:48:03,675 [cloud-1] site: instance S00022 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:48:06,345 [cloud-1] site: instance S00024 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:48:08,610 [cloud-1] site: instance S00027 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:48:08,742 [cloud-1] site: instance S00030 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:48:08,942 [cloud-1] site: instance S00031 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:48:09,169 [cloud-1] site: instance S00033 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:48:09,585 [cloud-1] site: instance S00036 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:48:10,167 [cloud-1] site: instance S00037 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:48:10,244 [cloud-1] site: instance S00038 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:48:11,136 [cloud-1] site: instance S00041 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:48:12,434 [cloud-1] site: instance S00042 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:48:17,577 [cloud-1] site: instance S00051 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:48:17,630 [cloud-1] site: instance S00052 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:48:18,913 [cloud-1] site: instance S00056 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:48:19,837 [cloud-1] site: instance S00058 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:48:20,253 [cloud-1] site: instance S00059 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:48:23,656 [cloud-1] site: instance S00063 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:48:23,838 [cloud-1] site: instance S00064 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:48:24,259 [cloud-1] site: instance S00066 (IoT-GW) running, cpu=250, backlogged

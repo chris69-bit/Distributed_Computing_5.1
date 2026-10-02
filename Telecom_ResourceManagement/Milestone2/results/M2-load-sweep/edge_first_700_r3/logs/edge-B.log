@@ -1,0 +1,5 @@
+2026-10-02 10:54:41,830 [edge-B] site: site pid 1223, worker pids [1229, 1230]
+2026-10-02 10:54:42,111 [edge-B] site: instance S00002 (vRAN-DU) running, cpu=1500, traffic-driven
+2026-10-02 10:54:42,115 [edge-B] site: instance S00004 (UPF) running, cpu=1000, traffic-driven
+2026-10-02 10:54:42,118 [edge-B] site: instance S00006 (IMS-CSCF) running, cpu=500, traffic-driven
+2026-10-02 10:54:42,125 [edge-B] site: instance S00010 (IoT-GW) running, cpu=250, traffic-driven

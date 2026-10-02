@@ -1,0 +1,5 @@
+2026-10-02 11:46:45,461 [edge-A] site: site pid 7115, worker pids [7119, 7120]
+2026-10-02 11:46:50,385 [edge-A] site: instance S00009 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:46:51,135 [edge-A] site: instance S00012 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:47:05,069 [edge-A] site: instance S00045 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:47:11,439 [edge-A] site: instance S00059 (vRAN-DU) running, cpu=1500, backlogged

@@ -1,0 +1,24 @@
+2026-10-02 11:47:19,210 [edge-A] site: site pid 7144, worker pids [7148, 7149]
+2026-10-02 11:47:20,058 [edge-A] site: instance S00001 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:47:20,906 [edge-A] site: instance S00004 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:47:21,429 [edge-A] site: instance S00006 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:47:23,063 [edge-A] site: instance S00009 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:47:23,860 [edge-A] site: instance S00010 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:47:25,706 [edge-A] site: instance S00014 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:47:28,002 [edge-A] site: instance S00021 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:47:28,163 [edge-A] site: instance S00022 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:47:30,843 [edge-A] site: instance S00024 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:47:33,103 [edge-A] site: instance S00027 (Transcoder) running, cpu=2000, backlogged
+2026-10-02 11:47:33,125 [edge-A] site: instance S00028 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:47:33,242 [edge-A] site: instance S00030 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:47:33,663 [edge-A] site: instance S00033 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:47:35,549 [edge-A] site: instance S00040 (vRAN-DU) running, cpu=1500, backlogged
+2026-10-02 11:47:36,926 [edge-A] site: instance S00042 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:47:42,073 [edge-A] site: instance S00051 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:47:42,123 [edge-A] site: instance S00052 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:47:43,385 [edge-A] site: instance S00056 (IoT-GW) running, cpu=250, backlogged
+2026-10-02 11:47:44,745 [edge-A] site: instance S00059 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:47:46,933 [edge-A] site: instance S00060 (IMS-CSCF) running, cpu=500, backlogged
+2026-10-02 11:47:47,837 [edge-A] site: instance S00062 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:47:48,774 [edge-A] site: instance S00068 (UPF) running, cpu=1000, backlogged
+2026-10-02 11:47:49,794 [edge-A] site: instance S00070 (UPF) running, cpu=1000, backlogged

@@ -1,0 +1,13 @@
+2026-10-02 13:20:19,286 [registry] registry: registry pid 12657 on 127.0.0.1:8010
+2026-10-02 13:20:20,117 [registry] registry: service telemetry registered at 127.0.0.1:8020
+2026-10-02 13:20:20,165 [registry] registry: gateway gw-A registered at 127.0.0.1:8201
+2026-10-02 13:20:20,185 [registry] registry: service orch-o1 registered at 127.0.0.1:8000
+2026-10-02 13:20:20,187 [registry] registry: service orch-o2 registered at 127.0.0.1:8001
+2026-10-02 13:20:20,195 [registry] registry: service orch-o3 registered at 127.0.0.1:8002
+2026-10-02 13:20:20,210 [registry] registry: gateway gw-B registered at 127.0.0.1:8202
+2026-10-02 13:20:20,637 [registry] registry: site edge-B registered at 127.0.0.1:8102
+2026-10-02 13:20:20,653 [registry] registry: site edge-A registered at 127.0.0.1:8101
+2026-10-02 13:20:20,655 [registry] registry: site cloud-1 registered at 127.0.0.1:8104
+2026-10-02 13:20:20,679 [registry] registry: site core-1 registered at 127.0.0.1:8103
+2026-10-02 13:20:20,711 [registry] registry: service orchestrator registered at 127.0.0.1:8001
+2026-10-02 13:20:24,307 [registry] registry: orch-o1 SUSPECT (no heartbeat for 3.1 s)

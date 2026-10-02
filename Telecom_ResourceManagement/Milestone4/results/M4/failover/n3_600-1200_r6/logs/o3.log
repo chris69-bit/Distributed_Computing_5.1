@@ -1,0 +1,4 @@
+2026-10-02 13:08:08,709 [manager] manager: orchestrator pid 11978 on 127.0.0.1:8902 (placement=least_loaded)
+2026-10-02 13:08:09,728 [manager] raft: o3 -> candidate (term 1)
+2026-10-02 13:08:09,731 [manager] raft: o3 -> leader (term 1)
+2026-10-02 13:08:15,690 [manager] manager: orchestrator pid 11981 on 127.0.0.1:8902 (placement=least_loaded)

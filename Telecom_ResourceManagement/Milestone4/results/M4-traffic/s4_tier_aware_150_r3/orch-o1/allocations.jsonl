@@ -1,0 +1,16 @@
+{"t": 0.319, "event": "became_leader", "term": 1}
+{"t": 0.326, "event": "alias_registered", "term": 1, "ok": true}
+{"t": 0.897, "event": "site_discovered", "site": "edge-A"}
+{"t": 0.897, "event": "site_discovered", "site": "core-1"}
+{"t": 0.897, "event": "site_discovered", "site": "edge-B"}
+{"t": 0.898, "event": "site_discovered", "site": "cloud-1"}
+{"t": 0.899, "event": "accepted", "sid": "S00001", "service": "vRAN-DU", "ingress": "edge-A", "site": "edge-A", "path": [], "latency_ms": 0.0, "log_index": 2}
+{"t": 0.911, "event": "accepted", "sid": "S00002", "service": "vRAN-DU", "ingress": "edge-B", "site": "edge-B", "path": [], "latency_ms": 0.0, "log_index": 3}
+{"t": 0.919, "event": "accepted", "sid": "S00003", "service": "UPF", "ingress": "edge-A", "site": "core-1", "path": ["edge-A<->core-1"], "latency_ms": 5.0, "log_index": 4}
+{"t": 0.929, "event": "accepted", "sid": "S00004", "service": "UPF", "ingress": "edge-B", "site": "core-1", "path": ["edge-B<->core-1"], "latency_ms": 6.0, "log_index": 5}
+{"t": 0.939, "event": "accepted", "sid": "S00005", "service": "IMS-CSCF", "ingress": "edge-A", "site": "cloud-1", "path": ["edge-A<->core-1", "core-1<->cloud-1"], "latency_ms": 25.0, "log_index": 6}
+{"t": 0.947, "event": "accepted", "sid": "S00006", "service": "IMS-CSCF", "ingress": "edge-B", "site": "cloud-1", "path": ["edge-B<->core-1", "core-1<->cloud-1"], "latency_ms": 26.0, "log_index": 7}
+{"t": 0.954, "event": "accepted", "sid": "S00007", "service": "Transcoder", "ingress": "edge-A", "site": "cloud-1", "path": ["edge-A<->core-1", "core-1<->cloud-1"], "latency_ms": 25.0, "log_index": 8}
+{"t": 0.964, "event": "accepted", "sid": "S00008", "service": "Transcoder", "ingress": "edge-B", "site": "cloud-1", "path": ["edge-B<->core-1", "core-1<->cloud-1"], "latency_ms": 26.0, "log_index": 9}
+{"t": 0.971, "event": "accepted", "sid": "S00009", "service": "IoT-GW", "ingress": "edge-A", "site": "cloud-1", "path": ["edge-A<->core-1", "core-1<->cloud-1"], "latency_ms": 25.0, "log_index": 10}
+{"t": 0.979, "event": "accepted", "sid": "S00010", "service": "IoT-GW", "ingress": "edge-B", "site": "cloud-1", "path": ["edge-B<->core-1", "core-1<->cloud-1"], "latency_ms": 26.0, "log_index": 11}

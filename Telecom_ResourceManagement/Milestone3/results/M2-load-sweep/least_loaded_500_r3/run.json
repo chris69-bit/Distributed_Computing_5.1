@@ -1,0 +1,1827 @@
+{
+ "instances": [
+  {
+   "sid": "S00001",
+   "service": "vRAN-DU",
+   "ingress": "edge-A",
+   "site": "edge-A",
+   "address": "127.0.0.1:8101",
+   "link_ms": 0.0,
+   "cpu": 1500,
+   "work_kb": 768
+  },
+  {
+   "sid": "S00002",
+   "service": "vRAN-DU",
+   "ingress": "edge-B",
+   "site": "edge-B",
+   "address": "127.0.0.1:8102",
+   "link_ms": 0.0,
+   "cpu": 1500,
+   "work_kb": 768
+  },
+  {
+   "sid": "S00003",
+   "service": "UPF",
+   "ingress": "edge-A",
+   "site": "core-1",
+   "address": "127.0.0.1:8103",
+   "link_ms": 5.0,
+   "cpu": 1000,
+   "work_kb": 512
+  },
+  {
+   "sid": "S00004",
+   "service": "UPF",
+   "ingress": "edge-B",
+   "site": "core-1",
+   "address": "127.0.0.1:8103",
+   "link_ms": 6.0,
+   "cpu": 1000,
+   "work_kb": 512
+  },
+  {
+   "sid": "S00005",
+   "service": "IMS-CSCF",
+   "ingress": "edge-A",
+   "site": "core-1",
+   "address": "127.0.0.1:8103",
+   "link_ms": 5.0,
+   "cpu": 500,
+   "work_kb": 256
+  },
+  {
+   "sid": "S00006",
+   "service": "IMS-CSCF",
+   "ingress": "edge-B",
+   "site": "core-1",
+   "address": "127.0.0.1:8103",
+   "link_ms": 6.0,
+   "cpu": 500,
+   "work_kb": 256
+  },
+  {
+   "sid": "S00007",
+   "service": "Transcoder",
+   "ingress": "edge-A",
+   "site": "core-1",
+   "address": "127.0.0.1:8103",
+   "link_ms": 5.0,
+   "cpu": 2000,
+   "work_kb": 2048
+  },
+  {
+   "sid": "S00008",
+   "service": "Transcoder",
+   "ingress": "edge-B",
+   "site": "core-1",
+   "address": "127.0.0.1:8103",
+   "link_ms": 6.0,
+   "cpu": 2000,
+   "work_kb": 2048
+  },
+  {
+   "sid": "S00009",
+   "service": "IoT-GW",
+   "ingress": "edge-A",
+   "site": "edge-A",
+   "address": "127.0.0.1:8101",
+   "link_ms": 0.0,
+   "cpu": 250,
+   "work_kb": 128
+  },
+  {
+   "sid": "S00010",
+   "service": "IoT-GW",
+   "ingress": "edge-B",
+   "site": "edge-B",
+   "address": "127.0.0.1:8102",
+   "link_ms": 0.0,
+   "cpu": 250,
+   "work_kb": 128
+  }
+ ],
+ "placement": {
+  "S00001": "edge-A",
+  "S00002": "edge-B",
+  "S00003": "core-1",
+  "S00004": "core-1",
+  "S00005": "core-1",
+  "S00006": "core-1",
+  "S00007": "core-1",
+  "S00008": "core-1",
+  "S00009": "edge-A",
+  "S00010": "edge-B"
+ },
+ "timeseries": [
+  {
+   "t": 1.0,
+   "wall": 1790927794.987,
+   "active": 2,
+   "manager": {
+    "cpu_pct": 2.0,
+    "rss_mb": 22.5,
+    "sys_cpu_pct": 47.8,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.375,
+     "mem": 0.125,
+     "bw": 0.15,
+     "slot_util": 0.0,
+     "measured": null
+    },
+    "edge-B": {
+     "cpu": 0.375,
+     "mem": 0.125,
+     "bw": 0.15,
+     "slot_util": 0.0,
+     "measured": null
+    },
+    "core-1": {
+     "cpu": 0.0,
+     "mem": 0.0,
+     "bw": 0.0,
+     "slot_util": 0.0,
+     "measured": null
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.0,
+    "edge-B<->core-1": 0.0,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 2.01,
+   "wall": 1790927795.992,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 2.0,
+    "rss_mb": 22.5,
+    "sys_cpu_pct": 2.5,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.0,
+     "measured": {
+      "cpu_pct": 2.0,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 15.8,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927795.704,
+      "slot_util": 0.0,
+      "queued": 0,
+      "tasks_received": 0,
+      "tasks_done": 0,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.0,
+     "measured": {
+      "cpu_pct": 0.0,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 6.5,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927795.797,
+      "slot_util": 0.0,
+      "queued": 0,
+      "tasks_received": 0,
+      "tasks_done": 0,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.0,
+     "measured": {
+      "cpu_pct": 1.0,
+      "rss_mb": 166.8,
+      "sys_cpu_pct": 3.5,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927795.828,
+      "slot_util": 0.0,
+      "queued": 0,
+      "tasks_received": 0,
+      "tasks_done": 0,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 3.01,
+   "wall": 1790927796.994,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 0.0,
+    "rss_mb": 22.6,
+    "sys_cpu_pct": 63.3,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.162,
+     "measured": {
+      "cpu_pct": 13.0,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 43.5,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927796.71,
+      "slot_util": 0.162,
+      "queued": 0,
+      "tasks_received": 58,
+      "tasks_done": 58,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.18,
+     "measured": {
+      "cpu_pct": 17.0,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 50.2,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927796.802,
+      "slot_util": 0.18,
+      "queued": 0,
+      "tasks_received": 56,
+      "tasks_done": 55,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.36,
+     "measured": {
+      "cpu_pct": 56.5,
+      "rss_mb": 166.8,
+      "sys_cpu_pct": 52.3,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927796.834,
+      "slot_util": 0.36,
+      "queued": 0,
+      "tasks_received": 184,
+      "tasks_done": 184,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 4.01,
+   "wall": 1790927797.998,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 1.0,
+    "rss_mb": 22.6,
+    "sys_cpu_pct": 73.3,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.255,
+     "measured": {
+      "cpu_pct": 29.0,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 74.2,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927797.716,
+      "slot_util": 0.255,
+      "queued": 0,
+      "tasks_received": 188,
+      "tasks_done": 188,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.212,
+     "measured": {
+      "cpu_pct": 22.7,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 73.4,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927797.814,
+      "slot_util": 0.212,
+      "queued": 0,
+      "tasks_received": 160,
+      "tasks_done": 160,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.388,
+     "measured": {
+      "cpu_pct": 81.5,
+      "rss_mb": 166.8,
+      "sys_cpu_pct": 73.3,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927797.84,
+      "slot_util": 0.388,
+      "queued": 0,
+      "tasks_received": 485,
+      "tasks_done": 485,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 5.02,
+   "wall": 1790927799.008,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 0.0,
+    "rss_mb": 22.6,
+    "sys_cpu_pct": 73.5,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.213,
+     "measured": {
+      "cpu_pct": 27.7,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 69.0,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927798.723,
+      "slot_util": 0.213,
+      "queued": 0,
+      "tasks_received": 309,
+      "tasks_done": 309,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.228,
+     "measured": {
+      "cpu_pct": 27.7,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 71.3,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927798.822,
+      "slot_util": 0.228,
+      "queued": 0,
+      "tasks_received": 285,
+      "tasks_done": 285,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.349,
+     "measured": {
+      "cpu_pct": 71.5,
+      "rss_mb": 166.8,
+      "sys_cpu_pct": 71.9,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927798.845,
+      "slot_util": 0.349,
+      "queued": 2,
+      "tasks_received": 751,
+      "tasks_done": 747,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 6.03,
+   "wall": 1790927800.013,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 1.0,
+    "rss_mb": 22.6,
+    "sys_cpu_pct": 71.6,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.254,
+     "measured": {
+      "cpu_pct": 28.7,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 75.4,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927799.73,
+      "slot_util": 0.254,
+      "queued": 0,
+      "tasks_received": 427,
+      "tasks_done": 427,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.217,
+     "measured": {
+      "cpu_pct": 26.7,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 74.1,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927799.83,
+      "slot_util": 0.217,
+      "queued": 0,
+      "tasks_received": 395,
+      "tasks_done": 393,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.387,
+     "measured": {
+      "cpu_pct": 79.4,
+      "rss_mb": 166.8,
+      "sys_cpu_pct": 73.5,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927799.857,
+      "slot_util": 0.387,
+      "queued": 0,
+      "tasks_received": 1035,
+      "tasks_done": 1034,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 7.04,
+   "wall": 1790927801.021,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 0.0,
+    "rss_mb": 22.6,
+    "sys_cpu_pct": 76.8,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.339,
+     "measured": {
+      "cpu_pct": 30.7,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 76.6,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927800.744,
+      "slot_util": 0.339,
+      "queued": 0,
+      "tasks_received": 555,
+      "tasks_done": 555,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.281,
+     "measured": {
+      "cpu_pct": 26.9,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 76.8,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927800.835,
+      "slot_util": 0.281,
+      "queued": 0,
+      "tasks_received": 511,
+      "tasks_done": 511,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.446,
+     "measured": {
+      "cpu_pct": 77.5,
+      "rss_mb": 166.9,
+      "sys_cpu_pct": 76.5,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927800.864,
+      "slot_util": 0.446,
+      "queued": 0,
+      "tasks_received": 1310,
+      "tasks_done": 1310,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 8.04,
+   "wall": 1790927802.026,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 1.0,
+    "rss_mb": 22.6,
+    "sys_cpu_pct": 84.8,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.273,
+     "measured": {
+      "cpu_pct": 25.7,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 82.0,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927801.753,
+      "slot_util": 0.273,
+      "queued": 0,
+      "tasks_received": 662,
+      "tasks_done": 662,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.386,
+     "measured": {
+      "cpu_pct": 29.7,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 82.9,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927801.845,
+      "slot_util": 0.386,
+      "queued": 1,
+      "tasks_received": 652,
+      "tasks_done": 650,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.579,
+     "measured": {
+      "cpu_pct": 91.5,
+      "rss_mb": 166.9,
+      "sys_cpu_pct": 83.9,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927801.869,
+      "slot_util": 0.579,
+      "queued": 2,
+      "tasks_received": 1621,
+      "tasks_done": 1616,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 9.05,
+   "wall": 1790927803.035,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 0.0,
+    "rss_mb": 22.6,
+    "sys_cpu_pct": 75.1,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.256,
+     "measured": {
+      "cpu_pct": 24.7,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 75.0,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927802.759,
+      "slot_util": 0.256,
+      "queued": 0,
+      "tasks_received": 780,
+      "tasks_done": 779,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.309,
+     "measured": {
+      "cpu_pct": 27.7,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 73.6,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927802.858,
+      "slot_util": 0.309,
+      "queued": 0,
+      "tasks_received": 769,
+      "tasks_done": 769,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.476,
+     "measured": {
+      "cpu_pct": 79.0,
+      "rss_mb": 166.9,
+      "sys_cpu_pct": 73.5,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927802.878,
+      "slot_util": 0.476,
+      "queued": 0,
+      "tasks_received": 1880,
+      "tasks_done": 1877,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 10.06,
+   "wall": 1790927804.045,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 0.0,
+    "rss_mb": 22.6,
+    "sys_cpu_pct": 70.4,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.253,
+     "measured": {
+      "cpu_pct": 26.5,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 75.5,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927803.779,
+      "slot_util": 0.253,
+      "queued": 0,
+      "tasks_received": 901,
+      "tasks_done": 900,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.229,
+     "measured": {
+      "cpu_pct": 27.6,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 73.1,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927803.875,
+      "slot_util": 0.229,
+      "queued": 0,
+      "tasks_received": 876,
+      "tasks_done": 876,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.374,
+     "measured": {
+      "cpu_pct": 76.0,
+      "rss_mb": 166.9,
+      "sys_cpu_pct": 73.0,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927803.892,
+      "slot_util": 0.374,
+      "queued": 0,
+      "tasks_received": 2142,
+      "tasks_done": 2141,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 11.07,
+   "wall": 1790927805.052,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 2.0,
+    "rss_mb": 22.6,
+    "sys_cpu_pct": 72.8,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.184,
+     "measured": {
+      "cpu_pct": 21.9,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 70.5,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927804.783,
+      "slot_util": 0.184,
+      "queued": 0,
+      "tasks_received": 992,
+      "tasks_done": 992,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.268,
+     "measured": {
+      "cpu_pct": 28.6,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 72.8,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927804.885,
+      "slot_util": 0.268,
+      "queued": 0,
+      "tasks_received": 985,
+      "tasks_done": 985,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.396,
+     "measured": {
+      "cpu_pct": 74.5,
+      "rss_mb": 166.9,
+      "sys_cpu_pct": 72.5,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927804.899,
+      "slot_util": 0.396,
+      "queued": 0,
+      "tasks_received": 2420,
+      "tasks_done": 2418,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 12.08,
+   "wall": 1790927806.062,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 0.0,
+    "rss_mb": 22.6,
+    "sys_cpu_pct": 72.7,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.225,
+     "measured": {
+      "cpu_pct": 28.7,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 71.1,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927805.79,
+      "slot_util": 0.225,
+      "queued": 0,
+      "tasks_received": 1118,
+      "tasks_done": 1117,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.233,
+     "measured": {
+      "cpu_pct": 26.7,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 71.3,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927805.899,
+      "slot_util": 0.233,
+      "queued": 0,
+      "tasks_received": 1104,
+      "tasks_done": 1104,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.316,
+     "measured": {
+      "cpu_pct": 67.3,
+      "rss_mb": 166.9,
+      "sys_cpu_pct": 71.1,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927805.906,
+      "slot_util": 0.316,
+      "queued": 0,
+      "tasks_received": 2696,
+      "tasks_done": 2696,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 13.09,
+   "wall": 1790927807.072,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 1.0,
+    "rss_mb": 22.6,
+    "sys_cpu_pct": 74.7,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.289,
+     "measured": {
+      "cpu_pct": 26.7,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 75.5,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927806.803,
+      "slot_util": 0.289,
+      "queued": 0,
+      "tasks_received": 1234,
+      "tasks_done": 1234,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.269,
+     "measured": {
+      "cpu_pct": 25.9,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 75.3,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927806.907,
+      "slot_util": 0.269,
+      "queued": 0,
+      "tasks_received": 1208,
+      "tasks_done": 1207,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.441,
+     "measured": {
+      "cpu_pct": 81.1,
+      "rss_mb": 166.9,
+      "sys_cpu_pct": 75.1,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927806.916,
+      "slot_util": 0.441,
+      "queued": 0,
+      "tasks_received": 2983,
+      "tasks_done": 2981,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 14.09,
+   "wall": 1790927808.078,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 0.0,
+    "rss_mb": 22.6,
+    "sys_cpu_pct": 77.4,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.188,
+     "measured": {
+      "cpu_pct": 24.7,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 73.4,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927807.81,
+      "slot_util": 0.188,
+      "queued": 0,
+      "tasks_received": 1342,
+      "tasks_done": 1342,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.213,
+     "measured": {
+      "cpu_pct": 25.7,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 74.5,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927807.918,
+      "slot_util": 0.213,
+      "queued": 0,
+      "tasks_received": 1330,
+      "tasks_done": 1330,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.404,
+     "measured": {
+      "cpu_pct": 85.9,
+      "rss_mb": 166.9,
+      "sys_cpu_pct": 75.0,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927807.941,
+      "slot_util": 0.404,
+      "queued": 1,
+      "tasks_received": 3268,
+      "tasks_done": 3263,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 15.1,
+   "wall": 1790927809.089,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 0.0,
+    "rss_mb": 22.6,
+    "sys_cpu_pct": 77.2,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.417,
+     "measured": {
+      "cpu_pct": 35.7,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 81.1,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927808.818,
+      "slot_util": 0.417,
+      "queued": 0,
+      "tasks_received": 1475,
+      "tasks_done": 1475,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.331,
+     "measured": {
+      "cpu_pct": 28.8,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 82.1,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927808.923,
+      "slot_util": 0.331,
+      "queued": 0,
+      "tasks_received": 1450,
+      "tasks_done": 1450,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.497,
+     "measured": {
+      "cpu_pct": 83.7,
+      "rss_mb": 166.9,
+      "sys_cpu_pct": 81.8,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927808.956,
+      "slot_util": 0.497,
+      "queued": 0,
+      "tasks_received": 3538,
+      "tasks_done": 3536,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 16.11,
+   "wall": 1790927810.092,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 1.0,
+    "rss_mb": 22.6,
+    "sys_cpu_pct": 76.3,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.238,
+     "measured": {
+      "cpu_pct": 24.7,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 75.1,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927809.829,
+      "slot_util": 0.238,
+      "queued": 0,
+      "tasks_received": 1586,
+      "tasks_done": 1586,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.213,
+     "measured": {
+      "cpu_pct": 26.9,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 74.0,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927809.927,
+      "slot_util": 0.213,
+      "queued": 0,
+      "tasks_received": 1555,
+      "tasks_done": 1555,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.382,
+     "measured": {
+      "cpu_pct": 77.9,
+      "rss_mb": 166.9,
+      "sys_cpu_pct": 74.6,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927809.967,
+      "slot_util": 0.382,
+      "queued": 2,
+      "tasks_received": 3804,
+      "tasks_done": 3798,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 17.11,
+   "wall": 1790927811.095,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 1.0,
+    "rss_mb": 22.6,
+    "sys_cpu_pct": 79.9,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.252,
+     "measured": {
+      "cpu_pct": 27.7,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 78.6,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927810.841,
+      "slot_util": 0.252,
+      "queued": 0,
+      "tasks_received": 1694,
+      "tasks_done": 1693,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.291,
+     "measured": {
+      "cpu_pct": 26.7,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 79.6,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927810.939,
+      "slot_util": 0.291,
+      "queued": 0,
+      "tasks_received": 1660,
+      "tasks_done": 1660,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.514,
+     "measured": {
+      "cpu_pct": 86.5,
+      "rss_mb": 166.9,
+      "sys_cpu_pct": 79.7,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927810.988,
+      "slot_util": 0.514,
+      "queued": 2,
+      "tasks_received": 4108,
+      "tasks_done": 4103,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 18.12,
+   "wall": 1790927812.102,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 0.0,
+    "rss_mb": 22.6,
+    "sys_cpu_pct": 88.2,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.354,
+     "measured": {
+      "cpu_pct": 29.7,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 86.7,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927811.853,
+      "slot_util": 0.354,
+      "queued": 0,
+      "tasks_received": 1802,
+      "tasks_done": 1802,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.343,
+     "measured": {
+      "cpu_pct": 29.7,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 87.2,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927811.945,
+      "slot_util": 0.343,
+      "queued": 2,
+      "tasks_received": 1771,
+      "tasks_done": 1767,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.619,
+     "measured": {
+      "cpu_pct": 96.8,
+      "rss_mb": 166.9,
+      "sys_cpu_pct": 86.7,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927812.001,
+      "slot_util": 0.619,
+      "queued": 4,
+      "tasks_received": 4413,
+      "tasks_done": 4406,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 19.12,
+   "wall": 1790927813.107,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 0.0,
+    "rss_mb": 22.7,
+    "sys_cpu_pct": 91.9,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.476,
+     "measured": {
+      "cpu_pct": 30.4,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 90.4,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927812.864,
+      "slot_util": 0.476,
+      "queued": 0,
+      "tasks_received": 1906,
+      "tasks_done": 1904,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.523,
+     "measured": {
+      "cpu_pct": 34.4,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 90.5,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927812.958,
+      "slot_util": 0.523,
+      "queued": 1,
+      "tasks_received": 1903,
+      "tasks_done": 1900,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.794,
+     "measured": {
+      "cpu_pct": 93.0,
+      "rss_mb": 166.9,
+      "sys_cpu_pct": 91.0,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927813.012,
+      "slot_util": 0.794,
+      "queued": 23,
+      "tasks_received": 4693,
+      "tasks_done": 4666,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 20.13,
+   "wall": 1790927814.112,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 2.0,
+    "rss_mb": 22.7,
+    "sys_cpu_pct": 85.3,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.504,
+     "measured": {
+      "cpu_pct": 34.7,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 92.1,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927813.88,
+      "slot_util": 0.504,
+      "queued": 0,
+      "tasks_received": 2024,
+      "tasks_done": 2024,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.34,
+     "measured": {
+      "cpu_pct": 28.5,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 88.6,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927813.988,
+      "slot_util": 0.34,
+      "queued": 0,
+      "tasks_received": 2006,
+      "tasks_done": 2006,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.663,
+     "measured": {
+      "cpu_pct": 96.0,
+      "rss_mb": 166.9,
+      "sys_cpu_pct": 88.6,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927814.044,
+      "slot_util": 0.663,
+      "queued": 2,
+      "tasks_received": 4981,
+      "tasks_done": 4977,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 21.13,
+   "wall": 1790927815.117,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 0.0,
+    "rss_mb": 22.7,
+    "sys_cpu_pct": 8.5,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.063,
+     "measured": {
+      "cpu_pct": 9.0,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 22.1,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927814.888,
+      "slot_util": 0.063,
+      "queued": 0,
+      "tasks_received": 2057,
+      "tasks_done": 2057,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.035,
+     "measured": {
+      "cpu_pct": 5.0,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 15.9,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927814.993,
+      "slot_util": 0.035,
+      "queued": 0,
+      "tasks_received": 2023,
+      "tasks_done": 2023,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.037,
+     "measured": {
+      "cpu_pct": 12.0,
+      "rss_mb": 166.9,
+      "sys_cpu_pct": 12.1,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927815.051,
+      "slot_util": 0.037,
+      "queued": 0,
+      "tasks_received": 5023,
+      "tasks_done": 5023,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  },
+  {
+   "t": 22.14,
+   "wall": 1790927816.121,
+   "active": 10,
+   "manager": {
+    "cpu_pct": 0.0,
+    "rss_mb": 22.7,
+    "sys_cpu_pct": 4.4,
+    "sys_mem_pct": 9.8,
+    "procs": 1
+   },
+   "sites": {
+    "edge-A": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.0,
+     "measured": {
+      "cpu_pct": 1.0,
+      "rss_mb": 95.7,
+      "sys_cpu_pct": 4.9,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927815.894,
+      "slot_util": 0.0,
+      "queued": 0,
+      "tasks_received": 2057,
+      "tasks_done": 2057,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "edge-B": {
+     "cpu": 0.4375,
+     "mem": 0.1562,
+     "bw": 0.16,
+     "slot_util": 0.0,
+     "measured": {
+      "cpu_pct": 0.0,
+      "rss_mb": 95.6,
+      "sys_cpu_pct": 5.4,
+      "sys_mem_pct": 9.8,
+      "procs": 3,
+      "t": 1790927815.998,
+      "slot_util": 0.0,
+      "queued": 0,
+      "tasks_received": 2023,
+      "tasks_done": 2023,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    },
+    "core-1": {
+     "cpu": 0.5833,
+     "mem": 0.2188,
+     "bw": 0.13,
+     "slot_util": 0.0,
+     "measured": {
+      "cpu_pct": 2.0,
+      "rss_mb": 166.9,
+      "sys_cpu_pct": 4.9,
+      "sys_mem_pct": 9.8,
+      "procs": 5,
+      "t": 1790927816.057,
+      "slot_util": 0.0,
+      "queued": 0,
+      "tasks_received": 5023,
+      "tasks_done": 5023,
+      "tasks_dropped": 0,
+      "tasks_no_instance": 0
+     }
+    }
+   },
+   "links": {
+    "edge-A<->core-1": 0.65,
+    "edge-B<->core-1": 0.65,
+    "edge-A<->edge-B": 0.0
+   }
+  }
+ ],
+ "manager_stats": {
+  "requests": 10,
+  "accepted": 10,
+  "blocked": 0,
+  "released": 0,
+  "resize_requests": 0,
+  "resize_accepted": 0,
+  "resize_rejected": 0,
+  "allocate_failures": 0
+ }
+}

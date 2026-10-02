@@ -1,0 +1,31 @@
+2026-10-02 12:54:19,926 [manager] manager: orchestrator pid 11063 on 127.0.0.1:8900 (placement=least_loaded)
+2026-10-02 12:54:20,003 [manager] raft: o1 -> candidate (term 1)
+2026-10-02 12:54:20,046 [manager] raft: o1 -> leader (term 1)
+2026-10-02 12:54:20,173 [manager] raft: o1 lost contact with the majority, stepping down
+2026-10-02 12:54:20,173 [manager] raft: o1 -> follower (term 1)
+2026-10-02 12:54:20,257 [manager] raft: o1 -> candidate (term 2)
+2026-10-02 12:54:20,303 [manager] raft: o1 -> leader (term 2)
+2026-10-02 12:54:20,429 [manager] raft: o1 lost contact with the majority, stepping down
+2026-10-02 12:54:20,429 [manager] raft: o1 -> follower (term 2)
+2026-10-02 12:54:20,494 [manager] raft: o1 -> candidate (term 3)
+2026-10-02 12:54:20,538 [manager] raft: o1 -> leader (term 3)
+2026-10-02 12:54:20,661 [manager] raft: o1 lost contact with the majority, stepping down
+2026-10-02 12:54:20,661 [manager] raft: o1 -> follower (term 3)
+2026-10-02 12:54:20,728 [manager] raft: o1 -> candidate (term 4)
+2026-10-02 12:54:20,772 [manager] raft: o1 -> leader (term 4)
+2026-10-02 12:54:20,897 [manager] raft: o1 lost contact with the majority, stepping down
+2026-10-02 12:54:20,898 [manager] raft: o1 -> follower (term 4)
+2026-10-02 12:54:20,955 [manager] raft: o1 -> candidate (term 5)
+2026-10-02 12:54:20,999 [manager] raft: o1 -> leader (term 5)
+2026-10-02 12:54:21,168 [manager] raft: o1 lost contact with the majority, stepping down
+2026-10-02 12:54:21,168 [manager] raft: o1 -> follower (term 5)
+2026-10-02 12:54:21,234 [manager] raft: o1 -> candidate (term 6)
+2026-10-02 12:54:21,280 [manager] raft: o1 -> leader (term 6)
+2026-10-02 12:54:21,405 [manager] raft: o1 lost contact with the majority, stepping down
+2026-10-02 12:54:21,406 [manager] raft: o1 -> follower (term 6)
+2026-10-02 12:54:21,461 [manager] raft: o1 -> candidate (term 7)
+2026-10-02 12:54:21,506 [manager] raft: o1 -> leader (term 7)
+2026-10-02 12:54:21,676 [manager] raft: o1 lost contact with the majority, stepping down
+2026-10-02 12:54:21,677 [manager] raft: o1 -> follower (term 7)
+2026-10-02 12:54:21,754 [manager] raft: o1 -> candidate (term 8)
+2026-10-02 12:54:21,799 [manager] raft: o1 -> leader (term 8)
