@@ -1,7 +1,7 @@
-# ICS 2403 – Practical 1 (Week 1): Distributed Operating System Foundation
+# ICS 2403 – Practical 1
 
 **System theme:** Theme 3 – Distributed Telecom Resource Management System
-**Prototype stage:** S1 (distributed prototype). Later weeks extend this same code base.
+**Prototype stage:** distributed prototype.
 
 ## 1. Files
 
@@ -9,34 +9,22 @@
 |---|---|
 | `node.py` | Worker node: resource table, process table, simulated process execution, TCP request handler |
 | `cluster.py` | Coordinator: starts nodes, admits workload, places processes, polls state, writes metrics |
-| `config.json` | Node topology and capacities (1 edge node, 2 core nodes) |
+| `config.json` | Node topology and capacities |
 | `workload.json` | 12 telecom processes with priority, arrival time, duration and resource demand |
-| `results.json` | Output of the last run (generated) |
+| `results.json` | Output of the last run |
 
-Run: `python3 cluster.py` (Python 3.13, standard library only, no external dependencies).
+Run: `python3 cluster.py`
 
 ## 2. System Model
 
 **Nodes + Processes + Resources + Communication**
 
 - **Nodes:** `edge-1` (2 CPU, 1024 MB, 50 Mbps), `core-1` and `core-2` (4 CPU, 2048 MB, 200 Mbps each). Each node is a separate OS process listening on `127.0.0.1` on its own port.
-- **Processes:** Each telecom function (e.g. `ran-scheduler`, `signalling-gw`) has a PID, a priority, an arrival time, a work duration and a resource demand vector `d = (cpu, mem, bw)`.
-- **Resources:** Each node has a capacity vector `C = (cpu, mem, bw)`. A node tracks usage `U` with the invariant `U ≤ C` on every resource at all times.
+- **Processes:** Each telecom function has a PID, a priority, an arrival time, a work duration and a resource demand vector `d = (cpu, mem, bw)`.
+- **Resources:** Each node has a capacity vector `C = (cpu, mem, bw)`.
 - **Communication:** Newline-delimited JSON over TCP. Request types: `ping`, `create_process`, `status`, `shutdown`.
 
 ## 3. Architecture
-
-```
-            ┌──────────────────────── coordinator (cluster.py) ────────────────────────┐
-            │  admission  →  ready queue (priority, arrival)  →  placement  →  poll    │
-            └───────┬─────────────────────┬─────────────────────────┬──────────────────┘
-          JSON/TCP  │           JSON/TCP  │                JSON/TCP │
-            ┌───────▼──────┐      ┌───────▼──────┐        ┌────────▼─────┐
-            │ edge-1 :9101 │      │ core-1 :9102 │        │ core-2 :9103 │
-            │ resource tbl │      │ resource tbl │        │ resource tbl │
-            │ process tbl  │      │ process tbl  │        │ process tbl  │
-            └──────────────┘      └──────────────┘        └──────────────┘
-```
 
 Each node is an independent OS process, so a node's state is only changed by its own process or by a request from the coordinator. There is no shared memory between nodes.
 
@@ -51,31 +39,22 @@ PENDING ──(admissible)──► PENDING(queued) ──(placed on node)──
 ```
 
 - **Admission:** A process is admitted only if some node could hold it when empty. Otherwise it is `REJECTED` immediately, so it never blocks the queue.
-- **Scheduling:** The ready queue is ordered by priority (high first), then arrival time, then PID. The coordinator scans the whole queue on every tick, so a process that does not fit does not block lower-priority processes that do.
-- **Placement:** Among nodes that currently fit the demand, the process goes to the node with the lowest dominant-resource utilisation `max(U_r / C_r)`.
+- **Scheduling:** The ready queue is ordered by priority, then arrival time, then PID. The coordinator scans the whole queue on every tick, so a process that does not fit does not block lower-priority processes that do.
+- **Placement:** Among nodes that currently fit the demand, the process goes to the node with the lowest dominant-resource utilisation.
 - **Completion:** A node marks a process `TERMINATED` and releases its resources. The coordinator learns this from the next status poll.
 
-## 5. Resource Model
-
-For node `n`, capacity `C_n = (c, m, b)` and usage `U_n = (u_c, u_m, u_b)`.
-
-- Allocation is all-or-nothing: `try_allocate(d)` checks `U + d ≤ C` on all three resources, then reserves all three together. It never partially reserves.
-- Release subtracts exactly the reserved demand.
-- Placement feasibility: `fits(n, d) ⇔ U_n + d ≤ C_n` (component-wise).
-- Load: `load(n) = max(u_c/c, u_m/m, u_b/b)`.
-
-## 6. Design Justification
+## 5. Design Justification
 
 | Decision | Reason |
 |---|---|
 | Nodes as separate OS processes with TCP | Gives real message passing and real isolation. A shared-memory simulation would hide the communication and failure issues the course is about. |
 | Coordinator-driven placement | Simple, and easy to reason about and test. Placement can be made distributed in later weeks (Milestone 4 coordination). |
 | Vector resource demand, all-or-nothing allocation | Telecom workloads need CPU, memory and bandwidth together. Partial allocation would leave processes unable to run, so it is avoided. |
-| Least-loaded (dominant-resource) placement | Cheap heuristic that spreads load. It is a baseline for the proposed improvement in later weeks. |
+| Least-loaded placement | Cheap heuristic that spreads load. It is a baseline for the proposed improvement in later weeks. |
 | Reject impossible demands at admission | A process that no node can ever hold would otherwise wait forever and stall progress checks. |
 | JSON over TCP | Human-readable and easy to inspect, which helps during debugging. Its overhead is measured in Week 2. |
 
-## 7. Measurements from the Recorded Run
+## 6. Measurements from the Recorded Run
 
 Source: `results.json`, produced by `python3 cluster.py`.
 
@@ -108,12 +87,12 @@ Per-process results:
 
 **Note on these numbers:** Process work is simulated with `time.sleep`, so latency and makespan reflect the scheduling and polling policy, not real telecom workloads. Timings are wall-clock on one machine and will vary slightly between runs. Week 2 measures performance properly.
 
-## 8. Observed Behaviour
+## 7. Observed Behaviour
 
 - `video-transcoder` (p05, priority 3) waited 4.51 s, and `analytics-job` (p09, priority 2) waited 3.12 s. Both are large (4 CPU and 3 CPU). Each time capacity freed up, a stream of smaller, higher-priority processes arrived and took the space first. The large processes only fit once a whole core node was empty. This is priority-driven starvation of large jobs, and it is the main weakness of this scheduler.
 - `model-trainer` (p11) was rejected at admission, as designed. It does not block the queue.
 
-## 9. Failure-Driven Engineering Log (Week 1)
+## 8. Failure-Driven Engineering Log
 
 | Question | Response |
 |---|---|
@@ -124,14 +103,14 @@ Per-process results:
 | What alternative was considered? | Strict FCFS (fair, but head-of-line blocking) versus the current priority-with-skipping scan (no head-of-line blocking, but starvation). Also considered first-fit versus least-loaded. Least-loaded was chosen because it spreads work across nodes. |
 | What was learned? | Admission control and skipping blocked jobs prevent stalls, but they trade fairness for throughput. The scheduling policy must be measured, not assumed. |
 
-## 10. Known Limitations and Next Steps
+## 9. Known Limitations and Next Steps
 
 - **Not yet tested:** deliberate node failure. The course needs failure injection in Week 7; Week 1 only shows the normal path.
-- **Race in admission:** `create_process` checks for a duplicate PID and then allocates in two separate locked steps. The coordinator is the only sender, so this has not caused a problem, but two concurrent senders could hit it. Week 6 (concurrency) will make this a deliberate test.
+- **Race in admission:** `create_process` checks for a duplicate PID and then allocates in two separate locked steps. The coordinator is the only sender, so this has not caused a problem, but two concurrent senders could hit it. Week 6 will make this a deliberate test.
 - **Central coordinator:** a single point of failure and a bottleneck. Replaced by coordination protocols in Week 4 and fault tolerance in Week 7.
 - **Simulated work:** processes sleep instead of computing. Real telecom functions come in Week 2 and later.
 
-## 11. Reproducibility
+## 10. Reproducibility
 
 - **Hardware:** single Linux host, loopback network (`127.0.0.1`). Record CPU model and core count from `lscpu` when reporting.
 - **OS:** Linux 6.x (Ubuntu/Debian or similar).
@@ -141,4 +120,3 @@ Per-process results:
 - **Command:** `python3 cluster.py` from this directory. Output goes to `results.json`.
 - **Timeout:** 60 s by default (`--timeout`).
 
-A second researcher should be able to reproduce the table in Section 7 within the timing tolerance above.
