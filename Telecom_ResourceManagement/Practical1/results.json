@@ -1,248 +1,3728 @@
 {
-  "config": {
-    "nodes": [
+  "meta": {
+    "python": "3.13.18",
+    "platform": "Linux-6.18.44-fc-v236-x86_64-with-glibc2.39",
+    "m7_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "m8_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "m7_horizon_s": 40000.0,
+    "m7_tick_s": 1.0,
+    "m7_default_params": {
+      "mtbf_s": 4000.0,
+      "hb_k": 3,
+      "horizon_s": 40000.0,
+      "p_drop_base": 0.01,
+      "p_omit": 0.5,
+      "mttr_crash_s": 120.0,
+      "mttr_hang_s": 60.0,
+      "partition_s": [
+        10.0,
+        120.0
+      ],
+      "omission_s": [
+        5.0,
+        30.0
+      ],
+      "d_elect_s": 2.0,
+      "d_sync_s": 5.0,
+      "d_restart_s": 10.0
+    },
+    "m7_fault_mix": {
+      "crash": 0.4,
+      "hang": 0.2,
+      "partition": 0.25,
+      "omission": 0.15
+    },
+    "m8_requests_per_run": 60000,
+    "m8_params": {
+      "MU": 100.0,
+      "RHO": 0.7,
+      "HOT_FACTOR": 1.2,
+      "CRIT_FRAC": 0.4,
+      "SLA_MS": 50.0,
+      "T_MIG_S": 0.005,
+      "T_SPILL_S": 0.005,
+      "MIG_COST_S": 0.003,
+      "RETRY_S": 0.002,
+      "RTT_S": {
+        "host": 0.0,
+        "workstation": 0.0,
+        "pool": 0.001,
+        "server": 0.002,
+        "integrated": 0.001
+      }
+    }
+  },
+  "m7": {
+    "baseline": [
       {
-        "id": "edge-1",
-        "port": 9101,
-        "cpu": 2,
-        "mem": 1024,
-        "bw": 50
+        "config": "A: single node + restart",
+        "n_replicas": 1,
+        "quorum": false,
+        "mtbf_s": 4000.0,
+        "hb_k": 3,
+        "seeds": 8,
+        "availability": [
+          0.981678125,
+          0.008825698497860229
+        ],
+        "downtime_min_per_year": [
+          9629.977499999994,
+          4638.787130475336
+        ],
+        "outages_per_run": [
+          8.875,
+          1.8663549361704639
+        ],
+        "mttr_s": [
+          81.91785714285714,
+          36.388301198180784
+        ],
+        "max_outage_s": [
+          230.625,
+          116.96245907546536
+        ],
+        "faults_per_run": [
+          8.875,
+          2.1170902026931415
+        ],
+        "false_failovers_per_run": [
+          2.0,
+          1.2641456742457675
+        ],
+        "split_brain_s_per_run": [
+          0.0,
+          0.0
+        ]
       },
       {
-        "id": "core-1",
-        "port": 9102,
-        "cpu": 4,
-        "mem": 2048,
-        "bw": 200
+        "config": "B: primary-backup (n=2)",
+        "n_replicas": 2,
+        "quorum": false,
+        "mtbf_s": 4000.0,
+        "hb_k": 3,
+        "seeds": 8,
+        "availability": [
+          0.999065625,
+          0.00030598819616579025
+        ],
+        "downtime_min_per_year": [
+          491.10750000000064,
+          160.82739590473935
+        ],
+        "outages_per_run": [
+          9.25,
+          1.8830042840972432
+        ],
+        "mttr_s": [
+          3.958442599067599,
+          0.516266262710711
+        ],
+        "max_outage_s": [
+          7.5,
+          7.316772073218392
+        ],
+        "faults_per_run": [
+          18.625,
+          3.3427481392961473
+        ],
+        "false_failovers_per_run": [
+          1.625,
+          1.2591979226802048
+        ],
+        "split_brain_s_per_run": [
+          89.375,
+          34.85564356509651
+        ]
       },
       {
-        "id": "core-2",
-        "port": 9103,
-        "cpu": 4,
-        "mem": 2048,
-        "bw": 200
+        "config": "C: majority quorum (n=3)",
+        "n_replicas": 3,
+        "quorum": true,
+        "mtbf_s": 4000.0,
+        "hb_k": 3,
+        "seeds": 8,
+        "availability": [
+          0.998675,
+          0.0005315381188244096
+        ],
+        "downtime_min_per_year": [
+          696.4199999999889,
+          279.37643525410965
+        ],
+        "outages_per_run": [
+          10.25,
+          2.672330401875059
+        ],
+        "mttr_s": [
+          5.124952651515152,
+          1.6318514644392297
+        ],
+        "max_outage_s": [
+          16.125,
+          12.739345318368013
+        ],
+        "faults_per_run": [
+          27.375,
+          2.4859634409843427
+        ],
+        "false_failovers_per_run": [
+          1.0,
+          0.9993949062164708
+        ],
+        "split_brain_s_per_run": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "config": "D: majority quorum (n=5)",
+        "n_replicas": 5,
+        "quorum": true,
+        "mtbf_s": 4000.0,
+        "hb_k": 3,
+        "seeds": 8,
+        "availability": [
+          0.999040625,
+          0.0002702382814476244
+        ],
+        "downtime_min_per_year": [
+          504.2474999999992,
+          142.03724072887138
+        ],
+        "outages_per_run": [
+          9.875,
+          2.697903524283121
+        ],
+        "mttr_s": [
+          3.8849941724941726,
+          0.1955242123540838
+        ],
+        "max_outage_s": [
+          4.75,
+          1.1611919484182744
+        ],
+        "faults_per_run": [
+          47.625,
+          3.6292623878566173
+        ],
+        "false_failovers_per_run": [
+          0.875,
+          0.6977895184463374
+        ],
+        "split_brain_s_per_run": [
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "mtbf_sweep": [
+      {
+        "config": "A: single node + restart",
+        "n_replicas": 1,
+        "quorum": false,
+        "mtbf_s": 8000.0,
+        "hb_k": 3,
+        "seeds": 8,
+        "availability": [
+          0.986784375,
+          0.009248837899670667
+        ],
+        "downtime_min_per_year": [
+          6946.132499999998,
+          4861.189200066902
+        ],
+        "outages_per_run": [
+          5.0,
+          1.6723075375061849
+        ],
+        "mttr_s": [
+          93.53645833333333,
+          41.90531517616026
+        ],
+        "max_outage_s": [
+          190.875,
+          109.96108991787204
+        ],
+        "faults_per_run": [
+          5.0,
+          1.896218511368651
+        ],
+        "false_failovers_per_run": [
+          1.25,
+          1.5320433804702975
+        ],
+        "split_brain_s_per_run": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "config": "A: single node + restart",
+        "n_replicas": 1,
+        "quorum": false,
+        "mtbf_s": 2000.0,
+        "hb_k": 3,
+        "seeds": 8,
+        "availability": [
+          0.961959375,
+          0.014677748023515654
+        ],
+        "downtime_min_per_year": [
+          19994.152500000004,
+          7714.624361159827
+        ],
+        "outages_per_run": [
+          17.75,
+          5.3024469376680905
+        ],
+        "mttr_s": [
+          85.58458543771044,
+          24.411893076204386
+        ],
+        "max_outage_s": [
+          352.75,
+          133.79860037821638
+        ],
+        "faults_per_run": [
+          18.5,
+          5.231333567347541
+        ],
+        "false_failovers_per_run": [
+          3.5,
+          1.4823421982987408
+        ],
+        "split_brain_s_per_run": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "config": "A: single node + restart",
+        "n_replicas": 1,
+        "quorum": false,
+        "mtbf_s": 1000.0,
+        "hb_k": 3,
+        "seeds": 8,
+        "availability": [
+          0.915028125,
+          0.017616395689054754
+        ],
+        "downtime_min_per_year": [
+          44661.21749999999,
+          9259.177574167179
+        ],
+        "outages_per_run": [
+          39.25,
+          8.33461798282578
+        ],
+        "mttr_s": [
+          87.5093848913977,
+          12.427169990160225
+        ],
+        "max_outage_s": [
+          455.25,
+          82.3512924791777
+        ],
+        "faults_per_run": [
+          41.125,
+          7.669175747146821
+        ],
+        "false_failovers_per_run": [
+          7.5,
+          2.322383896836549
+        ],
+        "split_brain_s_per_run": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "config": "B: primary-backup (n=2)",
+        "n_replicas": 2,
+        "quorum": false,
+        "mtbf_s": 8000.0,
+        "hb_k": 3,
+        "seeds": 8,
+        "availability": [
+          0.999553125,
+          0.00015500188909691321
+        ],
+        "downtime_min_per_year": [
+          234.87749999999966,
+          81.46899290933759
+        ],
+        "outages_per_run": [
+          4.875,
+          1.638367664753768
+        ],
+        "mttr_s": [
+          3.6354166666666665,
+          0.26841785651074784
+        ],
+        "max_outage_s": [
+          4.0,
+          0.0
+        ],
+        "faults_per_run": [
+          10.0,
+          3.4620055087849213
+        ],
+        "false_failovers_per_run": [
+          0.75,
+          0.3870639828060915
+        ],
+        "split_brain_s_per_run": [
+          91.5,
+          58.13867664749026
+        ]
+      },
+      {
+        "config": "B: primary-backup (n=2)",
+        "n_replicas": 2,
+        "quorum": false,
+        "mtbf_s": 2000.0,
+        "hb_k": 3,
+        "seeds": 8,
+        "availability": [
+          0.99726875,
+          0.0007061266065364676
+        ],
+        "downtime_min_per_year": [
+          1435.5450000000023,
+          371.1401443955674
+        ],
+        "outages_per_run": [
+          19.5,
+          2.567492001656759
+        ],
+        "mttr_s": [
+          5.66717571910187,
+          1.4507173930647803
+        ],
+        "max_outage_s": [
+          34.5,
+          25.748726580856662
+        ],
+        "faults_per_run": [
+          37.75,
+          2.989844828450849
+        ],
+        "false_failovers_per_run": [
+          1.875,
+          1.638367664753768
+        ],
+        "split_brain_s_per_run": [
+          333.0,
+          100.54429329103097
+        ]
+      },
+      {
+        "config": "B: primary-backup (n=2)",
+        "n_replicas": 2,
+        "quorum": false,
+        "mtbf_s": 1000.0,
+        "hb_k": 3,
+        "seeds": 8,
+        "availability": [
+          0.992415625,
+          0.003465050328975225
+        ],
+        "downtime_min_per_year": [
+          3986.347499999995,
+          1821.2304529093783
+        ],
+        "outages_per_run": [
+          36.5,
+          3.630982010027433
+        ],
+        "mttr_s": [
+          8.07575907034445,
+          2.917556903181876
+        ],
+        "max_outage_s": [
+          88.25,
+          53.12185831676811
+        ],
+        "faults_per_run": [
+          73.125,
+          6.086265747383026
+        ],
+        "false_failovers_per_run": [
+          4.125,
+          1.9704813673811863
+        ],
+        "split_brain_s_per_run": [
+          560.625,
+          120.24837915056091
+        ]
+      },
+      {
+        "config": "C: majority quorum (n=3)",
+        "n_replicas": 3,
+        "quorum": true,
+        "mtbf_s": 8000.0,
+        "hb_k": 3,
+        "seeds": 8,
+        "availability": [
+          0.99934375,
+          0.0002734103188020799
+        ],
+        "downtime_min_per_year": [
+          344.9249999999912,
+          143.7044635623732
+        ],
+        "outages_per_run": [
+          5.75,
+          2.5183958453604096
+        ],
+        "mttr_s": [
+          5.020427489177489,
+          2.629582521286421
+        ],
+        "max_outage_s": [
+          9.0,
+          8.057379326253844
+        ],
+        "faults_per_run": [
+          15.0,
+          2.7551416219756937
+        ],
+        "false_failovers_per_run": [
+          0.875,
+          0.6977895184463374
+        ],
+        "split_brain_s_per_run": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "config": "C: majority quorum (n=3)",
+        "n_replicas": 3,
+        "quorum": true,
+        "mtbf_s": 2000.0,
+        "hb_k": 3,
+        "seeds": 8,
+        "availability": [
+          0.9959218750000001,
+          0.0017154052979344704
+        ],
+        "downtime_min_per_year": [
+          2143.4624999999937,
+          901.6170245943578
+        ],
+        "outages_per_run": [
+          19.75,
+          3.307076118772766
+        ],
+        "mttr_s": [
+          8.619485188724319,
+          3.654092673753709
+        ],
+        "max_outage_s": [
+          55.0,
+          31.07459323374736
+        ],
+        "faults_per_run": [
+          52.375,
+          4.423098757971368
+        ],
+        "false_failovers_per_run": [
+          3.5,
+          2.0481500799501973
+        ],
+        "split_brain_s_per_run": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "config": "C: majority quorum (n=3)",
+        "n_replicas": 3,
+        "quorum": true,
+        "mtbf_s": 1000.0,
+        "hb_k": 3,
+        "seeds": 8,
+        "availability": [
+          0.984946875,
+          0.004758702532599712
+        ],
+        "downtime_min_per_year": [
+          7911.922499999992,
+          2501.1740511344087
+        ],
+        "outages_per_run": [
+          42.25,
+          6.205107685119459
+        ],
+        "mttr_s": [
+          14.63306101965007,
+          5.227293580692345
+        ],
+        "max_outage_s": [
+          120.5,
+          37.92700377275499
+        ],
+        "faults_per_run": [
+          110.375,
+          8.142922262917086
+        ],
+        "false_failovers_per_run": [
+          4.0,
+          2.6061030705414767
+        ],
+        "split_brain_s_per_run": [
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "heartbeat_sweep": [
+      {
+        "config": "C: majority quorum (n=3)",
+        "n_replicas": 3,
+        "quorum": true,
+        "mtbf_s": 4000.0,
+        "hb_k": 1,
+        "seeds": 8,
+        "availability": [
+          0.9786343750000001,
+          0.0011920658218044179
+        ],
+        "downtime_min_per_year": [
+          11229.772499999992,
+          626.5497959404023
+        ],
+        "outages_per_run": [
+          399.75,
+          23.338599441353125
+        ],
+        "mttr_s": [
+          2.139478281386751,
+          0.06488926313586778
+        ],
+        "max_outage_s": [
+          18.375,
+          11.84978540860174
+        ],
+        "faults_per_run": [
+          27.375,
+          2.4859634409843427
+        ],
+        "false_failovers_per_run": [
+          399.125,
+          22.80914989956059
+        ],
+        "split_brain_s_per_run": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "config": "C: majority quorum (n=3)",
+        "n_replicas": 3,
+        "quorum": true,
+        "mtbf_s": 4000.0,
+        "hb_k": 2,
+        "seeds": 8,
+        "availability": [
+          0.998565625,
+          0.0005783269473237854
+        ],
+        "downtime_min_per_year": [
+          753.9075000000081,
+          303.9686435133816
+        ],
+        "outages_per_run": [
+          15.625,
+          3.710905494222882
+        ],
+        "mttr_s": [
+          3.620851370851371,
+          1.2542307517910518
+        ],
+        "max_outage_s": [
+          15.625,
+          13.121697371471504
+        ],
+        "faults_per_run": [
+          27.375,
+          2.4859634409843427
+        ],
+        "false_failovers_per_run": [
+          5.625,
+          1.6685705327518694
+        ],
+        "split_brain_s_per_run": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "config": "C: majority quorum (n=3)",
+        "n_replicas": 3,
+        "quorum": true,
+        "mtbf_s": 4000.0,
+        "hb_k": 5,
+        "seeds": 8,
+        "availability": [
+          0.998309375,
+          0.000552492031867986
+        ],
+        "downtime_min_per_year": [
+          888.5925000000007,
+          290.38981194981346
+        ],
+        "outages_per_run": [
+          9.5,
+          2.365
+        ],
+        "mttr_s": [
+          7.113095238095238,
+          1.724640818680208
+        ],
+        "max_outage_s": [
+          17.375,
+          12.01717832705317
+        ],
+        "faults_per_run": [
+          27.375,
+          2.4859634409843427
+        ],
+        "false_failovers_per_run": [
+          0.5,
+          0.6320728371228838
+        ],
+        "split_brain_s_per_run": [
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "scripted": {
+      "leader crash at t=100 s (repair 120 s)": {
+        "A: single node + restart": {
+          "outages": 1,
+          "max_outage_s": 135.0,
+          "split_brain_s": 0,
+          "events": [
+            [
+              100.0,
+              "FAULT crash injected on node 0"
+            ],
+            [
+              100.0,
+              "SERVICE DOWN"
+            ],
+            [
+              102.0,
+              "SUSPECT node 0 (3 missed heartbeats)"
+            ],
+            [
+              102.0,
+              "leader suspected; failover started"
+            ],
+            [
+              220.0,
+              "REPAIR node 0"
+            ],
+            [
+              225.0,
+              "LEADER -> node 0, serving at t+10s"
+            ],
+            [
+              235.0,
+              "SERVICE RESTORED"
+            ]
+          ]
+        },
+        "B: primary-backup (n=2)": {
+          "outages": 1,
+          "max_outage_s": 4.0,
+          "split_brain_s": 0,
+          "events": [
+            [
+              100.0,
+              "FAULT crash injected on node 0"
+            ],
+            [
+              100.0,
+              "SERVICE DOWN"
+            ],
+            [
+              102.0,
+              "SUSPECT node 0 (3 missed heartbeats)"
+            ],
+            [
+              102.0,
+              "leader suspected; failover started"
+            ],
+            [
+              102.0,
+              "LEADER -> node 1, serving at t+2s"
+            ],
+            [
+              104.0,
+              "SERVICE RESTORED"
+            ],
+            [
+              220.0,
+              "REPAIR node 0"
+            ]
+          ]
+        },
+        "C: majority quorum (n=3)": {
+          "outages": 1,
+          "max_outage_s": 4.0,
+          "split_brain_s": 0,
+          "events": [
+            [
+              100.0,
+              "FAULT crash injected on node 0"
+            ],
+            [
+              100.0,
+              "SERVICE DOWN"
+            ],
+            [
+              102.0,
+              "SUSPECT node 0 (3 missed heartbeats)"
+            ],
+            [
+              102.0,
+              "leader suspected; failover started"
+            ],
+            [
+              102.0,
+              "LEADER -> node 1, serving at t+2s"
+            ],
+            [
+              104.0,
+              "SERVICE RESTORED"
+            ],
+            [
+              220.0,
+              "REPAIR node 0"
+            ]
+          ]
+        },
+        "D: majority quorum (n=5)": {
+          "outages": 1,
+          "max_outage_s": 4.0,
+          "split_brain_s": 0,
+          "events": [
+            [
+              100.0,
+              "FAULT crash injected on node 0"
+            ],
+            [
+              100.0,
+              "SERVICE DOWN"
+            ],
+            [
+              102.0,
+              "SUSPECT node 0 (3 missed heartbeats)"
+            ],
+            [
+              102.0,
+              "leader suspected; failover started"
+            ],
+            [
+              102.0,
+              "LEADER -> node 1, serving at t+2s"
+            ],
+            [
+              104.0,
+              "SERVICE RESTORED"
+            ],
+            [
+              220.0,
+              "REPAIR node 0"
+            ]
+          ]
+        }
+      },
+      "leader partitioned at t=100 s (60 s)": {
+        "A: single node + restart": {
+          "outages": 2,
+          "max_outage_s": 70.0,
+          "split_brain_s": 0,
+          "events": [
+            [
+              100.0,
+              "FAULT partition injected on node 0"
+            ],
+            [
+              100.0,
+              "SERVICE DOWN"
+            ],
+            [
+              102.0,
+              "SUSPECT node 0 (3 missed heartbeats)"
+            ],
+            [
+              102.0,
+              "leader suspected; failover started"
+            ],
+            [
+              160.0,
+              "LEADER -> node 0, serving at t+10s"
+            ],
+            [
+              170.0,
+              "SERVICE RESTORED"
+            ]
+          ]
+        },
+        "B: primary-backup (n=2)": {
+          "outages": 1,
+          "max_outage_s": 4.0,
+          "split_brain_s": 58,
+          "events": [
+            [
+              100.0,
+              "FAULT partition injected on node 0"
+            ],
+            [
+              100.0,
+              "SERVICE DOWN"
+            ],
+            [
+              102.0,
+              "SUSPECT node 0 (3 missed heartbeats)"
+            ],
+            [
+              102.0,
+              "leader suspected; failover started"
+            ],
+            [
+              102.0,
+              "LEADER -> node 1, serving at t+2s"
+            ],
+            [
+              104.0,
+              "SERVICE RESTORED"
+            ]
+          ]
+        },
+        "C: majority quorum (n=3)": {
+          "outages": 1,
+          "max_outage_s": 4.0,
+          "split_brain_s": 0,
+          "events": [
+            [
+              100.0,
+              "FAULT partition injected on node 0"
+            ],
+            [
+              100.0,
+              "SERVICE DOWN"
+            ],
+            [
+              102.0,
+              "SUSPECT node 0 (3 missed heartbeats)"
+            ],
+            [
+              102.0,
+              "leader suspected; failover started"
+            ],
+            [
+              102.0,
+              "LEADER -> node 1, serving at t+2s"
+            ],
+            [
+              104.0,
+              "SERVICE RESTORED"
+            ]
+          ]
+        },
+        "D: majority quorum (n=5)": {
+          "outages": 1,
+          "max_outage_s": 4.0,
+          "split_brain_s": 0,
+          "events": [
+            [
+              100.0,
+              "FAULT partition injected on node 0"
+            ],
+            [
+              100.0,
+              "SERVICE DOWN"
+            ],
+            [
+              102.0,
+              "SUSPECT node 0 (3 missed heartbeats)"
+            ],
+            [
+              102.0,
+              "leader suspected; failover started"
+            ],
+            [
+              102.0,
+              "LEADER -> node 1, serving at t+2s"
+            ],
+            [
+              104.0,
+              "SERVICE RESTORED"
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "m8": {
+    "scalability": [
+      {
+        "model": "host",
+        "label": "Host-based",
+        "n": 4,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 4,
+        "mean_ms": [
+          37.225162552539516,
+          2.248725012491885
+        ],
+        "p95_ms": [
+          117.89481017782464,
+          9.466304531673407
+        ],
+        "p99_ms": [
+          188.76227611881902,
+          12.253254864644482
+        ],
+        "throughput_rps": [
+          279.14138619587186,
+          1.8286694857138595
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.25173666666666666,
+          0.01916062040380855
+        ],
+        "msgs_per_req": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "model": "workstation",
+        "label": "Workstation (+migration)",
+        "n": 4,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 4,
+        "mean_ms": [
+          15.243698875749889,
+          0.42706083723558264
+        ],
+        "p95_ms": [
+          39.421550314555034,
+          1.2603428239696917
+        ],
+        "p99_ms": [
+          56.664026230808304,
+          2.953079682715172
+        ],
+        "throughput_rps": [
+          279.14138619587186,
+          1.8286694857138595
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.018753333333333334,
+          0.0037270779500180973
+        ],
+        "msgs_per_req": [
+          0.9310133333333332,
+          0.01296142644588853
+        ]
+      },
+      {
+        "model": "pool",
+        "label": "Processor pool",
+        "n": 4,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 4,
+        "mean_ms": [
+          14.459493914017466,
+          0.4205275974451923
+        ],
+        "p95_ms": [
+          38.204827870731094,
+          1.174309601122617
+        ],
+        "p99_ms": [
+          55.28108368266038,
+          2.7433999112463816
+        ],
+        "throughput_rps": [
+          279.14138619587186,
+          1.8286694857138595
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.016243333333333332,
+          0.0031457454858974904
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "server",
+        "label": "Server-based",
+        "n": 4,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 4,
+        "mean_ms": [
+          15.459493914017466,
+          0.4205275974451923
+        ],
+        "p95_ms": [
+          39.204827870731094,
+          1.174309601122617
+        ],
+        "p99_ms": [
+          56.28108368266038,
+          2.7433999112463816
+        ],
+        "throughput_rps": [
+          279.14138619587186,
+          1.8286694857138595
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.017906666666666664,
+          0.0033149219133152713
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "integrated",
+        "label": "Integrated (50/50 split)",
+        "n": 4,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 4,
+        "mean_ms": [
+          237.02668538328857,
+          238.04797514823076
+        ],
+        "p95_ms": [
+          747.7526121505721,
+          639.3773642477872
+        ],
+        "p99_ms": [
+          960.9502567312499,
+          863.3518261088037
+        ],
+        "throughput_rps": [
+          279.14138619587186,
+          1.8286694857138595
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.6046666666666667,
+          0.06454530823062718
+        ],
+        "msgs_per_req": [
+          1.41532,
+          0.003418552548693319
+        ]
+      },
+      {
+        "model": "integrated_cm",
+        "label": "Integrated (capacity-matched)",
+        "n": 4,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 4,
+        "mean_ms": [
+          237.02668538328857,
+          238.04797514823076
+        ],
+        "p95_ms": [
+          747.7526121505721,
+          639.3773642477872
+        ],
+        "p99_ms": [
+          960.9502567312499,
+          863.3518261088037
+        ],
+        "throughput_rps": [
+          279.14138619587186,
+          1.8286694857138595
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.6046666666666667,
+          0.06454530823062718
+        ],
+        "msgs_per_req": [
+          1.41532,
+          0.003418552548693319
+        ]
+      },
+      {
+        "model": "host",
+        "label": "Host-based",
+        "n": 8,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 8,
+        "mean_ms": [
+          35.45518332242217,
+          1.184620271875047
+        ],
+        "p95_ms": [
+          108.78127060202226,
+          4.247685483996116
+        ],
+        "p99_ms": [
+          183.87607409757888,
+          18.762084722230366
+        ],
+        "throughput_rps": [
+          558.2827723917437,
+          3.657338971427719
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.23562,
+          0.013407952279124828
+        ],
+        "msgs_per_req": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "model": "workstation",
+        "label": "Workstation (+migration)",
+        "n": 8,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 8,
+        "mean_ms": [
+          12.996590611805496,
+          0.2441858654142938
+        ],
+        "p95_ms": [
+          33.723516628229675,
+          0.5579758353790089
+        ],
+        "p99_ms": [
+          49.70876497316316,
+          0.9206968325909448
+        ],
+        "throughput_rps": [
+          558.2827723917437,
+          3.657338971427719
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.00974,
+          0.0009525316791698966
+        ],
+        "msgs_per_req": [
+          0.9531666666666666,
+          0.018242800579345752
+        ]
+      },
+      {
+        "model": "pool",
+        "label": "Processor pool",
+        "n": 8,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 8,
+        "mean_ms": [
+          12.076347319281405,
+          0.22005262379700105
+        ],
+        "p95_ms": [
+          32.5699360396124,
+          0.5596631614802361
+        ],
+        "p99_ms": [
+          48.55437924878816,
+          0.8007823689149117
+        ],
+        "throughput_rps": [
+          558.2827723917437,
+          3.657338971427719
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.008556666666666667,
+          0.0008068991559186456
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "server",
+        "label": "Server-based",
+        "n": 8,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 8,
+        "mean_ms": [
+          15.48380081074176,
+          0.3044899964272951
+        ],
+        "p95_ms": [
+          39.33406910686128,
+          0.7075078098214739
+        ],
+        "p99_ms": [
+          56.351310114674334,
+          0.8116720343577649
+        ],
+        "throughput_rps": [
+          558.2827723917437,
+          3.657338971427719
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.018183333333333336,
+          0.0013510342000770295
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "integrated",
+        "label": "Integrated (50/50 split)",
+        "n": 8,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 8,
+        "mean_ms": [
+          114.26045540508247,
+          98.97223589732116
+        ],
+        "p95_ms": [
+          358.4566772200056,
+          270.70939510226634
+        ],
+        "p99_ms": [
+          430.2427860407166,
+          282.082063904924
+        ],
+        "throughput_rps": [
+          558.2827723917437,
+          3.657338971427719
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.5000366666666667,
+          0.10533789728212602
+        ],
+        "msgs_per_req": [
+          1.4123066666666666,
+          0.002724851363253092
+        ]
+      },
+      {
+        "model": "integrated_cm",
+        "label": "Integrated (capacity-matched)",
+        "n": 8,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 8,
+        "mean_ms": [
+          15.877503302300065,
+          0.9447087617737596
+        ],
+        "p95_ms": [
+          43.275937139513076,
+          3.5074367092426773
+        ],
+        "p99_ms": [
+          62.805018047589996,
+          5.514009565850321
+        ],
+        "throughput_rps": [
+          558.2827723917437,
+          3.657338971427719
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.02938,
+          0.010405026687571093
+        ],
+        "msgs_per_req": [
+          1.4638333333333333,
+          0.002372176419146677
+        ]
+      },
+      {
+        "model": "host",
+        "label": "Host-based",
+        "n": 16,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          34.05690873905318,
+          0.9386873653958989
+        ],
+        "p95_ms": [
+          103.47625107392062,
+          2.3743733820268287
+        ],
+        "p99_ms": [
+          162.88933428573813,
+          8.548314034733655
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.22852999999999998,
+          0.011525920947506872
+        ],
+        "msgs_per_req": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "model": "workstation",
+        "label": "Workstation (+migration)",
+        "n": 16,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          12.190418749737201,
+          0.15028341899328213
+        ],
+        "p95_ms": [
+          32.309462209806995,
+          0.2421355678060508
+        ],
+        "p99_ms": [
+          48.226722046966565,
+          0.6136584303693776
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.008463333333333333,
+          0.0007067451033199078
+        ],
+        "msgs_per_req": [
+          0.9232933333333333,
+          0.017022446687824336
+        ]
+      },
+      {
+        "model": "pool",
+        "label": "Processor pool",
+        "n": 16,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          11.247176326886692,
+          0.12712939490747346
+        ],
+        "p95_ms": [
+          31.229536370271592,
+          0.19539804102020317
+        ],
+        "p99_ms": [
+          47.25175651234059,
+          0.6451201915149894
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.007476666666666666,
+          0.0006276939174824338
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "server",
+        "label": "Server-based",
+        "n": 16,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          15.503721729870506,
+          0.29686328303655146
+        ],
+        "p95_ms": [
+          39.28868123667644,
+          0.9244320819033904
+        ],
+        "p99_ms": [
+          56.39798696383171,
+          1.618103451744068
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.01819,
+          0.00218418852234773
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "integrated",
+        "label": "Integrated (50/50 split)",
+        "n": 16,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          55.674333398281036,
+          36.8297472210278
+        ],
+        "p95_ms": [
+          170.87784073017642,
+          103.8403031612867
+        ],
+        "p99_ms": [
+          212.07157880587783,
+          113.48716914222773
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.3541266666666667,
+          0.15416477781111657
+        ],
+        "msgs_per_req": [
+          1.4108333333333332,
+          0.0027849305239289347
+        ]
+      },
+      {
+        "model": "integrated_cm",
+        "label": "Integrated (capacity-matched)",
+        "n": 16,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          12.77396547262792,
+          0.4455973553715148
+        ],
+        "p95_ms": [
+          34.16073024813651,
+          1.0184826722711775
+        ],
+        "p99_ms": [
+          50.12996024651732,
+          1.5888195680420474
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.010166666666666668,
+          0.0016895887331274174
+        ],
+        "msgs_per_req": [
+          1.4624666666666666,
+          0.0025265158723692554
+        ]
+      },
+      {
+        "model": "host",
+        "label": "Host-based",
+        "n": 32,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 32,
+        "mean_ms": [
+          33.65585001579552,
+          1.4272966084111323
+        ],
+        "p95_ms": [
+          102.63777643458702,
+          4.822990006548997
+        ],
+        "p99_ms": [
+          160.3167139574456,
+          9.01064207396977
+        ],
+        "throughput_rps": [
+          2233.131089566975,
+          14.629355885710876
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.22321333333333335,
+          0.014984596979660295
+        ],
+        "msgs_per_req": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "model": "workstation",
+        "label": "Workstation (+migration)",
+        "n": 32,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 32,
+        "mean_ms": [
+          11.974265986907085,
+          0.1188717569945235
+        ],
+        "p95_ms": [
+          31.98928266373997,
+          0.2602752758214567
+        ],
+        "p99_ms": [
+          48.02845902689829,
+          0.5653114438239246
+        ],
+        "throughput_rps": [
+          2233.131089566975,
+          14.629355885710876
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.00825,
+          0.0006442539885617923
+        ],
+        "msgs_per_req": [
+          0.9045400000000001,
+          0.013690631108017687
+        ]
+      },
+      {
+        "model": "pool",
+        "label": "Processor pool",
+        "n": 32,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 32,
+        "mean_ms": [
+          11.029946620909183,
+          0.09801981732828252
+        ],
+        "p95_ms": [
+          30.97832591923221,
+          0.19341192742396457
+        ],
+        "p99_ms": [
+          46.98429186899331,
+          0.534351316994168
+        ],
+        "throughput_rps": [
+          2233.131089566975,
+          14.629355885710876
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.007286666666666666,
+          0.0005721748366831009
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "server",
+        "label": "Server-based",
+        "n": 32,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 32,
+        "mean_ms": [
+          15.55950514502706,
+          0.2467951212475028
+        ],
+        "p95_ms": [
+          39.51535554601517,
+          0.4665500662239077
+        ],
+        "p99_ms": [
+          56.76660045604653,
+          1.0704297788302737
+        ],
+        "throughput_rps": [
+          2233.131089566975,
+          14.629355885710876
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.018876666666666667,
+          0.0014293779479355505
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "integrated",
+        "label": "Integrated (50/50 split)",
+        "n": 32,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 32,
+        "mean_ms": [
+          32.42149584860759,
+          20.62456028086657
+        ],
+        "p95_ms": [
+          91.50333548557231,
+          59.891855882612546
+        ],
+        "p99_ms": [
+          118.62334516989856,
+          79.70004755642853
+        ],
+        "throughput_rps": [
+          2233.131089566975,
+          14.629355885710876
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.19140666666666667,
+          0.18938854525149387
+        ],
+        "msgs_per_req": [
+          1.4104533333333333,
+          0.002498502812699336
+        ]
+      },
+      {
+        "model": "integrated_cm",
+        "label": "Integrated (capacity-matched)",
+        "n": 32,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 32,
+        "mean_ms": [
+          11.948705594122968,
+          0.35425549415076285
+        ],
+        "p95_ms": [
+          32.32288970048711,
+          0.63515129737188
+        ],
+        "p99_ms": [
+          48.44399526966788,
+          1.1692143030898172
+        ],
+        "throughput_rps": [
+          2233.131089566975,
+          14.629355885710876
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.00858,
+          0.0010496926844240334
+        ],
+        "msgs_per_req": [
+          1.44738,
+          0.0019933578690128732
+        ]
+      },
+      {
+        "model": "host",
+        "label": "Host-based",
+        "n": 64,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 64,
+        "mean_ms": [
+          33.01424585552097,
+          1.197265838385793
+        ],
+        "p95_ms": [
+          98.6457500964466,
+          3.167669140573103
+        ],
+        "p99_ms": [
+          153.79431983010625,
+          11.79327481669076
+        ],
+        "throughput_rps": [
+          4466.26217913395,
+          29.25871177142175
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.21910333333333334,
+          0.01199459563285621
+        ],
+        "msgs_per_req": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "model": "workstation",
+        "label": "Workstation (+migration)",
+        "n": 64,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 64,
+        "mean_ms": [
+          11.948156695516555,
+          0.10823320395809094
+        ],
+        "p95_ms": [
+          32.00748954928605,
+          0.24744463899602873
+        ],
+        "p99_ms": [
+          47.967002502294704,
+          0.5256386681547394
+        ],
+        "throughput_rps": [
+          4466.26217913395,
+          29.25871177142175
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.008186666666666667,
+          0.0006136920611801623
+        ],
+        "msgs_per_req": [
+          0.9067933333333332,
+          0.01894549440607152
+        ]
+      },
+      {
+        "model": "pool",
+        "label": "Processor pool",
+        "n": 64,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 64,
+        "mean_ms": [
+          10.99601996472187,
+          0.0882899223216305
+        ],
+        "p95_ms": [
+          30.946690319688333,
+          0.19377223274048444
+        ],
+        "p99_ms": [
+          46.93502935150884,
+          0.5357761722007458
+        ],
+        "throughput_rps": [
+          4466.26217913395,
+          29.25871177142175
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.007253333333333334,
+          0.0005816365930716535
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "server",
+        "label": "Server-based",
+        "n": 64,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 64,
+        "mean_ms": [
+          15.559707346082106,
+          0.25219213789507683
+        ],
+        "p95_ms": [
+          39.55970363991441,
+          0.6719565488331548
+        ],
+        "p99_ms": [
+          56.90740117456969,
+          1.7561394968167383
+        ],
+        "throughput_rps": [
+          4466.26217913395,
+          29.25871177142175
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.019073333333333334,
+          0.001709902332441502
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "integrated",
+        "label": "Integrated (50/50 split)",
+        "n": 64,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 64,
+        "mean_ms": [
+          21.24262141550361,
+          10.574275644773119
+        ],
+        "p95_ms": [
+          54.059310220747896,
+          28.684458022430476
+        ],
+        "p99_ms": [
+          71.43911131481089,
+          33.10140067198383
+        ],
+        "throughput_rps": [
+          4466.26217913395,
+          29.25871177142175
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.08657333333333334,
+          0.15414476173064734
+        ],
+        "msgs_per_req": [
+          1.4103133333333333,
+          0.00346420874957362
+        ]
+      },
+      {
+        "model": "integrated_cm",
+        "label": "Integrated (capacity-matched)",
+        "n": 64,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 64,
+        "mean_ms": [
+          11.209359961112925,
+          0.20423593461864623
+        ],
+        "p95_ms": [
+          31.196425488300036,
+          0.27602936111573945
+        ],
+        "p99_ms": [
+          47.23737166028708,
+          0.7669956182065135
+        ],
+        "throughput_rps": [
+          4466.26217913395,
+          29.25871177142175
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.00753,
+          0.0007227676726460742
+        ],
+        "msgs_per_req": [
+          1.44642,
+          0.003584469503374611
+        ]
+      }
+    ],
+    "load_sweep": [
+      {
+        "model": "host",
+        "label": "Host-based",
+        "n": 16,
+        "rho": 0.3,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          14.293022982662581,
+          0.22317188694199602
+        ],
+        "p95_ms": [
+          42.81830783293046,
+          0.5642254432137701
+        ],
+        "p99_ms": [
+          65.85447352091336,
+          1.3034920282387394
+        ],
+        "throughput_rps": [
+          478.52809062149737,
+          3.1348619755166554
+        ],
+        "utilization": [
+          0.29889424612076776,
+          0.00340070492945837
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.03066333333333333,
+          0.0019884119374683567
+        ],
+        "msgs_per_req": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "model": "workstation",
+        "label": "Workstation (+migration)",
+        "n": 16,
+        "rho": 0.3,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          10.820995896949324,
+          0.09570072271883945
+        ],
+        "p95_ms": [
+          30.80202107223726,
+          0.215360445736904
+        ],
+        "p99_ms": [
+          46.876862337916926,
+          0.5242980253731802
+        ],
+        "throughput_rps": [
+          478.52809062149737,
+          3.1348619755166554
+        ],
+        "utilization": [
+          0.29889424612076776,
+          0.00340070492945837
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.007313333333333333,
+          0.0006891093454275272
+        ],
+        "msgs_per_req": [
+          0.3767,
+          0.005938881318078534
+        ]
+      },
+      {
+        "model": "pool",
+        "label": "Processor pool",
+        "n": 16,
+        "rho": 0.3,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          10.993778297920136,
+          0.0865604456280252
+        ],
+        "p95_ms": [
+          30.945446703306903,
+          0.1941766918561831
+        ],
+        "p99_ms": [
+          46.93502935150795,
+          0.5357761721974432
+        ],
+        "throughput_rps": [
+          478.52809062149737,
+          3.1348619755166554
+        ],
+        "utilization": [
+          0.29889424612076776,
+          0.00340070492945837
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.007253333333333334,
+          0.0005816365930716535
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "server",
+        "label": "Server-based",
+        "n": 16,
+        "rho": 0.3,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          12.127715851972845,
+          0.08857503277051879
+        ],
+        "p95_ms": [
+          32.104175078333384,
+          0.20890734139111644
+        ],
+        "p99_ms": [
+          48.17028674357613,
+          0.4941444870478799
+        ],
+        "throughput_rps": [
+          478.52809062149737,
+          3.1348619755166554
+        ],
+        "utilization": [
+          0.29889424612076776,
+          0.00340070492945837
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.008163333333333333,
+          0.0005467302850786867
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "integrated",
+        "label": "Integrated (50/50 split)",
+        "n": 16,
+        "rho": 0.3,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          10.740616677854641,
+          0.09054642379847777
+        ],
+        "p95_ms": [
+          30.693350467138192,
+          0.16263599449732535
+        ],
+        "p99_ms": [
+          46.69022983176154,
+          0.5018422373836036
+        ],
+        "throughput_rps": [
+          478.52809062149737,
+          3.1348619755166554
+        ],
+        "utilization": [
+          0.29889424612076776,
+          0.00340070492945837
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.0070933333333333334,
+          0.0006651145123126463
+        ],
+        "msgs_per_req": [
+          1.3023733333333332,
+          0.0020318179316508446
+        ]
+      },
+      {
+        "model": "integrated_cm",
+        "label": "Integrated (capacity-matched)",
+        "n": 16,
+        "rho": 0.3,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          10.756867364546032,
+          0.0870432204871676
+        ],
+        "p95_ms": [
+          30.711844105956533,
+          0.17035947626375178
+        ],
+        "p99_ms": [
+          46.728703548398684,
+          0.5293113043770149
+        ],
+        "throughput_rps": [
+          478.52809062149737,
+          3.1348619755166554
+        ],
+        "utilization": [
+          0.29889424612076776,
+          0.00340070492945837
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.0070999999999999995,
+          0.0006429235710581949
+        ],
+        "msgs_per_req": [
+          1.33322,
+          0.0019804295209092855
+        ]
+      },
+      {
+        "model": "host",
+        "label": "Host-based",
+        "n": 16,
+        "rho": 0.5,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          20.080136341747725,
+          0.44619776243822623
+        ],
+        "p95_ms": [
+          60.27886072899946,
+          1.3535668364857691
+        ],
+        "p99_ms": [
+          91.93127124719479,
+          3.041693869170489
+        ],
+        "throughput_rps": [
+          797.5468177024902,
+          5.224769959189341
+        ],
+        "utilization": [
+          0.4981570768679429,
+          0.005667841549093346
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.08307,
+          0.005171144013138893
+        ],
+        "msgs_per_req": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "model": "workstation",
+        "label": "Workstation (+migration)",
+        "n": 16,
+        "rho": 0.5,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          11.386027936247409,
+          0.10636681031556905
+        ],
+        "p95_ms": [
+          31.41170985730779,
+          0.2425200555174005
+        ],
+        "p99_ms": [
+          47.45950130622525,
+          0.542340740486694
+        ],
+        "throughput_rps": [
+          797.5468177024902,
+          5.224769959189341
+        ],
+        "utilization": [
+          0.4981570768679429,
+          0.005667841549093346
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.007713333333333333,
+          0.0006695731437598467
+        ],
+        "msgs_per_req": [
+          0.6362,
+          0.01370827539275295
+        ]
+      },
+      {
+        "model": "pool",
+        "label": "Processor pool",
+        "n": 16,
+        "rho": 0.5,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          11.004230515679614,
+          0.0891391122784109
+        ],
+        "p95_ms": [
+          30.955070376857584,
+          0.19060713011347283
+        ],
+        "p99_ms": [
+          46.948528221867235,
+          0.5574491622385962
+        ],
+        "throughput_rps": [
+          797.5468177024902,
+          5.224769959189341
+        ],
+        "utilization": [
+          0.4981570768679429,
+          0.005667841549093346
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.007263333333333333,
+          0.0005825559446286875
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "server",
+        "label": "Server-based",
+        "n": 16,
+        "rho": 0.5,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          12.861982265941705,
+          0.11845040114080992
+        ],
+        "p95_ms": [
+          33.447826075762464,
+          0.2193605912270375
+        ],
+        "p99_ms": [
+          49.590851557118086,
+          0.5140943721569294
+        ],
+        "throughput_rps": [
+          797.5468177024902,
+          5.224769959189341
+        ],
+        "utilization": [
+          0.4981570768679429,
+          0.005667841549093346
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.009510000000000001,
+          0.0006639871168763575
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "integrated",
+        "label": "Integrated (50/50 split)",
+        "n": 16,
+        "rho": 0.5,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          11.42620984679234,
+          0.20370972944284224
+        ],
+        "p95_ms": [
+          31.755682455868815,
+          0.42557438313541257
+        ],
+        "p99_ms": [
+          47.69857703881972,
+          0.8417850946197455
+        ],
+        "throughput_rps": [
+          797.5468177024902,
+          5.224769959189341
+        ],
+        "utilization": [
+          0.4981570768679429,
+          0.005667841549093346
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.007913333333333333,
+          0.0008375928012000948
+        ],
+        "msgs_per_req": [
+          1.3604733333333334,
+          0.0016287969561202987
+        ]
+      },
+      {
+        "model": "integrated_cm",
+        "label": "Integrated (capacity-matched)",
+        "n": 16,
+        "rho": 0.5,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          10.955013969810372,
+          0.11004515549091627
+        ],
+        "p95_ms": [
+          30.967805878539867,
+          0.17595707771754482
+        ],
+        "p99_ms": [
+          46.958888149181476,
+          0.448785129246729
+        ],
+        "throughput_rps": [
+          797.5468177024902,
+          5.224769959189341
+        ],
+        "utilization": [
+          0.4981570768679429,
+          0.005667841549093346
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.0072833333333333335,
+          0.0007068359621109652
+        ],
+        "msgs_per_req": [
+          1.40354,
+          0.0010355468132773192
+        ]
+      },
+      {
+        "model": "host",
+        "label": "Host-based",
+        "n": 16,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          34.05690873905318,
+          0.9386873653958989
+        ],
+        "p95_ms": [
+          103.47625107392062,
+          2.3743733820268287
+        ],
+        "p99_ms": [
+          162.88933428573813,
+          8.548314034733655
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.22852999999999998,
+          0.011525920947506872
+        ],
+        "msgs_per_req": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "model": "workstation",
+        "label": "Workstation (+migration)",
+        "n": 16,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          12.190418749737201,
+          0.15028341899328213
+        ],
+        "p95_ms": [
+          32.309462209806995,
+          0.2421355678060508
+        ],
+        "p99_ms": [
+          48.226722046966565,
+          0.6136584303693776
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.008463333333333333,
+          0.0007067451033199078
+        ],
+        "msgs_per_req": [
+          0.9232933333333333,
+          0.017022446687824336
+        ]
+      },
+      {
+        "model": "pool",
+        "label": "Processor pool",
+        "n": 16,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          11.247176326886692,
+          0.12712939490747346
+        ],
+        "p95_ms": [
+          31.229536370271592,
+          0.19539804102020317
+        ],
+        "p99_ms": [
+          47.25175651234059,
+          0.6451201915149894
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.007476666666666666,
+          0.0006276939174824338
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "server",
+        "label": "Server-based",
+        "n": 16,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          15.503721729870506,
+          0.29686328303655146
+        ],
+        "p95_ms": [
+          39.28868123667644,
+          0.9244320819033904
+        ],
+        "p99_ms": [
+          56.39798696383171,
+          1.618103451744068
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.01819,
+          0.00218418852234773
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "integrated",
+        "label": "Integrated (50/50 split)",
+        "n": 16,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          55.674333398281036,
+          36.8297472210278
+        ],
+        "p95_ms": [
+          170.87784073017642,
+          103.8403031612867
+        ],
+        "p99_ms": [
+          212.07157880587783,
+          113.48716914222773
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.3541266666666667,
+          0.15416477781111657
+        ],
+        "msgs_per_req": [
+          1.4108333333333332,
+          0.0027849305239289347
+        ]
+      },
+      {
+        "model": "integrated_cm",
+        "label": "Integrated (capacity-matched)",
+        "n": 16,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          12.77396547262792,
+          0.4455973553715148
+        ],
+        "p95_ms": [
+          34.16073024813651,
+          1.0184826722711775
+        ],
+        "p99_ms": [
+          50.12996024651732,
+          1.5888195680420474
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.010166666666666668,
+          0.0016895887331274174
+        ],
+        "msgs_per_req": [
+          1.4624666666666666,
+          0.0025265158723692554
+        ]
+      },
+      {
+        "model": "host",
+        "label": "Host-based",
+        "n": 16,
+        "rho": 0.85,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          96.43982544050287,
+          16.737126400693604
+        ],
+        "p95_ms": [
+          420.291812346385,
+          188.44900648268157
+        ],
+        "p99_ms": [
+          837.1448374888274,
+          295.2935216503291
+        ],
+        "throughput_rps": [
+          1355.8295900942376,
+          8.882108930626671
+        ],
+        "utilization": [
+          0.8468670306755055,
+          0.009635330633459678
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.47934666666666664,
+          0.027184072033146326
+        ],
+        "msgs_per_req": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "model": "workstation",
+        "label": "Workstation (+migration)",
+        "n": 16,
+        "rho": 0.85,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          14.181667500917502,
+          0.48370691097780455
+        ],
+        "p95_ms": [
+          35.11568246712064,
+          0.9238855380023419
+        ],
+        "p99_ms": [
+          51.140363186116346,
+          1.334519748175108
+        ],
+        "throughput_rps": [
+          1355.8295900942376,
+          8.882108930626671
+        ],
+        "utilization": [
+          0.8468670306755055,
+          0.009635330633459678
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.01131,
+          0.001480648995482124
+        ],
+        "msgs_per_req": [
+          1.2315200000000002,
+          0.035825395867937065
+        ]
+      },
+      {
+        "model": "pool",
+        "label": "Processor pool",
+        "n": 16,
+        "rho": 0.85,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          12.731505432253913,
+          0.4416239313134743
+        ],
+        "p95_ms": [
+          33.377781550643014,
+          0.8507363412409553
+        ],
+        "p99_ms": [
+          49.455588402509875,
+          1.2737690569875937
+        ],
+        "throughput_rps": [
+          1355.8295900942376,
+          8.882108930626671
+        ],
+        "utilization": [
+          0.8468670306755055,
+          0.009635330633459678
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.009463333333333334,
+          0.0011906275182813845
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "server",
+        "label": "Server-based",
+        "n": 16,
+        "rho": 0.85,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          23.105759225525226,
+          1.3230177130230634
+        ],
+        "p95_ms": [
+          59.06717553841969,
+          3.8194929383431484
+        ],
+        "p99_ms": [
+          84.49969818276035,
+          7.186539957259931
+        ],
+        "throughput_rps": [
+          1355.8295900942376,
+          8.882108930626671
+        ],
+        "utilization": [
+          0.8468670306755055,
+          0.009635330633459678
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.08672333333333333,
+          0.016692001539920585
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "integrated",
+        "label": "Integrated (50/50 split)",
+        "n": 16,
+        "rho": 0.85,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          3535.060606252772,
+          252.39184764840138
+        ],
+        "p95_ms": [
+          9100.916455761631,
+          611.9778061233835
+        ],
+        "p99_ms": [
+          9684.766624571848,
+          679.214932535289
+        ],
+        "throughput_rps": [
+          1355.8295900942376,
+          8.882108930626671
+        ],
+        "utilization": [
+          0.8468670306755055,
+          0.009635330633459678
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.72028,
+          0.0029720851037912275
+        ],
+        "msgs_per_req": [
+          1.4446933333333334,
+          0.003090862664593431
+        ]
+      },
+      {
+        "model": "integrated_cm",
+        "label": "Integrated (capacity-matched)",
+        "n": 16,
+        "rho": 0.85,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          306.39274492773876,
+          174.2435254587124
+        ],
+        "p95_ms": [
+          716.2132149934921,
+          434.3473447803862
+        ],
+        "p99_ms": [
+          792.0168691930465,
+          499.50643335636386
+        ],
+        "throughput_rps": [
+          1355.8295900942376,
+          8.882108930626671
+        ],
+        "utilization": [
+          0.8468670306755055,
+          0.009635330633459678
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.6932133333333332,
+          0.07377562806417966
+        ],
+        "msgs_per_req": [
+          1.5016133333333332,
+          0.0017590097464704004
+        ]
+      }
+    ],
+    "failure": [
+      {
+        "model": "host",
+        "label": "Host-based",
+        "n": 16,
+        "rho": 0.7,
+        "fail": true,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          33.642364079666294,
+          1.1991329463821496
+        ],
+        "p95_ms": [
+          101.97344710655116,
+          2.5599085266598847
+        ],
+        "p99_ms": [
+          159.01720475116664,
+          12.674321800126934
+        ],
+        "throughput_rps": [
+          1100.05260893279,
+          7.614974200933839
+        ],
+        "utilization": [
+          0.6871197985702902,
+          0.008157992913210767
+        ],
+        "success_rate": [
+          0.98521,
+          0.0011128648199030182
+        ],
+        "sla_violation_rate": [
+          0.23685666666666666,
+          0.011986688852808533
+        ],
+        "msgs_per_req": [
+          0.0,
+          0.0
+        ],
+        "window_success_rate": [
+          0.9261350203021624,
+          0.005520952108369057
+        ]
+      },
+      {
+        "model": "workstation",
+        "label": "Workstation (+migration)",
+        "n": 16,
+        "rho": 0.7,
+        "fail": true,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          12.281674839718681,
+          0.16657724487941974
+        ],
+        "p95_ms": [
+          32.4019015451879,
+          0.27198284887568797
+        ],
+        "p99_ms": [
+          48.32620393662676,
+          0.6827986358446618
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.008503333333333333,
+          0.0007208400119613535
+        ],
+        "msgs_per_req": [
+          0.9537733333333334,
+          0.017407962295424854
+        ],
+        "window_success_rate": [
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "model": "pool",
+        "label": "Processor pool",
+        "n": 16,
+        "rho": 0.7,
+        "fail": true,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          11.299012250207067,
+          0.14135083223566752
+        ],
+        "p95_ms": [
+          31.28649049572572,
+          0.2139998257451098
+        ],
+        "p99_ms": [
+          47.30129740001152,
+          0.6960596315786928
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.007536666666666666,
+          0.0006362970411861287
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ],
+        "window_success_rate": [
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "model": "server",
+        "label": "Server-based",
+        "n": 16,
+        "rho": 0.7,
+        "fail": true,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          17.445853033431167,
+          1.0767825788105982
+        ],
+        "p95_ms": [
+          44.887194728767405,
+          4.200842490432289
+        ],
+        "p99_ms": [
+          64.68455296539153,
+          6.2528596021286855
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.0337,
+          0.01328006472005648
+        ],
+        "msgs_per_req": [
+          2.0993,
+          0.0027563441900863486
+        ],
+        "window_success_rate": [
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "model": "integrated",
+        "label": "Integrated (50/50 split)",
+        "n": 16,
+        "rho": 0.7,
+        "fail": true,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          183.08047098186404,
+          107.52961337714929
+        ],
+        "p95_ms": [
+          554.705095142206,
+          276.19712286243487
+        ],
+        "p99_ms": [
+          610.5750872067534,
+          282.11714716244825
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.5487166666666667,
+          0.038049128328938114
+        ],
+        "msgs_per_req": [
+          1.4277666666666666,
+          0.0028694286774741742
+        ],
+        "window_success_rate": [
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "model": "integrated_cm",
+        "label": "Integrated (capacity-matched)",
+        "n": 16,
+        "rho": 0.7,
+        "fail": true,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          13.153534364551325,
+          0.49152323345797333
+        ],
+        "p95_ms": [
+          35.17035274778673,
+          1.1913624089819008
+        ],
+        "p99_ms": [
+          51.38838018611109,
+          2.188205099464396
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.011563333333333333,
+          0.002669767076515186
+        ],
+        "msgs_per_req": [
+          1.48274,
+          0.002328716744341747
+        ],
+        "window_success_rate": [
+          1.0,
+          0.0
+        ]
+      }
+    ],
+    "cost": [
+      {
+        "model": "host",
+        "label": "Host-based",
+        "n": 16,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          34.05690873905318,
+          0.9386873653958989
+        ],
+        "p95_ms": [
+          103.47625107392062,
+          2.3743733820268287
+        ],
+        "p99_ms": [
+          162.88933428573813,
+          8.548314034733655
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.22852999999999998,
+          0.011525920947506872
+        ],
+        "msgs_per_req": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "model": "workstation",
+        "label": "Workstation (+migration)",
+        "n": 16,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          12.190418749737201,
+          0.15028341899328213
+        ],
+        "p95_ms": [
+          32.309462209806995,
+          0.2421355678060508
+        ],
+        "p99_ms": [
+          48.226722046966565,
+          0.6136584303693776
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.008463333333333333,
+          0.0007067451033199078
+        ],
+        "msgs_per_req": [
+          0.9232933333333333,
+          0.017022446687824336
+        ]
+      },
+      {
+        "model": "pool",
+        "label": "Processor pool",
+        "n": 16,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          11.247176326886692,
+          0.12712939490747346
+        ],
+        "p95_ms": [
+          31.229536370271592,
+          0.19539804102020317
+        ],
+        "p99_ms": [
+          47.25175651234059,
+          0.6451201915149894
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.007476666666666666,
+          0.0006276939174824338
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "server",
+        "label": "Server-based",
+        "n": 16,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          15.503721729870506,
+          0.29686328303655146
+        ],
+        "p95_ms": [
+          39.28868123667644,
+          0.9244320819033904
+        ],
+        "p99_ms": [
+          56.39798696383171,
+          1.618103451744068
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.01819,
+          0.00218418852234773
+        ],
+        "msgs_per_req": [
+          2.0,
+          0.0
+        ]
+      },
+      {
+        "model": "integrated",
+        "label": "Integrated (50/50 split)",
+        "n": 16,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          55.674333398281036,
+          36.8297472210278
+        ],
+        "p95_ms": [
+          170.87784073017642,
+          103.8403031612867
+        ],
+        "p99_ms": [
+          212.07157880587783,
+          113.48716914222773
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.3541266666666667,
+          0.15416477781111657
+        ],
+        "msgs_per_req": [
+          1.4108333333333332,
+          0.0027849305239289347
+        ]
+      },
+      {
+        "model": "integrated_cm",
+        "label": "Integrated (capacity-matched)",
+        "n": 16,
+        "rho": 0.7,
+        "fail": false,
+        "seeds": 5,
+        "processors": 16,
+        "mean_ms": [
+          12.77396547262792,
+          0.4455973553715148
+        ],
+        "p95_ms": [
+          34.16073024813651,
+          1.0184826722711775
+        ],
+        "p99_ms": [
+          50.12996024651732,
+          1.5888195680420474
+        ],
+        "throughput_rps": [
+          1116.5655447834874,
+          7.314677942855438
+        ],
+        "utilization": [
+          0.6974199076151207,
+          0.007934978168724897
+        ],
+        "success_rate": [
+          1.0,
+          0.0
+        ],
+        "sla_violation_rate": [
+          0.010166666666666668,
+          0.0016895887331274174
+        ],
+        "msgs_per_req": [
+          1.4624666666666666,
+          0.0025265158723692554
+        ]
       }
     ]
-  },
-  "summary": {
-    "processes_total": 12,
-    "processes_done": 11,
-    "processes_rejected": 1,
-    "makespan_s": 9.121,
-    "mean_queue_wait_s": 0.716,
-    "max_queue_wait_s": 4.515,
-    "mean_create_rpc_ms": 0.544,
-    "status_polls": 176,
-    "placements_per_node": {
-      "edge-1": 1,
-      "core-1": 3,
-      "core-2": 7
-    }
-  },
-  "records": [
-    {
-      "pid": "p01",
-      "name": "ran-scheduler",
-      "priority": 9,
-      "demand": {
-        "cpu": 2,
-        "mem": 512,
-        "bw": 20
-      },
-      "work_s": 3.0,
-      "submitted_s": 0.0,
-      "state": "DONE",
-      "node": "edge-1",
-      "placed_s": 0.003,
-      "finished_s": 3.003,
-      "create_rpc_ms": 0.657
-    },
-    {
-      "pid": "p02",
-      "name": "signalling-gw",
-      "priority": 9,
-      "demand": {
-        "cpu": 2,
-        "mem": 1024,
-        "bw": 50
-      },
-      "work_s": 4.0,
-      "submitted_s": 0.0,
-      "state": "DONE",
-      "node": "core-1",
-      "placed_s": 0.003,
-      "finished_s": 4.003,
-      "create_rpc_ms": 0.525
-    },
-    {
-      "pid": "p03",
-      "name": "packet-classifier",
-      "priority": 7,
-      "demand": {
-        "cpu": 1,
-        "mem": 256,
-        "bw": 100
-      },
-      "work_s": 2.0,
-      "submitted_s": 0.0,
-      "state": "DONE",
-      "node": "core-2",
-      "placed_s": 0.004,
-      "finished_s": 2.004,
-      "create_rpc_ms": 0.442
-    },
-    {
-      "pid": "p04",
-      "name": "billing-batch",
-      "priority": 1,
-      "demand": {
-        "cpu": 2,
-        "mem": 1024,
-        "bw": 10
-      },
-      "work_s": 5.0,
-      "submitted_s": 0.0,
-      "state": "DONE",
-      "node": "core-1",
-      "placed_s": 0.004,
-      "finished_s": 5.004,
-      "create_rpc_ms": 0.51
-    },
-    {
-      "pid": "p05",
-      "name": "video-transcoder",
-      "priority": 3,
-      "demand": {
-        "cpu": 4,
-        "mem": 1536,
-        "bw": 50
-      },
-      "work_s": 4.0,
-      "submitted_s": 0.5,
-      "state": "DONE",
-      "node": "core-1",
-      "placed_s": 5.015,
-      "finished_s": 9.015,
-      "create_rpc_ms": 0.543
-    },
-    {
-      "pid": "p06",
-      "name": "edge-cache",
-      "priority": 6,
-      "demand": {
-        "cpu": 1,
-        "mem": 512,
-        "bw": 30
-      },
-      "work_s": 3.0,
-      "submitted_s": 1.0,
-      "state": "DONE",
-      "node": "core-2",
-      "placed_s": 1.046,
-      "finished_s": 4.046,
-      "create_rpc_ms": 0.543
-    },
-    {
-      "pid": "p07",
-      "name": "alarm-correlator",
-      "priority": 8,
-      "demand": {
-        "cpu": 1,
-        "mem": 256,
-        "bw": 10
-      },
-      "work_s": 2.0,
-      "submitted_s": 1.0,
-      "state": "DONE",
-      "node": "core-2",
-      "placed_s": 1.045,
-      "finished_s": 3.045,
-      "create_rpc_ms": 0.445
-    },
-    {
-      "pid": "p08",
-      "name": "slice-monitor",
-      "priority": 5,
-      "demand": {
-        "cpu": 1,
-        "mem": 256,
-        "bw": 20
-      },
-      "work_s": 3.0,
-      "submitted_s": 1.5,
-      "state": "DONE",
-      "node": "core-2",
-      "placed_s": 1.517,
-      "finished_s": 4.517,
-      "create_rpc_ms": 0.516
-    },
-    {
-      "pid": "p09",
-      "name": "analytics-job",
-      "priority": 2,
-      "demand": {
-        "cpu": 3,
-        "mem": 2048,
-        "bw": 40
-      },
-      "work_s": 4.0,
-      "submitted_s": 2.0,
-      "state": "DONE",
-      "node": "core-2",
-      "placed_s": 5.121,
-      "finished_s": 9.121,
-      "create_rpc_ms": 0.676
-    },
-    {
-      "pid": "p10",
-      "name": "handover-predictor",
-      "priority": 7,
-      "demand": {
-        "cpu": 1,
-        "mem": 512,
-        "bw": 15
-      },
-      "work_s": 2.0,
-      "submitted_s": 2.0,
-      "state": "DONE",
-      "node": "core-2",
-      "placed_s": 2.038,
-      "finished_s": 4.038,
-      "create_rpc_ms": 0.538
-    },
-    {
-      "pid": "p11",
-      "name": "model-trainer",
-      "priority": 1,
-      "demand": {
-        "cpu": 8,
-        "mem": 4096,
-        "bw": 10
-      },
-      "work_s": 5.0,
-      "submitted_s": 2.5,
-      "state": "REJECTED",
-      "node": null,
-      "placed_s": null,
-      "finished_s": null,
-      "create_rpc_ms": null
-    },
-    {
-      "pid": "p12",
-      "name": "telemetry-agg",
-      "priority": 4,
-      "demand": {
-        "cpu": 1,
-        "mem": 256,
-        "bw": 60
-      },
-      "work_s": 2.0,
-      "submitted_s": 3.0,
-      "state": "DONE",
-      "node": "core-2",
-      "placed_s": 3.081,
-      "finished_s": 5.081,
-      "create_rpc_ms": 0.588
-    }
-  ]
+  }
 }
