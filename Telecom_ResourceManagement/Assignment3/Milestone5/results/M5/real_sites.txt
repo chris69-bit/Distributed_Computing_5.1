@@ -1,0 +1,68 @@
+transaction: COMMITTED T00001 total_ms 10.84 [{'i': 0, 'service': 'svc0', 'site': 'site0'}, {'i': 1, 'service': 'svc1', 'site': 'site1'}, {'i': 2, 'service': 'svc2', 'site': 'site2'}]
+[
+ {
+  "site": "site0",
+  "txn_states": {
+   "T00001": "COMMITTED"
+  },
+  "instances": 1,
+  "keys": [
+   "active",
+   "allocated",
+   "capacity",
+   "comm",
+   "counters",
+   "fairness_mean",
+   "fairness_samples",
+   "faults",
+   "held_log",
+   "indoubt_log",
+   "instances",
+   "pid"
+  ]
+ },
+ {
+  "site": "site1",
+  "txn_states": {
+   "T00001": "COMMITTED"
+  },
+  "instances": 1,
+  "keys": [
+   "active",
+   "allocated",
+   "capacity",
+   "comm",
+   "counters",
+   "fairness_mean",
+   "fairness_samples",
+   "faults",
+   "held_log",
+   "indoubt_log",
+   "instances",
+   "pid"
+  ]
+ },
+ {
+  "site": "site2",
+  "txn_states": {
+   "T00001": "COMMITTED"
+  },
+  "instances": 1,
+  "keys": [
+   "active",
+   "allocated",
+   "capacity",
+   "comm",
+   "counters",
+   "fairness_mean",
+   "fairness_samples",
+   "faults",
+   "held_log",
+   "indoubt_log",
+   "instances",
+   "pid"
+  ]
+ }
+]
+after holding time, invariants: {'atomicity': 0, 'over_capacity': 0, 'ledger_mismatch': 0, 'stuck_prepared': 0, 'coord_participant_mismatch': 0, 'protocol_violations': 0, 'txns': 1}
+allocated cpu per site: {'site0': 0.0, 'site1': 0.0, 'site2': 0.0}

@@ -1,0 +1,9 @@
+mode,transactions,deadlocked_found,detect_ms
+ring,10,10,0.009
+ring,100,100,0.08
+ring,1000,1000,0.936
+ring,3000,3000,3.749
+chain,10,0,0.018
+chain,100,0,1.248
+chain,1000,0,136.031
+chain,3000,0,1420.042

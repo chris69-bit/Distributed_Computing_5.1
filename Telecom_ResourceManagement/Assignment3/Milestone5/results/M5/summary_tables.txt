@@ -1,0 +1,83 @@
+
+E1 latency (ms, mean of reps) [delay 0 | delay 5]
+  naive k=1     0.6±0.1 |   11.5±0.3   msgs=None  phase2@5ms=None
+  naive k=2     0.9±0.0 |   22.4±0.1   msgs=None  phase2@5ms=None
+  naive k=3     1.5±0.1 |   33.9±0.2   msgs=None  phase2@5ms=None
+  naive k=4     3.8±0.8 |   44.2±0.3   msgs=None  phase2@5ms=None
+  2pc   k=1     2.4±0.2 |   12.9±0.2   msgs=4.0  phase2@5ms=12.79
+  2pc   k=2     3.6±0.3 |   13.9±0.1   msgs=8.0  phase2@5ms=13.633333333333333
+  2pc   k=3     4.8±0.4 |   15.0±0.8   msgs=12.0  phase2@5ms=14.816666666666668
+  2pc   k=4     6.1±0.7 |   15.4±0.5   msgs=16.0  phase2@5ms=14.88
+  3pc   k=1     2.7±0.2 |   23.7±0.3   msgs=6.0  phase2@5ms=12.733333333333334
+  3pc   k=2     4.3±0.6 |   25.4±0.3   msgs=12.0  phase2@5ms=13.339999999999998
+  3pc   k=3     6.0±0.5 |   26.4±0.5   msgs=18.0  phase2@5ms=13.839999999999998
+  3pc   k=4     8.1±1.1 |   27.3±0.6   msgs=24.0  phase2@5ms=14.953333333333333
+
+E1 breakdown k=3, delay 5 ms:
+  2pc {'plan_ms': 0.12, 'begin_ms': 0.92, 'prepare_ms': 13.31, 'decide_ms': 0.59, 'phase2_ms': 14.82, 'lat_mean_ms': 15.01}
+  3pc {'plan_ms': 0.12, 'begin_ms': 0.81, 'prepare_ms': 12.76, 'precommit_ms': 12.07, 'decide_ms': 0.53, 'phase2_ms': 13.84, 'lat_mean_ms': 26.37}
+
+E1 fsync k=3 delay 0:
+  2pc: no fsync 4.80 ms, fsync 8.20 ms
+  3pc: no fsync 5.99 ms, fsync 10.65 ms
+
+E2 (mean over reps)  proto tight clients: throughput, commit_ratio, p95, aborted, blocked_at_plan
+  2pc tight=0 c= 1:   85.6/s  ratio=1.00  p95=  12.7  aborted=0 blocked=0  inv=['0000', '0000']
+  2pc tight=0 c= 2:  125.1/s  ratio=1.00  p95=  18.6  aborted=0 blocked=0  inv=['0000', '0000']
+  2pc tight=0 c= 4:  150.3/s  ratio=1.00  p95=  31.6  aborted=0 blocked=0  inv=['0000', '0000']
+  2pc tight=0 c= 8:  153.8/s  ratio=1.00  p95=  61.8  aborted=0 blocked=0  inv=['0000', '0000']
+  2pc tight=0 c=16:  161.3/s  ratio=1.00  p95= 114.4  aborted=0 blocked=0  inv=['0000', '0000']
+  2pc tight=0 c=32:  144.8/s  ratio=1.00  p95= 267.6  aborted=0 blocked=0  inv=['0000', '0000']
+  3pc tight=0 c= 1:   58.0/s  ratio=1.00  p95=  18.2  aborted=0 blocked=0  inv=['0000', '0000']
+  3pc tight=0 c= 2:   91.0/s  ratio=1.00  p95=  27.0  aborted=0 blocked=0  inv=['0000', '0000']
+  3pc tight=0 c= 4:  120.3/s  ratio=1.00  p95=  42.1  aborted=0 blocked=0  inv=['0000', '0000']
+  3pc tight=0 c= 8:  132.1/s  ratio=1.00  p95=  73.1  aborted=0 blocked=0  inv=['0000', '0000']
+  3pc tight=0 c=16:  129.8/s  ratio=1.00  p95= 157.2  aborted=0 blocked=0  inv=['0000', '0000']
+  3pc tight=0 c=32:  130.6/s  ratio=1.00  p95= 290.2  aborted=0 blocked=0  inv=['0000', '0000']
+  2pc tight=1 c= 1:   16.7/s  ratio=0.04  p95=  12.9  aborted=0 blocked=2254  inv=['0000', '0000']
+  2pc tight=1 c= 2:   16.7/s  ratio=0.02  p95=  20.8  aborted=10 blocked=4488  inv=['0000', '0000']
+  2pc tight=1 c= 4:   16.7/s  ratio=0.01  p95=  30.8  aborted=40 blocked=8315  inv=['0000', '0000']
+  2pc tight=1 c= 8:   16.7/s  ratio=0.01  p95=  62.9  aborted=42 blocked=13321  inv=['0000']
+  2pc tight=1 c=16:   16.6/s  ratio=0.01  p95=  83.6  aborted=75 blocked=16798  inv=['0000']
+  2pc tight=1 c=32:   16.7/s  ratio=0.01  p95=  76.2  aborted=43 blocked=19019  inv=['0000']
+  3pc tight=1 c= 1:   16.7/s  ratio=0.05  p95=  17.4  aborted=0 blocked=1996  inv=['0000', '0000']
+  3pc tight=1 c= 2:   16.7/s  ratio=0.02  p95=  26.9  aborted=20 blocked=4166  inv=['0000', '0000']
+  3pc tight=1 c= 4:   16.7/s  ratio=0.01  p95=  41.1  aborted=78 blocked=7647  inv=['0000']
+  3pc tight=1 c= 8:   16.5/s  ratio=0.01  p95=  63.2  aborted=195 blocked=11218  inv=['0000']
+  3pc tight=1 c=16:   16.5/s  ratio=0.01  p95= 114.2  aborted=72 blocked=16466  inv=['0000']
+  3pc tight=1 c=32:   16.4/s  ratio=0.01  p95=  93.6  aborted=63 blocked=18548  inv=['0000']
+
+E3 failure matrix (mean over reps): config | scenario | outcome | sites_free_s | max_held_s | blocked_cpu_s | viol
+  P_before_vote          2PC+Raft(3)              [('ABORTED', 'ABORTED')]  free=3.1533333333333338  held=0.01  cpu_s=0.0  viol=0  n=3
+  P_before_vote          2PC single coordinator   [('ABORTED', 'ABORTED')]  free=3.15  held=0.01  cpu_s=0.0  viol=0  n=3
+  P_before_vote          3PC single coordinator   [('ABORTED', 'ABORTED')]  free=3.15  held=0.01  cpu_s=0.0  viol=0  n=3
+  P_after_vote_logged    2PC+Raft(3)              [('ABORTED', 'ABORTED')]  free=3.26  held=3.23  cpu_s=1615.5  viol=0  n=3
+  P_after_vote_logged    2PC single coordinator   [('ABORTED', 'ABORTED')]  free=3.2533333333333334  held=3.233333333333333  cpu_s=1616.4333333333334  viol=0  n=3
+  P_after_vote_logged    3PC single coordinator   [('ABORTED', 'ABORTED')]  free=3.25  held=3.23  cpu_s=1615.8666666666668  viol=0  n=3
+  P_after_commit_log     2PC+Raft(3)              [('COMMITTED', 'COMMITTED')]  free=3.1566666666666667  held=0.01  cpu_s=0.0  viol=0  n=3
+  P_after_commit_log     2PC single coordinator   [('COMMITTED', 'COMMITTED')]  free=3.1566666666666663  held=0.01  cpu_s=0.0  viol=0  n=3
+  P_after_commit_log     3PC single coordinator   [('COMMITTED', 'COMMITTED')]  free=3.1300000000000003  held=0.01  cpu_s=0.0  viol=0  n=3
+  C_after_begin          2PC+Raft(3)              [('ABORTED', 'ABORTED')]  free=0.0  held=0.0  cpu_s=0.0  viol=0  n=3
+  C_after_begin          2PC single coordinator   [('ABORTED', 'ABORTED')]  free=0.0  held=0.0  cpu_s=0.0  viol=0  n=3
+  C_after_begin          3PC single coordinator   [('ABORTED', 'ABORTED')]  free=0.0  held=0.0  cpu_s=0.0  viol=0  n=3
+  C_after_votes          2PC+Raft(3)              [('ABORTED', 'ABORTED')]  free=0.9533333333333335  held=0.9266666666666667  cpu_s=1388.6333333333332  viol=0  n=3
+  C_after_votes          2PC single coordinator   [('ABORTED', 'ABORTED')]  free=6.21  held=6.173333333333333  cpu_s=9256.866666666667  viol=0  n=3
+  C_after_votes          3PC single coordinator   [('ABORTED', 'ABORTED')]  free=1.1933333333333334  held=1.1500000000000001  cpu_s=1718.7  viol=0  n=3
+  C_after_decide         2PC+Raft(3)              [('COMMITTED', 'COMMITTED')]  free=0.5466666666666666  held=0.5033333333333333  cpu_s=326.8333333333333  viol=0  n=3
+  C_after_decide         2PC single coordinator   [('COMMITTED', 'COMMITTED')]  free=6.22  held=6.166666666666667  cpu_s=9245.4  viol=0  n=3
+  C_after_decide         3PC single coordinator   [('COMMITTED', 'COMMITTED')]  free=1.1533333333333333  held=1.12  cpu_s=1677.1333333333332  viol=0  n=3
+  C_mid_phase2           2PC+Raft(3)              [('COMMITTED', 'COMMITTED')]  free=0.0  held=0.01  cpu_s=0.0  viol=0  n=3
+  C_mid_phase2           2PC single coordinator   [('COMMITTED', 'COMMITTED')]  free=0.0  held=0.01  cpu_s=0.0  viol=0  n=3
+  C_mid_phase2           3PC single coordinator   [('COMMITTED', 'COMMITTED')]  free=0.0  held=0.013333333333333334  cpu_s=0.0  viol=0  n=3
+  C_after_1st_precommit  3PC single coordinator   [('COMMITTED', 'COMMITTED')]  free=1.1666666666666667  held=1.15  cpu_s=1723.3333333333333  viol=0  n=3
+
+E4 chaos (sum over reps): proto | requests committed aborted errors | atomicity viol, coord/part mismatch, over_cap, ledger, stuck, protocol | partial chains / chains
+  2pc   reps=3 kills=15 req=3516 commit=1536 abort=714 err=0 | 0 0 0 0 0 0 | partial=0 / chains=0 settled=3
+  3pc   reps=3 kills=16 req=3284 commit=1518 abort=677 err=0 | 0 0 0 0 0 0 | partial=0 / chains=0 settled=3
+  naive reps=3 kills=16 req=3096 commit=1536 abort=1466 err=94 | 0 0 0 0 0 0 | partial=64 / chains=1026 settled=3
+
+E5 availability: a 0.5 s window is 'up' if it commits >= 50% of the pre-kill average rate
+  config | availability | MTTR s (first window back to >=50%, minus kill time) | max_held s | blocked_cpu_s | client errors | tput before kill
+  2PC+Raft(3)              avail=0.970  MTTR=0.64±0.30  held=0.68  cpu_s=314  errors=19  tput_before=104  viol=0
+  2PC single coordinator   avail=0.705  MTTR=6.47±0.01  held=4.32  cpu_s=1941  errors=207  tput_before=145  viol=0
+  3PC single coordinator   avail=0.705  MTTR=6.48±0.01  held=1.21  cpu_s=1272  errors=209  tput_before=109  viol=0

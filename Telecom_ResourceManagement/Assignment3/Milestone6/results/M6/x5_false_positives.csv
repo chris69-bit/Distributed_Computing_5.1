@@ -1,0 +1,7 @@
+stable_rounds,rep,txns,committed,detector_rounds,deadlocks_reported,victims_aborted,note
+1,0,98,92,121,0,0,"ordered acquisition cannot deadlock, so every victim is a false positive"
+2,0,98,94,124,0,0,"ordered acquisition cannot deadlock, so every victim is a false positive"
+1,1,96,90,122,0,0,"ordered acquisition cannot deadlock, so every victim is a false positive"
+2,1,96,89,124,0,0,"ordered acquisition cannot deadlock, so every victim is a false positive"
+1,2,99,93,122,0,0,"ordered acquisition cannot deadlock, so every victim is a false positive"
+2,2,99,94,123,0,0,"ordered acquisition cannot deadlock, so every victim is a false positive"

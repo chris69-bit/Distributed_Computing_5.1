@@ -1,0 +1,16 @@
+@page { size: A4; margin: 18mm 16mm; }
+body { font-family: "DejaVu Sans", Arial, sans-serif; font-size: 9.6pt; line-height: 1.38; color: #1b1b1b; }
+header#title-block-header h1.title { font-size: 21pt; color: #1F3864; margin: 0 0 2pt 0; }
+header#title-block-header p.subtitle { font-size: 9.6pt; color: #555; margin: 0 0 8pt 0; }
+h1 { font-size: 14.5pt; color: #1F3864; border-bottom: 1.5px solid #1F3864; padding-bottom: 2pt; margin-top: 16pt; page-break-after: avoid; }
+h2 { font-size: 11.5pt; color: #2E5597; margin-top: 11pt; page-break-after: avoid; }
+table { border-collapse: collapse; width: 100%; margin: 6pt 0 8pt 0; font-size: 8.3pt; page-break-inside: auto; }
+tr { page-break-inside: avoid; }
+th { background: #1F3864; color: white; text-align: left; padding: 3pt 5pt; border: 1px solid #1F3864; }
+td { border: 1px solid #9AA5B8; padding: 3pt 5pt; vertical-align: top; }
+tr:nth-child(even) td { background: #f3f6fb; }
+code { font-family: "DejaVu Sans Mono", monospace; font-size: 8.4pt; background: #eef1f6; padding: 0 2pt; }
+pre { background: #f3f5f9; border: 1px solid #d5dbe6; padding: 5pt; font-size: 7.6pt; line-height: 1.25; page-break-inside: avoid; overflow: hidden; }
+pre code { background: none; }
+p { margin: 4pt 0; text-align: left; }
+ul, ol { margin: 3pt 0 3pt 14pt; padding-left: 6pt; }

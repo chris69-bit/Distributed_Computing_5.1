@@ -1,0 +1,86 @@
+X1 race: mode | concurrent | granted (max 40) | over-commit % | ops/s   (mean of reps)
+  unsafe  c= 10  granted=  10  over%=   0  ops/s=5950
+  unsafe  c= 20  granted=  20  over%=   0  ops/s=10548
+  unsafe  c= 40  granted=  40  over%=   0  ops/s=15536
+  unsafe  c= 80  granted=  80  over%= 100  ops/s=21738
+  unsafe  c=160  granted= 160  over%= 300  ops/s=29590
+  unsafe  c=320  granted= 320  over%= 700  ops/s=31274
+  locked  c= 10  granted=  10  over%=   0  ops/s=814
+  locked  c= 20  granted=  20  over%=   0  ops/s=828
+  locked  c= 40  granted=  40  over%=   0  ops/s=824
+  locked  c= 80  granted=  40  over%=   0  ops/s=1613
+  locked  c=160  granted=  40  over%=   0  ops/s=3132
+  locked  c=320  granted=  40  over%=   0  ops/s=5737
+  atomic  c= 10  granted=  10  over%=   0  ops/s=16685
+  atomic  c= 20  granted=  20  over%=   0  ops/s=29264
+  atomic  c= 40  granted=  40  over%=   0  ops/s=31017
+  atomic  c= 80  granted=  40  over%=   0  ops/s=42265
+  atomic  c=160  granted=  40  over%=   0  ops/s=45196
+  atomic  c=320  granted=  40  over%=   0  ops/s=43847
+
+X2 deadlock scenario (reps):  strategy | T1 / T2 outcome | commits | time to both answers s | wasted cpu.s | deadlocks | resolve s
+  nowait   n=5 ['ABORTED(node_capacity)/COMMITTED(-)'] commits=1.0 t=0.17±0.00 wasted=94 dl=0.0 resolve=- viol=0
+  timeout  n=5 ['ABORTED(lock_timeout)/ABORTED(lock_timeout)', 'ABORTED(lock_timeout)/COMMITTED(-)'] commits=0.8 t=3.17±0.00 wasted=2274 dl=0.0 resolve=- viol=0
+  detect   n=8 ['COMMITTED(-)/ABORTED(deadlock_victim)'] commits=1.0 t=0.51±0.09 wasted=291 dl=1.0 resolve=0.207 viol=0
+  waitdie  n=5 ['COMMITTED(-)/ABORTED(wait_die)'] commits=1.0 t=0.17±0.01 wasted=93 dl=0.0 resolve=- viol=0
+  ordered  n=5 ['COMMITTED(-)/COMMITTED(-)'] commits=2.0 t=1.18±0.00 wasted=0 dl=0.0 resolve=- viol=0
+
+X3 workload: strategy | clients | commits/s | commit ratio | p95 ms | lock-wait ms | util locked/useful/wasted | waiting | deadlocks/victims | abort reasons
+  c= 4 nowait     8.3/s ratio=0.06 p95=34 wait=- util=0.84/0.68/0.17 waiting=0.0 dl=0.0/0.0 reasons={'node_capacity': 2630} viol=0 n=2
+  c= 4 timeout    7.4/s ratio=1.00 p95=630 wait=447 util=0.98/0.68/0.29 waiting=7.4 dl=0.0/0.0 reasons={} viol=0 n=2
+  c= 4 detect     7.4/s ratio=1.00 p95=630 wait=446 util=0.97/0.67/0.31 waiting=7.4 dl=0.0/0.0 reasons={} viol=0 n=2
+  c= 4 waitdie    7.2/s ratio=0.33 p95=598 wait=264 util=0.92/0.63/0.29 waiting=4.6 dl=0.0/0.0 reasons={'wait_die': 297} viol=0 n=2
+  c= 4 ordered    7.7/s ratio=1.00 p95=803 wait=381 util=0.82/0.69/0.13 waiting=3.8 dl=0.0/0.0 reasons={} viol=0 n=2
+  c= 8 nowait     7.4/s ratio=0.05 p95=65 wait=- util=0.86/0.61/0.25 waiting=0.0 dl=0.0/0.0 reasons={'node_capacity': 2813} viol=0 n=2
+  c= 8 timeout    7.2/s ratio=1.00 p95=1258 wait=937 util=0.99/0.65/0.33 waiting=16.9 dl=0.0/0.0 reasons={} viol=0 n=2
+  c= 8 detect     7.2/s ratio=1.00 p95=1263 wait=939 util=0.98/0.65/0.33 waiting=16.9 dl=0.0/0.0 reasons={} viol=0 n=2
+  c= 8 waitdie    6.5/s ratio=0.17 p95=668 wait=347 util=0.93/0.59/0.35 waiting=8.5 dl=0.0/0.0 reasons={'wait_die': 639} viol=0 n=2
+  c= 8 ordered    7.6/s ratio=0.90 p95=1568 wait=611 util=0.87/0.71/0.16 waiting=7.7 dl=0.0/0.0 reasons={'lock_timeout': 18} viol=0 n=2
+  c=16 nowait     7.6/s ratio=0.05 p95=129 wait=- util=0.88/0.62/0.26 waiting=0.0 dl=0.0/0.0 reasons={'node_capacity': 2791} viol=0 n=2
+  c=16 timeout    7.1/s ratio=0.63 p95=1509 wait=1177 util=0.98/0.62/0.36 waiting=35.6 dl=0.0/0.0 reasons={'lock_timeout': 95} viol=0 n=2
+  c=16 detect     7.1/s ratio=0.63 p95=1484 wait=1181 util=0.98/0.62/0.36 waiting=35.6 dl=0.0/0.0 reasons={'lock_timeout': 94} viol=0 n=2
+  c=16 waitdie    6.0/s ratio=0.09 p95=881 wait=411 util=0.95/0.52/0.43 waiting=15.3 dl=0.0/0.0 reasons={'wait_die': 1293} viol=0 n=2
+  c=16 ordered    7.2/s ratio=0.58 p95=1950 wait=639 util=0.88/0.65/0.23 waiting=15.3 dl=0.0/0.0 reasons={'lock_timeout': 118} viol=0 n=2
+
+X3b one slot per site: strategy | clients | commits/s | commit ratio | p95 ms | lock-wait ms | util locked/useful/wasted | deadlocks/victims | abort reasons
+  c= 4 nowait     3.9/s ratio=0.03 p95=34 wait=- util=0.83/0.61/0.22 dl=0.0/0.0 reasons={'node_capacity': 2643} viol=0 n=2
+  c= 4 timeout    3.5/s ratio=1.00 p95=1245 wait=992 util=0.99/0.64/0.34 dl=0.0/0.0 reasons={} viol=0 n=2
+  c= 4 detect     3.6/s ratio=1.00 p95=1240 wait=977 util=0.98/0.67/0.31 dl=0.0/0.0 reasons={} viol=0 n=1
+  c= 4 waitdie    3.5/s ratio=0.33 p95=985 wait=518 util=0.95/0.57/0.38 dl=0.0/0.0 reasons={'wait_die': 75} viol=0 n=1
+  c= 4 ordered    3.5/s ratio=0.91 p95=1563 wait=764 util=0.76/0.63/0.13 dl=0.0/0.0 reasons={'lock_timeout': 4} viol=0 n=1
+  c= 8 nowait     3.4/s ratio=0.02 p95=63 wait=- util=0.84/0.50/0.34 dl=0.0/0.0 reasons={'node_capacity': 1495} viol=0 n=1
+  c= 8 timeout    3.4/s ratio=0.58 p95=1366 wait=1115 util=0.99/0.59/0.40 dl=0.0/0.0 reasons={'lock_timeout': 27} viol=0 n=1
+  c= 8 detect     3.4/s ratio=0.58 p95=1355 wait=1107 util=0.99/0.60/0.39 dl=0.0/0.0 reasons={'lock_timeout': 27} viol=0 n=1
+  c= 8 waitdie    3.0/s ratio=0.14 p95=959 wait=618 util=0.96/0.51/0.45 dl=0.0/0.0 reasons={'wait_die': 193, 'lock_timeout': 3} viol=0 n=1
+  c= 8 ordered    3.3/s ratio=0.57 p95=1911 wait=684 util=0.82/0.56/0.26 dl=0.0/0.0 reasons={'lock_timeout': 29} viol=0 n=1
+  c=16 nowait     3.5/s ratio=0.02 p95=143 wait=- util=0.89/0.55/0.34 dl=0.0/0.0 reasons={'node_capacity': 1490} viol=0 n=1
+  c=16 timeout    3.4/s ratio=0.33 p95=1526 wait=1249 util=0.99/0.61/0.38 dl=0.0/0.0 reasons={'lock_timeout': 81} viol=0 n=1
+  c=16 detect     3.5/s ratio=0.33 p95=1520 wait=1241 util=0.99/0.62/0.37 dl=0.0/0.0 reasons={'lock_timeout': 81} viol=0 n=1
+  c=16 waitdie    3.2/s ratio=0.10 p95=1304 wait=747 util=0.96/0.51/0.45 dl=0.0/0.0 reasons={'wait_die': 290, 'lock_timeout': 28} viol=0 n=1
+  c=16 ordered    3.5/s ratio=0.32 p95=2021 wait=755 util=0.88/0.57/0.31 dl=0.0/0.0 reasons={'lock_timeout': 84} viol=0 n=1
+
+X4 starvation: discipline | large attempts/committed/timeouts | large wait mean/max s | small commits/s | small p95 ms | util locked/running
+  greedy  n=2 large=3.0/1.0/2.0 wait=3.11/6.01 small=25.8/s p95=308 util=0.993/0.976
+  fifo    n=2 large=18.0/18.0/0.0 wait=0.61/0.63 small=13.9/s p95=817 util=0.939/0.915
+  aging   n=2 large=10.0/10.0/0.0 wait=1.23/1.25 small=19.4/s p95=813 util=0.963/0.950
+
+X5a detection algorithm time (ms), 16 sites:
+  ring  n=   10 deadlocked_found=   10 0.009 ms
+  ring  n=  100 deadlocked_found=  100 0.08 ms
+  ring  n= 1000 deadlocked_found= 1000 0.936 ms
+  ring  n= 3000 deadlocked_found= 3000 3.749 ms
+  chain n=   10 deadlocked_found=    0 0.018 ms
+  chain n=  100 deadlocked_found=    0 1.248 ms
+  chain n= 1000 deadlocked_found=    0 136.031 ms
+  chain n= 3000 deadlocked_found=    0 1420.042 ms
+
+X5b interval vs resolution (all detect runs of X2 + X5): interval ms | time to both answers s | detect resolve s | n
+     50 ms  t=0.27  resolve=0.056  n=3
+    100 ms  t=0.32  resolve=0.106  n=3
+    200 ms  t=0.51  resolve=0.207  n=8
+    500 ms  t=0.87  resolve=0.507  n=3
+   1000 ms  t=2.07  resolve=1.006  n=3
+
+X5c false positives on a deadlock-free workload:
+  stable_rounds=1: txns=293 rounds=365 deadlocks_reported=0 victims=0 n=3
+  stable_rounds=2: txns=293 rounds=371 deadlocks_reported=0 victims=0 n=3

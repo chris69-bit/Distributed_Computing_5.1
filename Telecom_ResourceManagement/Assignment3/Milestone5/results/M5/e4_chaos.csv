@@ -1,0 +1,10 @@
+proto,orch_replicas,rep,kills,requests,committed,aborted,blocked,client_errors,settled,atomicity_viol,coord_part_mismatch,over_capacity,ledger_mismatch,stuck_prepared,protocol_viol,txns_in_log,naive_chains,partial_chains
+2pc,3,0,5,1141,505,240,396,0,1,0,0,0,0,0,0,745,0,0
+3pc,3,0,5,1068,517,264,287,0,1,0,0,0,0,0,0,781,0,0
+naive,3,0,5,1048,519,507,0,22,1,0,0,0,0,0,0,0,405,5
+2pc,3,1,5,1198,498,274,426,0,1,0,0,0,0,0,0,772,0,0
+3pc,3,1,6,1109,486,194,429,0,1,0,0,0,0,0,0,680,0,0
+naive,3,1,6,1029,484,509,0,36,1,0,0,0,0,0,0,0,326,35
+2pc,3,2,5,1177,533,200,444,0,1,0,0,0,0,0,0,733,0,0
+3pc,3,2,5,1107,515,219,373,0,1,0,0,0,0,0,0,734,0,0
+naive,3,2,5,1019,533,450,0,36,1,0,0,0,0,0,0,0,295,24

@@ -1,0 +1,7 @@
+discipline,rep,small_committed,small_per_s,small_lat_mean_ms,small_lat_p95_ms,large_attempts,large_committed,large_timeouts,large_wait_mean_s,large_wait_max_s,util_locked,util_running
+greedy,0,432,25.8,297.76,307.55,3,1,2,3.11,6.01,0.993,0.984
+fifo,0,228,14.0,567.03,815.98,18,18,0,0.61,0.62,0.938,0.914
+aging,0,316,19.4,407.91,812.09,10,10,0,1.23,1.26,0.962,0.95
+greedy,1,432,25.8,297.74,309.0,3,1,2,3.11,6.01,0.993,0.968
+fifo,1,222,13.8,574.91,817.15,18,18,0,0.62,0.64,0.94,0.917
+aging,1,316,19.4,407.57,813.55,10,10,0,1.23,1.25,0.964,0.949
