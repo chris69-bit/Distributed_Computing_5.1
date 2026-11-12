@@ -1,17 +1,16 @@
 # TeleRM – Distributed Telecom Resource Management System (S1)
 
 ICS 2403 Theme 3 · Milestone 1: Distributed OS Foundation.
-Design, process model, resource model and justification: see **DESIGN.md**.
-Architecture diagram: `TeleRM_S1_Architecture.png` (editable: `.drawio`).
+Design, process model, resource model and justification
 
 ## Requirements
-Python 3.10 or newer. **No third-party packages.** It runs on Linux, macOS and Windows.
+Python 3.10 or newer.
 
-## Quick start (all nodes on one machine)
+## Quick start
 ```bash
 python run_demo.py
 ```
-This starts the resource manager and three sites (`edge-A`, `edge-B`, `core-1`) as separate
+This starts the resource manager and three sites `edge-A`, `edge-B`, `core-1` as separate
 OS processes. It then replays a seeded Poisson stream of telecom service requests:
 
 - about 52 requests of vRAN-DU, UPF, IMS-CSCF, Transcoder and IoT-GW over 30 s
@@ -22,15 +21,15 @@ of CPU enforcement, and per-instance throughput. Results are saved to `results/<
 
 Useful variations:
 ```bash
-python run_demo.py --policy least_loaded      # edge_first | least_loaded | best_fit
-python run_demo.py --rate 3 --window 40       # heavier load, longer run
+python run_demo.py --policy least_loaded  
+python run_demo.py --rate 3 --window 40     
 ```
 To change site capacities, links, the service catalogue, the workload or the seed, edit
 `config.json`.
 
-> Every running instance is kept busy, so the worker processes use all the CPU they get
-> while instances are active. On a small machine, reduce `job_work_kb` or the site `slots`
-> in `config.json`.
+Every running instance is kept busy, so the worker processes use all the CPU they get
+while instances are active. On a small machine, reduce `job_work_kb` or the site `slots`
+in `config.json`.
 
 ## Running across several machines
 Manager machine:
